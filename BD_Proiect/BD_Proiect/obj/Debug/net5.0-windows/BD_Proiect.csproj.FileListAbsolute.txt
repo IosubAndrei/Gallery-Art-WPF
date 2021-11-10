@@ -1,0 +1,5 @@
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.csprojAssemblyReference.cache
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect_MarkupCompile.cache
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect_MarkupCompile.lref
