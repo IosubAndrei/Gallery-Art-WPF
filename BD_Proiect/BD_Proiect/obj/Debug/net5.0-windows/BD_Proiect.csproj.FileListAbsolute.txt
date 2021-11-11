@@ -3,3 +3,35 @@ C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF
 C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect_MarkupCompile.cache
 C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect_MarkupCompile.lref
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\BD_Proiect.exe
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\BD_Proiect.deps.json
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\BD_Proiect.runtimeconfig.json
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\BD_Proiect.runtimeconfig.dev.json
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\BD_Proiect.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\ref\BD_Proiect.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\BD_Proiect.pdb
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.csproj.AssemblyReference.cache
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\Login.g.cs
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\MainWindow.g.cs
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\Register.g.cs
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App.g.cs
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect_MarkupCompile.cache
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect_MarkupCompile.lref
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\Login.baml
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\MainWindow.baml
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\Register.baml
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.g.resources
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.GeneratedMSBuildEditorConfig.editorconfig
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.AssemblyInfoInputs.cache
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.AssemblyInfo.cs
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.csproj.CoreCompileInputs.cache
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\ref\BD_Proiect.dll
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.pdb
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.genruntimeconfig.cache

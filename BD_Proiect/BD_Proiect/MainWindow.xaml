@@ -6,5 +6,11 @@
         xmlns:local="clr-namespace:BD_Proiect"
         mc:Ignorable="d"
         Title="MainWindow" Height="493" Width="998">
-    <Grid/>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+    </Grid>
 </Window>
