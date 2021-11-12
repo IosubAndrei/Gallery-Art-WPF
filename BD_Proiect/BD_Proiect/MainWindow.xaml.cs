@@ -17,21 +17,28 @@ using System.Windows.Shapes;
 
 namespace BD_Proiect
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        StartUpPage logoPage = new StartUpPage();
+
         public Action exitButtonAction;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
-
+        
         public MainWindow()
         {
             InitializeComponent();
+
+            mainGrid.Children.Clear();
+            mainGrid.Children.Add(logoPage);
+
             bool isVisible = false;
             if(isVisible)
                 Employee_Button.Visibility = Visibility.Visible;
@@ -57,6 +64,11 @@ namespace BD_Proiect
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            exitButtonAction();
         }
     }
 }

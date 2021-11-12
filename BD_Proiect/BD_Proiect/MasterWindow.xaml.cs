@@ -61,5 +61,6 @@ namespace BD_Proiect
             mainPage.Close();
             this.Close();
         }
+
     }
 }
