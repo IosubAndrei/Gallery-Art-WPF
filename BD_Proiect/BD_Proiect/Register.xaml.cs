@@ -18,6 +18,8 @@ namespace BD_Proiect
 {
     public partial class Register : Window
     {
+        public Action backToLoginButtonAction;
+
         public Register()
         {
             InitializeComponent();
@@ -89,17 +91,15 @@ namespace BD_Proiect
 
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
-            txtPassword.PasswordChar = '*';
-            PasswordUnmask.Text = txtPassword.Password;
-            txtPassword.Visibility = Visibility.Visible;
-            PasswordUnmask.Visibility = Visibility.Collapsed;
+            //txtPassword.PasswordChar = '*';
+            //PasswordUnmask.Text = txtPassword.Password;
+            //txtPassword.Visibility = Visibility.Visible;
+            //PasswordUnmask.Visibility = Visibility.Collapsed;
         }
 
         private void BackToLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Login Login1 = new Login();
-            Login1.Show();
-            this.Hide();
+            backToLoginButtonAction();
         }
 
         //private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)

@@ -32,7 +32,8 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </CheckBox.Foreground>
         </CheckBox>
-        <Button Content="REGISTER" HorizontalAlignment="Left" Margin="6,286,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="White" Cursor="Hand" Background="#FF7456AE" BorderThickness="0,0,0,0"/>
+        <Button x:Name="registerButton" Content="REGISTER" HorizontalAlignment="Left" Margin="6,286,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="White" Cursor="Hand" Background="#FF7456AE" BorderThickness="0,0,0,0" Click="registerButton_Click"/>
         <Button Content="CLEAR" HorizontalAlignment="Left" Margin="6,326,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="#FF7456AE" Cursor="Hand" Background="White" BorderThickness="1,1,1,1"/>
+        <Button x:Name="loginButton" Content="LOGIN" HorizontalAlignment="Left" Margin="6,246,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="White" Cursor="Hand" Background="#FF7456AE" BorderThickness="0,0,0,0" Click="loginButton_Click"/>
     </Grid>
 </Window>

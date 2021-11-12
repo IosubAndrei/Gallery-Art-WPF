@@ -22,6 +22,9 @@ namespace BD_Proiect
     /// </summary>
     public partial class Login : Window
     {
+        public Action registerButtonAction;
+        public Action loginButtonAction;
+
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
@@ -33,6 +36,7 @@ namespace BD_Proiect
         public Login()
         {
             InitializeComponent();
+
             connection.Open();
 
             DataTable dt = connection.GetSchema("Tables");
@@ -67,6 +71,16 @@ namespace BD_Proiect
             {
                 ((dynamic)this.DataContext).SecurePassword = ((PasswordBox)sender).Password;
             }
+        }
+
+        private void registerButton_Click(object sender, RoutedEventArgs e)
+        {
+            registerButtonAction();
+        }
+
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+            loginButtonAction();
         }
     }
 }

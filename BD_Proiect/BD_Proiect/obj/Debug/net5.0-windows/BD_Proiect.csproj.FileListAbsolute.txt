@@ -95,4 +95,5 @@ C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\ref\BD_Proiect.dll
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.pdb
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.genruntimeconfig.cache
-C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\MasterWindow.g.cs
+C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\MasterWindow.baml

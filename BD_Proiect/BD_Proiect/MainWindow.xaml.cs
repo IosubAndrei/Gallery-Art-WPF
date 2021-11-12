@@ -22,6 +22,8 @@ namespace BD_Proiect
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Action exitButtonAction;
+
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
@@ -39,7 +41,7 @@ namespace BD_Proiect
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            exitButtonAction();
         }
 
         private void Employee_Button_Click(object sender, RoutedEventArgs e)
