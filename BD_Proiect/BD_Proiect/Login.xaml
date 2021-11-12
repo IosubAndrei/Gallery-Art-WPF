@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BD_Proiect"
         mc:Ignorable="d"
-        Title="Login" Height="540" Width="285" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ResizeMode="NoResize" Background="White" Foreground="#FFA4A5A9" FontFamily="Nirmala UI" IsHitTestVisible="False" FontWeight="Bold" FontSize="10" IsManipulationEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Title="Login" Height="540" Width="285" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ResizeMode="NoResize" Background="White" Foreground="#FFA4A5A9" FontFamily="Nirmala UI" IsHitTestVisible="True" FontWeight="Bold" FontSize="10" IsManipulationEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     <Grid x:Name="LoginPage" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="232*"/>
