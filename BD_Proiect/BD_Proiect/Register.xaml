@@ -41,9 +41,9 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <Label x:Name="labelBackToLogin" Content="Back to LOGIN" HorizontalAlignment="Center" Margin="0,435,0,0" VerticalAlignment="Top" Foreground="#FF7456AE" Cursor="Hand" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelBackToLogin" Content="Back to LOGIN" HorizontalAlignment="Center" Margin="0,435,0,0" VerticalAlignment="Top" Foreground="#FF7456AE" Cursor="Hand" Grid.ColumnSpan="2" MouseLeftButtonUp="BackToLogin_MouseLeftButtonUp"/>
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="6,123,0,0" VerticalAlignment="Top" Width="232" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Height="28" Grid.ColumnSpan="2"/>
         <PasswordBox x:Name="txtConfirmPassword" HorizontalAlignment="Left" Margin="6,184,0,0" VerticalAlignment="Top" Width="232" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Height="28" Grid.ColumnSpan="2"/>
-
+        <TextBox x:Name="PasswordUnmask" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="6,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" Background="#FFE6E7E9" BorderThickness="0,0,0,0"/>
     </Grid>
 </Window>

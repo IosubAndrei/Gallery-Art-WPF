@@ -26,10 +26,10 @@ namespace BD_Proiect
         SqlConnection con = new SqlConnection("Server=.;Database=BD_Proiect;Trusted_Connection=true");
         SqlCommand cmd = new SqlCommand();
         SqlDataAdapter da = new SqlDataAdapter();
-         
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(txtUsername.Text == "" && txtPassword.Password == "" && txtConfirmPassword.Password=="")
+            if (txtUsername.Text == "" && txtPassword.Password == "" && txtConfirmPassword.Password == "")
             {
                 MessageBox.Show("Username and Password fields are empty!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -55,20 +55,27 @@ namespace BD_Proiect
                 txtPassword.Focus();
             }
         }
+        
+        //private void ShowPassword_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    //txtPassword.PasswordChar = '\0';
+        //    //txtConfirmPassword.PasswordChar = '\0';
+        //    txtPassword.Visibility = System.Windows.Visibility.Collapsed;
+        //    PasswordUnmask.Visibility = System.Windows.Visibility.Visible;
 
-        private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
-        {
-            if(checkbxShowPassword.IsChecked==true)
-            {
-                txtPassword.PasswordChar = '\0';
-                txtConfirmPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                txtPassword.PasswordChar = '•';
-                txtConfirmPassword.PasswordChar = '•';
-            }
-        }
+        //    PasswordUnmask.Focus();
+
+        //}
+
+        //private void ShowPassword_Unchecked(object sender, RoutedEventArgs e)
+        //{
+        //    //txtPassword.PasswordChar = '•';
+        //    //txtConfirmPassword.PasswordChar = '•';
+        //    txtPassword.Visibility = System.Windows.Visibility.Visible;
+        //    PasswordUnmask.Visibility = System.Windows.Visibility.Collapsed;
+
+        //    txtPassword.Focus();
+        //}
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -78,10 +85,28 @@ namespace BD_Proiect
 
             txtUsername.Focus();
         }
+       
 
-        private void backToLogin_Click(object sender, RoutedEventArgs e)
+        private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
-
+            txtPassword.PasswordChar = '*';
+            PasswordUnmask.Text = txtPassword.Password;
+            txtPassword.Visibility = Visibility.Visible;
+            PasswordUnmask.Visibility = Visibility.Collapsed;
         }
+
+        private void BackToLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Login Login1 = new Login();
+            Login1.Show();
+            this.Hide();
+        }
+
+        //private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)
+        //{
+        //    txtPassword.Password = PasswordUnmask.Text;
+        //    PasswordUnmask.Visibility = Visibility.Visible;
+        //    txtPassword.Visibility = Visibility.Collapsed;
+        //}
     }
 }
