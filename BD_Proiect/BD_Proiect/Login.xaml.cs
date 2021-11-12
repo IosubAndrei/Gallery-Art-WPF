@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +28,8 @@ namespace BD_Proiect
         SqlDataAdapter DA = new SqlDataAdapter();
 
         string currentTableName = "";
+
+        public SecureString SecurePassword { private get; set; }
         public Login()
         {
             InitializeComponent();
@@ -40,6 +43,30 @@ namespace BD_Proiect
                 tables.Add((string)row[2]);
             }
             connection.Close();
+        }
+
+        private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
+        {
+            passwordBox.Visibility = System.Windows.Visibility.Collapsed;
+            txtPassword.Visibility = System.Windows.Visibility.Visible;
+
+            txtPassword.Focus();
+        }
+
+        private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)
+        {
+            passwordBox.Visibility = System.Windows.Visibility.Visible;
+            txtPassword.Visibility = System.Windows.Visibility.Collapsed;
+
+            passwordBox.Focus();
+        }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if(this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).SecurePassword = ((PasswordBox)sender).Password;
+            }
         }
     }
 }

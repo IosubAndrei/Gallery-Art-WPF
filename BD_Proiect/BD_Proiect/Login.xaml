@@ -25,14 +25,14 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0"/>
-        <CheckBox x:Name="checkbxShowPassword" Content="Show Password" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Padding="4,0,0,0" BorderThickness="1,1,1,1" Cursor="Hand">
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" PasswordChanged="passwordBox_PasswordChanged"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Text="{Binding Password, Mode=TwoWay, ElementName=passwordBox}" Visibility="Collapsed"/>
+        <CheckBox x:Name="checkbxShowPassword" Content="Show Password" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Padding="4,0,0,0" BorderThickness="1,1,1,1" Cursor="Hand" Checked="checkbxShowPassword_Checked" Unchecked="checkbxShowPassword_Unchecked">
             <CheckBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </CheckBox.Foreground>
         </CheckBox>
         <Button Content="REGISTER" HorizontalAlignment="Left" Margin="6,286,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="White" Cursor="Hand" Background="#FF7456AE" BorderThickness="0,0,0,0"/>
         <Button Content="CLEAR" HorizontalAlignment="Left" Margin="6,326,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="#FF7456AE" Cursor="Hand" Background="White" BorderThickness="1,1,1,1"/>
-
     </Grid>
 </Window>
