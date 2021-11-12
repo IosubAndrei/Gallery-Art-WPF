@@ -93,10 +93,10 @@
             Margin="205,0,0,0">
             <Border 
                 BorderBrush="Black" 
-                BorderThickness="2"
+                BorderThickness="2" Margin="-16,0,0,0"
                 >
                 <Image 
-                    Source="/Logo.png"
+                    Source="/Logo.png" Margin="8,0,0,0"
                     />
             </Border>
         </Grid>
