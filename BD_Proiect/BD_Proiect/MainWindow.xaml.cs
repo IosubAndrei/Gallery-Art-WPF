@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
+
 namespace BD_Proiect
 {
     /// <summary>
@@ -28,11 +29,34 @@ namespace BD_Proiect
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
 
-        string currentTableName = "";
-
         public MainWindow()
         {
             InitializeComponent();
+            bool isVisible = false;
+            if(isVisible)
+                Employee_Button.Visibility = Visibility.Visible;
+            else
+                Employee_Button.Visibility = Visibility.Collapsed;
+        }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Employee_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Commands_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
