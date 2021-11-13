@@ -90,22 +90,26 @@ namespace BD_Proiect
             }
             else
             {
-
                 SqlCommand selectCMD = new SqlCommand(string.Format("SELECT {0} FROM {1} " +
-                    "WHERE Username='" + txtUsername.Text + "' AND Password='" + txtPassword.Text + "'", ID,currentTableName));
+                    "WHERE Username='" + txtUsername.Text + "' AND Password='" + txtPassword.Text + "'", ID,DS.Tables[currentTableName]));
                 DA.SelectCommand = selectCMD;
 
                 connection.Open();
 
                 SqlCommandBuilder builder = new SqlCommandBuilder(DA);
-
                 DA.Update(DS, currentTableName);
+
 
                 connection.Close();
 
                 if(ID != 0)
                 {
+                    MessageBox.Show("You have succesfully connected", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     loginButtonAction();
+                }
+                else
+                {
+                    MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 
