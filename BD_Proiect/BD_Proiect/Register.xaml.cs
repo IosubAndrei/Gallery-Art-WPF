@@ -19,7 +19,7 @@ namespace BD_Proiect
     public partial class Register : Window
     {
         public Action backToLoginButtonAction;
-        public Action exitButtonAction;
+        public Action exitButtonAction;//aici
 
         public Register()
         {
