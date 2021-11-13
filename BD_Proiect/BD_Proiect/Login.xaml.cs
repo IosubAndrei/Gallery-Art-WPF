@@ -24,13 +24,14 @@ namespace BD_Proiect
     {
         public Action registerButtonAction;
         public Action loginButtonAction;
+        public int ID { get; set; }
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
 
-        string currentTableName = "";
+        string currentTableName = "Users";
 
         public SecureString SecurePassword { private get; set; }
         public Login()
@@ -82,7 +83,31 @@ namespace BD_Proiect
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            loginButtonAction();
+            if (txtUsername.Text == "" && passwordBox.Password == "")
+            {
+                MessageBox.Show("Username and Password fields are empty!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+
+                SqlCommand selectCMD = new SqlCommand(string.Format("SELECT {0} FROM {1} " +
+                    "WHERE Username='" + txtUsername.Text + "' AND Password='" + txtPassword.Text + "'", ID,currentTableName));
+                DA.SelectCommand = selectCMD;
+
+                connection.Open();
+
+                SqlCommandBuilder builder = new SqlCommandBuilder(DA);
+
+                DA.Update(DS, currentTableName);
+
+                connection.Close();
+
+                if(ID != 0)
+                {
+                    loginButtonAction();
+                }
+            }
+
         }
     }
 }
