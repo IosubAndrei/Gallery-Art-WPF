@@ -51,6 +51,7 @@ namespace BD_Proiect
 
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
+            txtPassword.Text = passwordBox.Password;
             passwordBox.Visibility = System.Windows.Visibility.Collapsed;
             txtPassword.Visibility = System.Windows.Visibility.Visible;
 
@@ -59,6 +60,7 @@ namespace BD_Proiect
 
         private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)
         {
+            passwordBox.Password = txtPassword.Text;
             passwordBox.Visibility = System.Windows.Visibility.Visible;
             txtPassword.Visibility = System.Windows.Visibility.Collapsed;
 
