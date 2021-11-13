@@ -28,37 +28,49 @@ namespace BD_Proiect
             InitializeComponent();
             this.Hide();
             loginPage.Show();
+
+            //loginPage
             loginPage.registerButtonAction += openRegisterPage;
             loginPage.loginButtonAction += openMainPage;
+            loginPage.exitButtonAction += closeApp;
+
+            //registerPage
             registerPage.backToLoginButtonAction += closeRegisterPage;
             registerPage.backToLoginButtonAction += openLoginPage;
-            mainPage.exitButtonAction += closeMainPage;
+            registerPage.exitButtonAction += closeApp;
+
+            //mainPage
+            mainPage.exitButtonAction += closeApp;
+            mainPage.signOutButtonAction += openLoginPage;
+            mainPage.signOutButtonAction += closeApp;
         }
 
-        public void openLoginPage()
+        private void openLoginPage()
         {
             loginPage.Show();
         }
 
-        public void openRegisterPage()
+        private void openRegisterPage()
         {
             loginPage.Hide();
             registerPage.Show();
         }
-        public void closeRegisterPage()
+        private void closeRegisterPage()
         {
             registerPage.Hide();
             loginPage.Show();
         }
-        public void openMainPage()
+        private void openMainPage()
         {
             loginPage.Close();
             registerPage.Close();
             mainPage.Show();
         }
-        public void closeMainPage()
+        private void closeApp()
         {
+            loginPage.Close();
             mainPage.Close();
+            registerPage.Close();
             this.Close();
         }
 

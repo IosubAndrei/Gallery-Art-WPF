@@ -26,6 +26,7 @@ namespace BD_Proiect
         StartUpPage logoPage = new StartUpPage();
 
         public Action exitButtonAction;
+        public Action signOutButtonAction;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
@@ -48,12 +49,19 @@ namespace BD_Proiect
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+            exitButtonAction();
+        }
+
+        private void Sign_Out_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
             exitButtonAction();
         }
 
         private void Employee_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            signOutButtonAction();
         }
 
         private void Commands_Button_Click(object sender, RoutedEventArgs e)
@@ -68,6 +76,7 @@ namespace BD_Proiect
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            this.Close();
             exitButtonAction();
         }
     }

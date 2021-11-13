@@ -76,16 +76,28 @@
                             Click="Employee_Button_Click" />
                         <Button x:Name="Exit_Button" 
                             Content="EXIT" 
-                            HorizontalAlignment="Center" 
+                            HorizontalAlignment="Left" 
                             VerticalAlignment="Top" 
-                            Width="160" 
-                            Height="50" 
+                            Width="70" 
+                            Height="42" 
                             Foreground="#FF7456AE" 
                             Cursor="Hand" 
                             Background="White" 
-                            BorderThickness="1,1,1,1" 
-                            Margin="0,293,0,0" 
+                            BorderThickness="0,0,1,1" 
+                            Margin="104,301,0,0" 
                             Click="Exit_Button_Click"/>
+                        <Button x:Name="Sign_Out_Button" 
+                            Content="SIGN OUT" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            Width="70" 
+                            Height="42" 
+                            Foreground="#FF7456AE" 
+                            Cursor="Hand" 
+                            Background="White" 
+                            BorderThickness="1,1,0,0" 
+                            Margin="23,301,0,0" 
+                            Click="Sign_Out_Button_Click"/>
                     </Grid>
                 </Border>
             </Grid>
