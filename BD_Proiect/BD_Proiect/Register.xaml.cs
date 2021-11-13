@@ -64,6 +64,8 @@ namespace BD_Proiect
             txtUsername.Text = "";
             txtPassword.Text = "";
             txtConfirmPassword.Text = "";
+            passwordBox.Password = "";
+            confirmPasswordBox.Password = "";
 
             txtUsername.Focus();
         }
