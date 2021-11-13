@@ -19,6 +19,7 @@ namespace BD_Proiect
     public partial class Register : Window
     {
         public Action backToLoginButtonAction;
+        public Action exitButtonAction;
 
         public Register()
         {
@@ -100,6 +101,12 @@ namespace BD_Proiect
         private void BackToLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             backToLoginButtonAction();
+        }
+
+        private void RegisterPage1_Closed(object sender, EventArgs e)
+        {
+            this.Close();
+            exitButtonAction();
         }
 
         //private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)

@@ -24,6 +24,7 @@ namespace BD_Proiect
     {
         public Action registerButtonAction;
         public Action loginButtonAction;
+        public Action exitButtonAction;
         public int ID { get; set; }
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
@@ -112,6 +113,12 @@ namespace BD_Proiect
                 }
             }
 
+        }
+
+        private void Login1_Closed(object sender, EventArgs e)
+        {
+            this.Close();
+            exitButtonAction();
         }
     }
 }

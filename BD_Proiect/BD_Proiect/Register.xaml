@@ -5,7 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BD_Proiect"
         mc:Ignorable="d"
-        Title="Register" Height="540" Width="285" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ResizeMode="NoResize" Background="White" Foreground="#FFA4A5A9" FontFamily="Nirmala UI" IsHitTestVisible="True" FontWeight="Bold" FontSize="10" IsManipulationEnabled="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Title="Register" 
+        Height="540" 
+        Width="285" 
+        HorizontalContentAlignment="Center" 
+        VerticalContentAlignment="Center" 
+        ResizeMode="NoResize" 
+        Background="White" 
+        Foreground="#FFA4A5A9" 
+        FontFamily="Nirmala UI" 
+        IsHitTestVisible="True" 
+        FontWeight="Bold" 
+        FontSize="10" 
+        IsManipulationEnabled="True" 
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Closed="RegisterPage1_Closed">
     <Grid x:Name="RegisterPage" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,24,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="131*"/>
