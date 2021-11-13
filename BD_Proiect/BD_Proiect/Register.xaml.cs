@@ -59,18 +59,6 @@ namespace BD_Proiect
             }
         }
 
-        private void ShowPassword_Checked(object sender, RoutedEventArgs e)
-        {
-            
-            
-
-        }
-
-        private void ShowPassword_Unchecked(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             txtUsername.Text = "";
@@ -80,7 +68,6 @@ namespace BD_Proiect
             txtUsername.Focus();
         }
        
-
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             txtPassword.Text = passwordBox.Password;
