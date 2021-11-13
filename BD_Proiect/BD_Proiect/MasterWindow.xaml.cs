@@ -39,7 +39,7 @@ namespace BD_Proiect
             registerPage.backToLoginButtonAction += openLoginPage;
             registerPage.exitButtonAction += closeApp;
 
-            //mainPage
+            //mainPageeee
             mainPage.exitButtonAction += closeApp;
             mainPage.signOutButtonAction += openLoginPage;
             mainPage.signOutButtonAction += closeApp;
