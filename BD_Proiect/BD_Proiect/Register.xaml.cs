@@ -80,6 +80,7 @@ namespace BD_Proiect
 
             txtPassword.Focus();
         }
+
         private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)
         {
             passwordBox.Password = txtConfirmPassword.Text;
@@ -119,6 +120,5 @@ namespace BD_Proiect
             this.Close();
             exitButtonAction();
         }
-
     }
 }
