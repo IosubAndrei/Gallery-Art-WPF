@@ -22,9 +22,10 @@ namespace BD_Proiect
     /// </summary>
     public partial class Login : Window
     {
-        public Action registerButtonAction;
-        public Action loginButtonAction;
-        public Action exitButtonAction;
+        public Action<Login> registerButtonAction;
+        public Action<Login> loginButtonAction;
+        public Action<Login> exitButtonAction;
+
         public int ID { get; set; }
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
@@ -77,11 +78,6 @@ namespace BD_Proiect
             }
         }
 
-        private void registerButton_Click(object sender, RoutedEventArgs e)
-        {
-            registerButtonAction();
-        }
-
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             if (txtUsername.Text == "" && passwordBox.Password == "")
@@ -90,8 +86,8 @@ namespace BD_Proiect
             }
             else
             {
-                SqlCommand selectCMD = new SqlCommand(string.Format("SELECT {0} FROM {1} " +
-                    "WHERE Username='" + txtUsername.Text + "' AND Password='" + txtPassword.Text + "'", ID,DS.Tables[currentTableName]));
+                /*SqlCommand selectCMD = new SqlCommand(string.Format("SELECT {0} FROM {1} " +
+                    "WHERE Username='" + txtUsername.Text + "' AND Password='" + txtPassword.Text + "'", ID,DS.Tables[currentTableName]),connection);
                 DA.SelectCommand = selectCMD;
 
                 connection.Open();
@@ -99,26 +95,29 @@ namespace BD_Proiect
                 SqlCommandBuilder builder = new SqlCommandBuilder(DA);
                 DA.Update(DS, currentTableName);
 
+                connection.Close();*/
 
-                connection.Close();
-
-                if(ID != 0)
-                {
-                    MessageBox.Show("You have succesfully connected", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    loginButtonAction();
-                }
-                else
-                {
-                    MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                loginButtonAction(this);
+                //if (ID != 0)
+                //{
+                //    MessageBox.Show("You have succesfully connected", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                //}
             }
 
         }
 
         private void Login1_Closed(object sender, EventArgs e)
         {
-            this.Close();
-            exitButtonAction();
+            exitButtonAction(this);
+        }
+
+        private void registerButton_Click(object sender, RoutedEventArgs e)
+        {
+            registerButtonAction(this);
         }
     }
 }
