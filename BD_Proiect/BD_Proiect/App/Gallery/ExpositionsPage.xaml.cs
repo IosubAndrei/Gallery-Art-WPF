@@ -20,6 +20,9 @@ namespace BD_Proiect.Gallery
     /// </summary>
     public partial class ExpositionsPage : UserControl
     {
+        public Action backToGallery;
+        public Action getPaintings;
+
         public ExpositionsPage()
         {
             InitializeComponent();
@@ -27,7 +30,12 @@ namespace BD_Proiect.Gallery
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
         {
+            backToGallery();
+        }
 
+        private void ExpositionsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            getPaintings();
         }
     }
 }

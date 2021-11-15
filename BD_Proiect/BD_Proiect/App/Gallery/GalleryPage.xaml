@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BD_Proiect.Gallery"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid>
-        <DataGrid x:Name="GalleryDataGrid" Margin="18,10,18,104"/>
+        <DataGrid x:Name="GalleryDataGrid" Margin="18,10,18,104" MouseDoubleClick="GalleryDataGrid_MouseDoubleClick"/>
         <Button x:Name="BackButton" 
                             Content="BACK" 
                             HorizontalAlignment="Center" 
-                            Margin="0,370,0,0" 
+                            Margin="0,374,0,0" 
                             VerticalAlignment="Top" 
                             Width="305" 
                             Height="50" 

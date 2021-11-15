@@ -25,6 +25,7 @@ namespace BD_Proiect
     {
         public Action<MainWindow> exitButtonAction;
         public Action<MainWindow> signOutButtonAction;
+        MasterUserControlGallery masterUserControlGallery;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
@@ -34,7 +35,8 @@ namespace BD_Proiect
         public MainWindow()
         {
             InitializeComponent();
-            MasterUserControlGallery MasterUserControlGallery = new MasterUserControlGallery(mainGrid);
+
+            masterUserControlGallery = new MasterUserControlGallery(mainGrid);
 
             bool isVisible = false;
             if(isVisible)
@@ -51,7 +53,7 @@ namespace BD_Proiect
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            masterUserControlGallery.newGallerySearch();
         }
 
         private void Window_Closed(object sender, EventArgs e)

@@ -20,7 +20,9 @@ namespace BD_Proiect.Gallery
     /// </summary>
     public partial class GalleryPage : UserControl
     {
-        public Action<GalleryPage> backToStatUp;
+        public Action backToStatUp;
+        public Action getExpositions;
+
         public GalleryPage()
         {
             InitializeComponent();
@@ -28,7 +30,12 @@ namespace BD_Proiect.Gallery
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
         {
-            backToStatUp(this);
+            backToStatUp();
+        }
+
+        private void GalleryDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            getExpositions();
         }
     }
 }

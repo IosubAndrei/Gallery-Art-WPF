@@ -20,14 +20,22 @@ namespace BD_Proiect.Gallery
     /// </summary>
     public partial class PaintingsPage : UserControl
     {
+        public Action backToExpositions;
+        public Action backToGallery;
+
         public PaintingsPage()
         {
             InitializeComponent();
         }
 
-        private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
+        private void ExpositionsButton_Click(object sender, RoutedEventArgs e)
         {
+            backToExpositions();
+        }
 
+        private void GallerysButton_Click(object sender, RoutedEventArgs e)
+        {
+            backToGallery();
         }
     }
 }

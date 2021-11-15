@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="App\StartUp\Logo.png" />
     <None Remove="Logo.png" />
   </ItemGroup>
 
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="App\StartUp\Logo.png" />
     <Resource Include="Resources\Logo.png" />
   </ItemGroup>
 

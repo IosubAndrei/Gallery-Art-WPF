@@ -9,44 +9,55 @@ namespace BD_Proiect
 {
     class MasterUserControlGallery
     {
+        Grid masterGrid;
+        Gallery.GalleryPage galleryPage;
+        Gallery.ExpositionsPage expositionsPage;
+        Gallery.PaintingsPage paintingsPage;
+        private bool isCreated = false;
+
         public MasterUserControlGallery(Grid mainGrid)
         {
-            newStartUp(mainGrid);
+            masterGrid = mainGrid;
+            newStartUp();
         }
 
-        void newGallerySearch()
+        public void newGallerySearch()
         {
-            Gallery.GalleryPage galleryPage = new Gallery.GalleryPage();
-            Gallery.ExpositionsPage expositionsPage = new Gallery.ExpositionsPage();
-            Gallery.PaintingsPage paintingsPage = new Gallery.PaintingsPage();
+            galleryPage = new Gallery.GalleryPage();
+            expositionsPage = new Gallery.ExpositionsPage();
+            paintingsPage = new Gallery.PaintingsPage();
+            newGallery();
         }
 
-        void newStartUp(Grid mainGrid)
+        private void newStartUp()
         {
             StartUpPage startUpPage = new StartUpPage();
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(startUpPage);
+            masterGrid.Children.Clear();
+            masterGrid.Children.Add(startUpPage);
         }
 
-        void newGallery(Grid mainGrid)
+        void newGallery()
         {
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(galleryPage);
+            masterGrid.Children.Clear();
+            masterGrid.Children.Add(galleryPage);
             galleryPage.backToStatUp += newStartUp;
+            galleryPage.getExpositions += newExpositions;
         }
 
-        void newExpositions(Grid mainGrid)
+        void newExpositions()
         {
-            
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(expositionsPage);
+            masterGrid.Children.Clear();
+            masterGrid.Children.Add(expositionsPage);
+            expositionsPage.backToGallery += newGallery;
+            expositionsPage.getPaintings += newPaintings;
         }
 
-        void newPaintings(Grid mainGrid)
+        void newPaintings()
         {
-            
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(paintingsPage);
+            masterGrid.Children.Clear();
+            masterGrid.Children.Add(paintingsPage);
+            paintingsPage.backToExpositions += newExpositions;
+            paintingsPage.backToGallery += newGallery;
         }
     }
 }
