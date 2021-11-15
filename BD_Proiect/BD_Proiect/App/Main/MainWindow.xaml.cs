@@ -26,8 +26,6 @@ namespace BD_Proiect
         public Action<MainWindow> exitButtonAction;
         public Action<MainWindow> signOutButtonAction;
 
-        StartUpPage logoPage = new StartUpPage();
-
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
@@ -36,9 +34,7 @@ namespace BD_Proiect
         public MainWindow()
         {
             InitializeComponent();
-
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(logoPage);
+            MasterUserControlGallery MasterUserControlGallery = new MasterUserControlGallery(mainGrid);
 
             bool isVisible = false;
             if(isVisible)

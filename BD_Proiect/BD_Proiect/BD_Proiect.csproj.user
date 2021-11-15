@@ -7,33 +7,57 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Login.xaml.cs">
+    <Compile Update="App\Gallery\ExpositionsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="App\Gallery\GalleryPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="App\Gallery\PaintingsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Login\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MasterWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Register.xaml.cs">
+    <Compile Update="Register\Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StartUpPage.xaml.cs">
+    <Compile Update="App\Orders\OrgersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="App\StartUp\StartUpPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Login.xaml">
+    <Page Update="App\Gallery\ExpositionsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="App\Gallery\GalleryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="App\Gallery\PaintingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="App\Main\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MasterWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Register.xaml">
+    <Page Update="Register\Register.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="StartUpPage.xaml">
+    <Page Update="App\Orders\OrgersPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="App\StartUp\StartUpPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
