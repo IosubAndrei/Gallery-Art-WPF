@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid>
-        <DataGrid x:Name="GalleryDataGrid" Margin="18,10,18,104"/>
+        <DataGrid x:Name="PaintingsDataGrid" Margin="18,10,18,104" AlternatingRowBackground="#FFB3A4D1" BorderBrush="#FF724EB6"/>
         <Button x:Name="GallerysButton" 
                             Content="GALLERYS" 
                             HorizontalAlignment="Left" 

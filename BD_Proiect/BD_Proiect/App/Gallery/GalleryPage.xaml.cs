@@ -21,7 +21,7 @@ namespace BD_Proiect.Gallery
     public partial class GalleryPage : UserControl
     {
         public Action backToStatUp;
-        public Action getExpositions;
+        public Action<int> getExpositions;
 
         public GalleryPage()
         {
@@ -35,7 +35,8 @@ namespace BD_Proiect.Gallery
 
         private void GalleryDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            getExpositions();
+            int galleryID = 1;
+            getExpositions(galleryID);
         }
     }
 }

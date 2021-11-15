@@ -13,7 +13,6 @@ namespace BD_Proiect
         Gallery.GalleryPage galleryPage;
         Gallery.ExpositionsPage expositionsPage;
         Gallery.PaintingsPage paintingsPage;
-        private bool isCreated = false;
 
         public MasterUserControlGallery(Grid mainGrid)
         {
@@ -44,16 +43,18 @@ namespace BD_Proiect
             galleryPage.getExpositions += newExpositions;
         }
 
-        void newExpositions()
+        void newExpositions(int galleryID)
         {
+            expositionsPage.table(galleryID);
             masterGrid.Children.Clear();
             masterGrid.Children.Add(expositionsPage);
             expositionsPage.backToGallery += newGallery;
             expositionsPage.getPaintings += newPaintings;
         }
 
-        void newPaintings()
+        void newPaintings(int expositionID)
         {
+            paintingsPage.table(expositionID);
             masterGrid.Children.Clear();
             masterGrid.Children.Add(paintingsPage);
             paintingsPage.backToExpositions += newExpositions;
