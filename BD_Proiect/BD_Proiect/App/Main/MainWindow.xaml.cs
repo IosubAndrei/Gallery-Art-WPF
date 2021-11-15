@@ -23,10 +23,9 @@ namespace BD_Proiect
     /// </summary>
     public partial class MainWindow : Window
     {
-        StartUpPage logoPage = new StartUpPage();
-
-        public Action exitButtonAction;
-        public Action signOutButtonAction;
+        public Action<MainWindow> exitButtonAction;
+        public Action<MainWindow> signOutButtonAction;
+        MasterUserControlGallery masterUserControlGallery;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
@@ -37,8 +36,7 @@ namespace BD_Proiect
         {
             InitializeComponent();
 
-            mainGrid.Children.Clear();
-            mainGrid.Children.Add(logoPage);
+            masterUserControlGallery = new MasterUserControlGallery(mainGrid);
 
             bool isVisible = false;
             if(isVisible)
@@ -47,22 +45,6 @@ namespace BD_Proiect
                 Employee_Button.Visibility = Visibility.Collapsed;
         }
 
-        private void Exit_Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            exitButtonAction();
-        }
-
-        private void Sign_Out_Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            exitButtonAction();
-        }
-
-        private void Employee_Button_Click(object sender, RoutedEventArgs e)
-        {
-            signOutButtonAction();
-        }
 
         private void Commands_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -71,13 +53,26 @@ namespace BD_Proiect
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            masterUserControlGallery.newGallerySearch();
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            this.Close();
-            exitButtonAction();
+            exitButtonAction(this);
+        }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            exitButtonAction(this);
+        }
+
+        private void Sign_Out_Button_Click(object sender, RoutedEventArgs e)
+        {
+            signOutButtonAction(this);
+         }
+
+        private void Employee_Button_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

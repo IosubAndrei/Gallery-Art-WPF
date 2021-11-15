@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\
+C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\
 BD_Proiect
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\App.xaml
-5295301643
+C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\App.xaml
+91465513857
 
-12-845708989
-19497452374
-Login.xaml;MainWindow.xaml;MasterWindow.xaml;Register.xaml;StartUpPage.xaml;
+162032411665
+194-1004452604
+App\Gallery\ExpositionsPage.xaml;App\Gallery\GalleryPage.xaml;App\Gallery\PaintingsPage.xaml;App\Main\MainWindow.xaml;App\Orders\OrgersPage.xaml;App\StartUp\StartUpPage.xaml;Login\Login.xaml;MasterWindow.xaml;Register\Register.xaml;
 
 False
 

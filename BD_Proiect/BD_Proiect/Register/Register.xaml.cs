@@ -18,8 +18,8 @@ namespace BD_Proiect
 {
     public partial class Register : Window
     {
-        public Action backToLoginButtonAction;
-        public Action exitButtonAction;//aici
+        public Action<Register> backToLoginButtonAction;
+        public Action<Register> exitButtonAction;
 
         public Register()
         {
@@ -114,13 +114,12 @@ namespace BD_Proiect
 
         private void BackToLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            backToLoginButtonAction();
+            backToLoginButtonAction(this);
         }
 
         private void RegisterPage1_Closed(object sender, EventArgs e)
         {
-            this.Close();
-            exitButtonAction();
+            exitButtonAction(this);
         }
     }
 }

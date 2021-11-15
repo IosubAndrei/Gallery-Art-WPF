@@ -26,8 +26,8 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" Margin="0,128,0,0" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" PasswordChanged="passwordBox_PasswordChanged"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" PasswordChanged="passwordBox_PasswordChanged"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Visibility="Collapsed"/>
         <CheckBox x:Name="checkbxShowPassword" Content="Show Password" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Padding="4,0,0,0" BorderThickness="1,1,1,1" Cursor="Hand" Checked="checkbxShowPassword_Checked" Unchecked="checkbxShowPassword_Unchecked">
             <CheckBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
