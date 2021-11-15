@@ -7,8 +7,41 @@
              mc:Ignorable="d" 
              d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid>
-        <DataGrid x:Name="GalleryDataGrid" Margin="18,10,18,104" MouseDoubleClick="GalleryDataGrid_MouseDoubleClick"/>
-        <Button x:Name="BackButton" 
+        <DataGrid x:Name="GalleryDataGrid" Margin="18,10,18,104" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="columnName" Header="Nume Galerie" Binding="{Binding Name}"/>
+                <DataGridTextColumn x:Name="columnAddress"  Header="Adresa" Binding="{Binding Adress}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <DockPanel Background="GhostWhite">
+                        <Image DockPanel.Dock="Left" Height="64" Margin="10"/>
+                        <Grid Margin="0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Nume Galerie: " FontWeight="Bold"/>
+                            <TextBlock x:Name="txtBlockName" Text="{Binding Name}" Grid.Column="1" />
+                            <TextBlock Text="Adresa: " FontWeight="Bold" Grid.Row="1"/>
+                            <TextBlock x:Name="txtBlockAddress" Text="{Binding Adress}" Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock Text="Localitate: " FontWeight="Bold" Grid.Row="2"/>
+                            <TextBlock x:Name="txtBlockLoc" Text="{Binding Localitate}" Grid.Column="1" Grid.Row="2"/>
+                            <TextBlock Text="Cod Postal: " FontWeight="Bold" Grid.Row="3"/>
+                            <TextBlock x:Name="txtBlockCod" Text="{Binding Cod_Postal}" Grid.Column="1" Grid.Row="3"/>
+                        </Grid>
+                    </DockPanel>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+            <Button x:Name="BackButton" 
                             Content="BACK" 
                             HorizontalAlignment="Center" 
                             Margin="0,374,0,0" 
