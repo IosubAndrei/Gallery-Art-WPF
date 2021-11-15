@@ -19,59 +19,58 @@ namespace BD_Proiect
     /// </summary>
     public partial class MasterWindow : Window
     {
-        MainWindow mainPage = new MainWindow();
-        Register registerPage = new Register();
-        Login loginPage = new Login();
-
         public MasterWindow()
         {
             InitializeComponent();
             this.Hide();
+            newLogin();
+            
+        }
+        private void newLogin()
+        {
+            Login loginPage = new Login();
             loginPage.Show();
-
-            //loginPage
             loginPage.registerButtonAction += openRegisterPage;
             loginPage.loginButtonAction += openMainPage;
             loginPage.exitButtonAction += closeApp;
-
-            //registerPage
-            registerPage.backToLoginButtonAction += closeRegisterPage;
+        }
+        private void newRegister()
+        {
+            Register registerPage = new Register();
+            registerPage.Show();
             registerPage.backToLoginButtonAction += openLoginPage;
             registerPage.exitButtonAction += closeApp;
-
-            //mainPage
+        }
+        private void newMain()
+        {
+            MainWindow mainPage = new MainWindow();
+            mainPage.Show();
             mainPage.exitButtonAction += closeApp;
             mainPage.signOutButtonAction += openLoginPage;
             mainPage.signOutButtonAction += closeApp;
         }
 
-        private void openLoginPage()
+        private void openRegisterPage(Window loginPage)
         {
-            loginPage.Show();
+            newRegister();
+            loginPage.Close();
+        }
+        private void openMainPage(Window loginPage)
+        {
+            newMain();
+            loginPage.Close();
         }
 
-        private void openRegisterPage()
+        private void openLoginPage(Window window)
         {
-            loginPage.Hide();
-            registerPage.Show();
+            newLogin();
+            window.Close();
         }
-        private void closeRegisterPage()
+
+        private void closeApp(Window window)
         {
-            registerPage.Hide();
-            loginPage.Show();
-        }
-        private void openMainPage()
-        {
-            loginPage.Close();
-            registerPage.Close();
-            mainPage.Show();
-        }
-        private void closeApp()
-        {
-            loginPage.Close();
-            mainPage.Close();
-            registerPage.Close();
             this.Close();
+            window.Close();
         }
 
     }

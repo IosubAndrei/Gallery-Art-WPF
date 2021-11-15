@@ -18,8 +18,8 @@ namespace BD_Proiect
 {
     public partial class Register : Window
     {
-        public Action backToLoginButtonAction;
-        public Action exitButtonAction;
+        public Action<Register> backToLoginButtonAction;
+        public Action<Register> exitButtonAction;
 
         public Register()
         {
@@ -32,88 +32,94 @@ namespace BD_Proiect
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUsername.Text == "" && txtPassword.Password == "" && txtConfirmPassword.Password == "")
+            if (txtUsername.Text == "" && txtPassword.Text == "" && txtConfirmPassword.Text == "")
             {
                 MessageBox.Show("Username and Password fields are empty!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (txtPassword.Password == txtConfirmPassword.Password)
+            else if (txtPassword.Text == txtConfirmPassword.Text)
             {
                 con.Open();
-                string register = "INSERT INTO Users VALUES ('" + txtUsername.Text + "','" + txtPassword.Password + "')";
+                string register = "INSERT INTO Users VALUES ('" + txtUsername.Text + "','" + txtPassword.Text + "')";
                 cmd = new SqlCommand(register, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 txtUsername.Text = "";
-                txtPassword.Password = "";
-                txtConfirmPassword.Password = "";
+                txtPassword.Text = "";
+                txtConfirmPassword.Text = "";
 
                 MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
                 MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                txtPassword.Password = "";
-                txtConfirmPassword.Password = "";
+                txtPassword.Text = "";
+                txtConfirmPassword.Text = "";
                 txtPassword.Focus();
             }
         }
-        
-        //private void ShowPassword_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    //txtPassword.PasswordChar = '\0';
-        //    //txtConfirmPassword.PasswordChar = '\0';
-        //    txtPassword.Visibility = System.Windows.Visibility.Collapsed;
-        //    PasswordUnmask.Visibility = System.Windows.Visibility.Visible;
-
-        //    PasswordUnmask.Focus();
-
-        //}
-
-        //private void ShowPassword_Unchecked(object sender, RoutedEventArgs e)
-        //{
-        //    //txtPassword.PasswordChar = '•';
-        //    //txtConfirmPassword.PasswordChar = '•';
-        //    txtPassword.Visibility = System.Windows.Visibility.Visible;
-        //    PasswordUnmask.Visibility = System.Windows.Visibility.Collapsed;
-
-        //    txtPassword.Focus();
-        //}
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             txtUsername.Text = "";
-            txtPassword.Password = "";
-            txtConfirmPassword.Password = "";
+            txtPassword.Text = "";
+            txtConfirmPassword.Text = "";
+            passwordBox.Password = "";
+            confirmPasswordBox.Password = "";
 
             txtUsername.Focus();
         }
        
-
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
-            //txtPassword.PasswordChar = '*';
-            //PasswordUnmask.Text = txtPassword.Password;
-            //txtPassword.Visibility = Visibility.Visible;
-            //PasswordUnmask.Visibility = Visibility.Collapsed;
+            txtPassword.Text = passwordBox.Password;
+            passwordBox.Visibility = System.Windows.Visibility.Collapsed;
+            txtPassword.Visibility = System.Windows.Visibility.Visible;
+
+            txtConfirmPassword.Text = confirmPasswordBox.Password;
+            confirmPasswordBox.Visibility = System.Windows.Visibility.Collapsed;
+            txtConfirmPassword.Visibility = System.Windows.Visibility.Visible;
+
+            txtPassword.Focus();
+        }
+
+        private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)
+        {
+            passwordBox.Password = txtConfirmPassword.Text;
+            passwordBox.Visibility = System.Windows.Visibility.Visible;
+            txtConfirmPassword.Visibility = System.Windows.Visibility.Collapsed;
+
+            confirmPasswordBox.Password = txtConfirmPassword.Text;
+            confirmPasswordBox.Visibility = System.Windows.Visibility.Visible;
+            txtConfirmPassword.Visibility = System.Windows.Visibility.Collapsed;
+
+            confirmPasswordBox.Focus();
+        }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).SecurePassword = ((PasswordBox)sender).Password;
+            }
+        }
+
+        private void confirmPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).SecurePassword = ((PasswordBox)sender).Password;
+            }
         }
 
         private void BackToLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            backToLoginButtonAction();
+            backToLoginButtonAction(this);
         }
 
         private void RegisterPage1_Closed(object sender, EventArgs e)
         {
-            this.Close();
-            exitButtonAction();
+            exitButtonAction(this);
         }
-
-        //private void checkbxShowPassword_Unchecked(object sender, RoutedEventArgs e)
-        //{
-        //    txtPassword.Password = PasswordUnmask.Text;
-        //    PasswordUnmask.Visibility = Visibility.Visible;
-        //    txtPassword.Visibility = Visibility.Collapsed;
-        //}
     }
 }

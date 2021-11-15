@@ -23,10 +23,10 @@ namespace BD_Proiect
     /// </summary>
     public partial class MainWindow : Window
     {
-        StartUpPage logoPage = new StartUpPage();
+        public Action<MainWindow> exitButtonAction;
+        public Action<MainWindow> signOutButtonAction;
 
-        public Action exitButtonAction;
-        public Action signOutButtonAction;
+        StartUpPage logoPage = new StartUpPage();
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
@@ -47,22 +47,6 @@ namespace BD_Proiect
                 Employee_Button.Visibility = Visibility.Collapsed;
         }
 
-        private void Exit_Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            exitButtonAction();
-        }
-
-        private void Sign_Out_Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            exitButtonAction();
-        }
-
-        private void Employee_Button_Click(object sender, RoutedEventArgs e)
-        {
-            signOutButtonAction();
-        }
 
         private void Commands_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -76,8 +60,21 @@ namespace BD_Proiect
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            this.Close();
-            exitButtonAction();
+            exitButtonAction(this);
+        }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            exitButtonAction(this);
+        }
+
+        private void Sign_Out_Button_Click(object sender, RoutedEventArgs e)
+        {
+            signOutButtonAction(this);
+         }
+
+        private void Employee_Button_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }
