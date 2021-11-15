@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security;
@@ -22,10 +23,9 @@ namespace BD_Proiect
     /// </summary>
     public partial class Login : Window
     {
-        public Action<Login> registerButtonAction;
-        public Action<Login> loginButtonAction;
-        public Action<Login> exitButtonAction;
-
+        public Action registerButtonAction;
+        public Action loginButtonAction;
+        public Action exitButtonAction;
         public int ID { get; set; }
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
@@ -78,46 +78,44 @@ namespace BD_Proiect
             }
         }
 
+        private void registerButton_Click(object sender, RoutedEventArgs e)
+        {
+            registerButtonAction();
+        }
+
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
+            string user = txtUsername.Text;
+            string pass = txtPassword.Text;
+
             if (txtUsername.Text == "" && passwordBox.Password == "")
             {
-                MessageBox.Show("Username and Password fields are empty!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Username and Password fields are empty!", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            SqlCommand selectCMD = new SqlCommand();
+            
+            connection.Open();
+            selectCMD.Connection = connection;
+            selectCMD.CommandText = "SELECT * FROM Users WHERE Username='" + txtUsername.Text +
+                "' AND Password='" + txtPassword.Text + "'";
+
+            DbDataReader reader = selectCMD.ExecuteReader();
+            if (reader.Read())
+            {
+                System.Windows.MessageBox.Show("Login succesful!");
+                //trecerea in alt window
             }
             else
-            {
-                /*SqlCommand selectCMD = new SqlCommand(string.Format("SELECT {0} FROM {1} " +
-                    "WHERE Username='" + txtUsername.Text + "' AND Password='" + txtPassword.Text + "'", ID,DS.Tables[currentTableName]),connection);
-                DA.SelectCommand = selectCMD;
+                System.Windows.MessageBox.Show("Invalid Login please check username and password");
 
-                connection.Open();
-
-                SqlCommandBuilder builder = new SqlCommandBuilder(DA);
-                DA.Update(DS, currentTableName);
-
-                connection.Close();*/
-
-                loginButtonAction(this);
-                //if (ID != 0)
-                //{
-                //    MessageBox.Show("You have succesfully connected", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                //}
-            }
-
+                connection.Close();
         }
 
         private void Login1_Closed(object sender, EventArgs e)
         {
-            exitButtonAction(this);
-        }
-
-        private void registerButton_Click(object sender, RoutedEventArgs e)
-        {
-            registerButtonAction(this);
+            this.Close();
+            exitButtonAction();
         }
     }
 }
