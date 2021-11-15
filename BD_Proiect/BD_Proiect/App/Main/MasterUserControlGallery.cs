@@ -41,11 +41,12 @@ namespace BD_Proiect
             masterGrid.Children.Clear();
             masterGrid.Children.Add(galleryPage);
             galleryPage.backToStatUp += newStartUp;
-            galleryPage.getExpositions += newExpositions;
+            //galleryPage.getExpositions += newExpositions;
         }
 
-        void newExpositions()
+        void newExpositions(int galleryID)
         {
+            //expositionsPage.table(galleryID);
             masterGrid.Children.Clear();
             masterGrid.Children.Add(expositionsPage);
             expositionsPage.backToGallery += newGallery;
@@ -56,7 +57,7 @@ namespace BD_Proiect
         {
             masterGrid.Children.Clear();
             masterGrid.Children.Add(paintingsPage);
-            paintingsPage.backToExpositions += newExpositions;
+            //paintingsPage.backToExpositions += newExpositions;
             paintingsPage.backToGallery += newGallery;
         }
     }
