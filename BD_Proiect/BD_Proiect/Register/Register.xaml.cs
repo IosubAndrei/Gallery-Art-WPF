@@ -80,6 +80,7 @@ namespace BD_Proiect
             {
                 if (!verify(username))
                 {
+
                     MessageBox.Show("User already exists!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                     reset();
                 }
