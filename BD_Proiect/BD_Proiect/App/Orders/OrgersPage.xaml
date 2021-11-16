@@ -7,6 +7,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <DataGrid x:Name="OrdersDataGrid" Margin="18,10,18,104" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="columnNamePainting" Binding="{Binding NameOpera}" Header="Nume Opera"/>
+                <DataGridTextColumn x:Name="columnNamePlacement" Binding="{Binding PlacementDate}" Header="Data Plasare"/>
+                <DataGridTextColumn x:Name="columnNameDelivered" Binding="{Binding DeliveryDate}" Header="Data Livrare"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <DockPanel Background="GhostWhite">
+                        <Grid Margin="0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="An Opera: " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Year}" Grid.Column="1"/>
+                            <TextBlock Text="Pret: " FontWeight="Bold" Grid.Row="1"/>
+                            <TextBlock Text="{Binding Price}" Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock Text="Detalii Opera: " FontWeight="Bold" Grid.Row="2"/>
+                            <TextBlock Text="{Binding Details}" Grid.Column="1" Grid.Row="2"/>
+                            <TextBlock Text="Nume Client: " FontWeight="Bold" Grid.Row="3"/>
+                            <TextBlock Text="{Binding FullName}" Grid.Column="1" Grid.Row="3"/>
+                            <TextBlock Text="Numar Telefon: " FontWeight="Bold" Grid.Row="4"/>
+                            <TextBlock Text="{Binding Phone_Number}" Grid.Column="1" Grid.Row="4"/>
+                            <TextBlock Text="Adresa: " FontWeight="Bold" Grid.Row="5"/>
+                            <TextBlock Text="{Binding Address}" Grid.Column="1" Grid.Row="5"/>
+                        </Grid>
+                    </DockPanel>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
     </Grid>
 </UserControl>
