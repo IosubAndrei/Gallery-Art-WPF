@@ -16,6 +16,9 @@
     <Compile Update="App\Gallery\PaintingsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="App\Orders\OrderDetailsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Login\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="App\Gallery\PaintingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="App\Orders\OrderDetailsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\Login.xaml">

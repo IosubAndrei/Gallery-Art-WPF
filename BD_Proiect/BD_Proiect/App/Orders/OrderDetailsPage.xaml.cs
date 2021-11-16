@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BD_Proiect.App.Orders
+namespace BD_Proiect.Orders
 {
     /// <summary>
     /// Interaction logic for OrderDetailsPage.xaml
