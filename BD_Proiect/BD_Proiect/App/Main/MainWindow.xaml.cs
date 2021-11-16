@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -27,18 +28,20 @@ namespace BD_Proiect
         public Action ordersButtonAction;
         public Action<MainWindow> signOutButtonAction;
         MasterUserControlGallery masterUserControlGallery;
+        int userID;
+        bool userType;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
         
-        public MainWindow(string username)
+        public MainWindow(int userID)
         {
             InitializeComponent();
-
+            this.userID = userID;
+            setUser();
             masterUserControlGallery = new MasterUserControlGallery(mainGrid);
-            UsernameLabel.Content = username;
             bool isVisible = false;
             if(isVisible)
                 Employee_Button.Visibility = Visibility.Visible;
@@ -46,10 +49,21 @@ namespace BD_Proiect
                 Employee_Button.Visibility = Visibility.Collapsed;
         }
 
+        private void setUser()
+        {
+            SqlCommand selectCMD = new SqlCommand(string.Format("SELECT * FROM Users WHERE ID = {0}", userID), connection);
+            connection.Open();
+            selectCMD.Connection = connection;
+            DbDataReader reader = selectCMD.ExecuteReader();
+            reader.Read();
+            UsernameLabel.Content = reader.GetValue(1).ToString();
+            userType = Convert.ToBoolean(reader.GetValue(3));
+            connection.Close();
+        }
 
         private void Commands_Button_Click(object sender, RoutedEventArgs e)
         {
-            masterUserControlGallery.newOrders(1);
+            masterUserControlGallery.newOrders(userID);
         }
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
