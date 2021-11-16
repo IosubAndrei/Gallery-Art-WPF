@@ -20,52 +20,70 @@ namespace BD_Proiect
     {
         public Action<Register> backToLoginButtonAction;
         public Action<Register> exitButtonAction;
+        public Action<Register, string> registerButtonAction;
+
+        SqlConnection con = new SqlConnection("Server=.;Database=BD_Proiect;Trusted_Connection=true");
+        SqlCommand cmd = new SqlCommand();
+        SqlDataAdapter da = new SqlDataAdapter();
+
+        int esteAngajat = 0;
 
         public Register()
         {
             InitializeComponent();
         }
 
-        SqlConnection con = new SqlConnection("Server=.;Database=BD_Proiect;Trusted_Connection=true");
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter da = new SqlDataAdapter();
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void reset()
         {
-            if (txtUsername.Text == "" && txtPassword.Text == "" && txtConfirmPassword.Text == "")
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            txtConfirmPassword.Text = "";
+
+            passwordBox.Password = "";
+            confirmPasswordBox.Password = "";
+            passwordBox.PasswordChar = '\0';
+            confirmPasswordBox.PasswordChar = '\0';
+            
+            checkbxAngajat.IsChecked = false;
+            checkbxShowPassword.IsChecked = false;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            SqlCommand insertCMD = new SqlCommand();
+
+            string username = txtUsername.Text;
+            string password = passwordBox.Password.ToString();
+
+            if (txtUsername.Text == "" && passwordBox.Password == "" && confirmPasswordBox.Password == "" || passwordBox.Password == "" || passwordBox.Password == "" && confirmPasswordBox.Password == "" || txtUsername.Text == "")
             {
-                MessageBox.Show("Username and Password fields are empty!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Username or Password fields are empty!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (txtPassword.Text == txtConfirmPassword.Text)
+            else if(passwordBox.Password == confirmPasswordBox.Password && txtPassword.Text == txtConfirmPassword.Text)
             {
                 con.Open();
-                string register = "INSERT INTO Users VALUES ('" + txtUsername.Text + "','" + txtPassword.Text + "')";
-                cmd = new SqlCommand(register, con);
-                cmd.ExecuteNonQuery();
+                insertCMD.Connection = con;
+                insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "')";
+                insertCMD.ExecuteNonQuery();
                 con.Close();
 
-                txtUsername.Text = "";
-                txtPassword.Text = "";
-                txtConfirmPassword.Text = "";
+                reset();
 
-                MessageBox.Show("Your Account has been Successfully Created", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Your Account has been Successfully Created!", "Registration Success!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                txtPassword.Text = "";
-                txtConfirmPassword.Text = "";
-                txtPassword.Focus();
+                MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed!", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+                reset();
+
+                txtUsername.Focus();
             }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            txtConfirmPassword.Text = "";
-            passwordBox.Password = "";
-            confirmPasswordBox.Password = "";
+            reset();
 
             txtUsername.Focus();
         }
@@ -96,22 +114,6 @@ namespace BD_Proiect
             confirmPasswordBox.Focus();
         }
 
-        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (this.DataContext != null)
-            {
-                ((dynamic)this.DataContext).SecurePassword = ((PasswordBox)sender).Password;
-            }
-        }
-
-        private void confirmPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (this.DataContext != null)
-            {
-                ((dynamic)this.DataContext).SecurePassword = ((PasswordBox)sender).Password;
-            }
-        }
-
         private void BackToLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             backToLoginButtonAction(this);
@@ -120,6 +122,22 @@ namespace BD_Proiect
         private void RegisterPage1_Closed(object sender, EventArgs e)
         {
             exitButtonAction(this);
+        }
+
+        private void checkbxAngajat_Checked(object sender, RoutedEventArgs e)
+        {
+            if(checkbxAngajat.IsChecked == true)
+            {
+                esteAngajat = 1;
+            }
+        }
+
+        private void checkbxAngajat_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if(checkbxAngajat.IsChecked == false)
+            {
+                esteAngajat = 0;
+            }
         }
     }
 }
