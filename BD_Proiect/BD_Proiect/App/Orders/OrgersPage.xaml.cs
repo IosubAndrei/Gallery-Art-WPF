@@ -20,7 +20,7 @@ namespace BD_Proiect.Orders
     /// </summary>
     public partial class OrgersPage : UserControl
     {
-        public OrgersPage()
+        public OrgersPage(int userID)
         {
             InitializeComponent();
         }

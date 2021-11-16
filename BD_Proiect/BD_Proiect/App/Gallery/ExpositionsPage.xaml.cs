@@ -41,14 +41,30 @@ namespace BD_Proiect.Gallery
         {
             if(!isCreated)
             {
-                SqlCommand sqlCommand = new SqlCommand(string.Format("Select Nume_Expozitie, Data_Inceput, Data_Sfarsit  FROM Expozitie WHERE ID_Galerie = {0}", 1), connection);
+                SqlCommand CMD = new SqlCommand(string.Format("Select ID_Expozitie, Nume_Expozitie, Data_Inceput, Data_Sfarsit  FROM Expozitie WHERE ID_Galerie = {0}", galleryID), connection);
+                List<Expozitie> expozitii = new List<Expozitie>();
 
-                DA.SelectCommand = sqlCommand;
                 connection.Open();
 
-                DS.Clear();
-                DA.Fill(DS, "Expozitie");
-                ExpositionsDataGrid.ItemsSource = DS.Tables["Expozitie"].DefaultView;
+                CMD.Connection = connection;
+
+                DbDataReader db = CMD.ExecuteReader();
+                while (db.Read())
+                {
+                    expozitii.Add(new Expozitie()
+                    {
+                        ID = (int)db.GetValue(0),
+                        Name = db.GetValue(1).ToString(),
+                        dataInceput = db.GetValue(2).ToString(),
+                        dataSfarsit = db.GetValue(3).ToString()
+                    });
+                }
+                //DA.SelectCommand = CMD;
+                //DS.Clear();
+                //DA.Fill(DS, currentTableName);
+                //GalleryDataGrid.ItemsSource = DS.Tables[currentTableName].DefaultView;
+                ExpositionsDataGrid.ItemsSource = expozitii;
+
                 connection.Close();
             }            
         }
@@ -59,10 +75,18 @@ namespace BD_Proiect.Gallery
             backToGallery();
         }
 
-        private void ExpositionsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ExpositionsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int expositionID = 1;
-            getPaintings(expositionID);
+            isCreated = true;
+            Expozitie exposition = (Expozitie)ExpositionsDataGrid.SelectedItem;
+            getPaintings(exposition.ID);
         }
+    }
+    public class Expozitie
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string dataInceput { get; set; }
+        public string dataSfarsit { get; set; }
     }
 }

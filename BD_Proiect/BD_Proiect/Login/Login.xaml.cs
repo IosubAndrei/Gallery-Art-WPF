@@ -24,7 +24,7 @@ namespace BD_Proiect
     public partial class Login : Window
     {
         public Action<Login> registerButtonAction;
-        public Action<Login> loginButtonAction;
+        public Action<Login, string> loginButtonAction;
         public Action<Login> exitButtonAction;
         public int ID { get; set; }
 
@@ -55,7 +55,7 @@ namespace BD_Proiect
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             txtPassword.Text = passwordBox.Password;
-            passwordBox.Password = "Laurentiu";
+            passwordBox.Password = "parola";
             txtUsername.Text = "Marian";
             passwordBox.Visibility = System.Windows.Visibility.Collapsed;
             txtPassword.Visibility = System.Windows.Visibility.Visible;
@@ -106,7 +106,7 @@ namespace BD_Proiect
             if (reader.Read())
             {
                 System.Windows.MessageBox.Show("Login succesful!");
-                loginButtonAction(this);
+                loginButtonAction(this,txtUsername.Text);
             }
             else
                 System.Windows.MessageBox.Show("Invalid Login please check username and password");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -70,10 +71,10 @@ namespace BD_Proiect.Gallery
             backToStatUp();
         }
 
-        private void GalleryDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void GalleryDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int galleryID = 1;
-            getExpositions(galleryID);
+            Galerie gallery = (Galerie)GalleryDataGrid.SelectedItem;
+            getExpositions(gallery.ID);
         }
     }
 
