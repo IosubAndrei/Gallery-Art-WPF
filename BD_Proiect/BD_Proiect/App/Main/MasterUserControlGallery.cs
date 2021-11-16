@@ -13,7 +13,9 @@ namespace BD_Proiect
         Gallery.GalleryPage galleryPage;
         Gallery.ExpositionsPage expositionsPage;
         Gallery.PaintingsPage paintingsPage;
-        private bool isCreated = false;
+
+        int _galleryID = -1;
+        int _expositionID = -1;
 
         public MasterUserControlGallery(Grid mainGrid)
         {
@@ -44,20 +46,37 @@ namespace BD_Proiect
             galleryPage.getExpositions += newExpositions;
         }
 
-        void newExpositions()
+        void newExpositions(int galleryID)
         {
+            if (galleryID == -1)
+                galleryID = _galleryID;
+            else
+                _galleryID = galleryID;
+            expositionsPage.table(galleryID);
             masterGrid.Children.Clear();
             masterGrid.Children.Add(expositionsPage);
             expositionsPage.backToGallery += newGallery;
             expositionsPage.getPaintings += newPaintings;
         }
 
-        void newPaintings()
+        void newPaintings(int expositionID)
         {
+            if (expositionID == -1)
+                expositionID = _expositionID;
+            else
+                _expositionID = expositionID;
+            paintingsPage.table(expositionID);
             masterGrid.Children.Clear();
             masterGrid.Children.Add(paintingsPage);
             paintingsPage.backToExpositions += newExpositions;
             paintingsPage.backToGallery += newGallery;
+        }
+
+        public void newOrders(int userID)
+        {
+            Orders.OrgersPage orgersPage = new Orders.OrgersPage(userID);
+            masterGrid.Children.Clear();
+            masterGrid.Children.Add(orgersPage);
         }
     }
 }

@@ -24,6 +24,7 @@ namespace BD_Proiect
     public partial class MainWindow : Window
     {
         public Action<MainWindow> exitButtonAction;
+        public Action ordersButtonAction;
         public Action<MainWindow> signOutButtonAction;
         MasterUserControlGallery masterUserControlGallery;
 
@@ -32,12 +33,12 @@ namespace BD_Proiect
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
         
-        public MainWindow()
+        public MainWindow(string username)
         {
             InitializeComponent();
 
             masterUserControlGallery = new MasterUserControlGallery(mainGrid);
-
+            UsernameLabel.Content = username;
             bool isVisible = false;
             if(isVisible)
                 Employee_Button.Visibility = Visibility.Visible;
@@ -48,7 +49,7 @@ namespace BD_Proiect
 
         private void Commands_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            masterUserControlGallery.newOrders(1);
         }
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)

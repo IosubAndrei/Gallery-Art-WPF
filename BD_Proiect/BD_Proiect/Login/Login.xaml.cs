@@ -24,7 +24,7 @@ namespace BD_Proiect
     public partial class Login : Window
     {
         public Action<Login> registerButtonAction;
-        public Action<Login> loginButtonAction;
+        public Action<Login, string> loginButtonAction;
         public Action<Login> exitButtonAction;
         public int ID { get; set; }
 
@@ -55,7 +55,7 @@ namespace BD_Proiect
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             txtPassword.Text = passwordBox.Password;
-            txtPassword.Text = "parola";
+            passwordBox.Password = "parola";
             txtUsername.Text = "Marian";
             passwordBox.Visibility = System.Windows.Visibility.Collapsed;
             txtPassword.Visibility = System.Windows.Visibility.Visible;
@@ -88,7 +88,7 @@ namespace BD_Proiect
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string user = txtUsername.Text;
-            string pass = txtPassword.Text;
+            string pass = passwordBox.Password.ToString();
 
             if (txtUsername.Text == "" && passwordBox.Password == "")
             {
@@ -99,14 +99,14 @@ namespace BD_Proiect
             
             connection.Open();
             selectCMD.Connection = connection;
-            selectCMD.CommandText = "SELECT * FROM Users WHERE Username='" + txtUsername.Text +
-                "' AND Password='" + txtPassword.Text + "'";
+            selectCMD.CommandText = "SELECT * FROM Users WHERE Username='" + user +
+                "' AND Password='" + pass + "'";
 
             DbDataReader reader = selectCMD.ExecuteReader();
             if (reader.Read())
             {
                 System.Windows.MessageBox.Show("Login succesful!");
-                loginButtonAction(this);
+                loginButtonAction(this,txtUsername.Text);
             }
             else
                 System.Windows.MessageBox.Show("Invalid Login please check username and password");
