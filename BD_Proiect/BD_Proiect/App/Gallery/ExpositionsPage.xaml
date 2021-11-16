@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid>
-        <DataGrid x:Name="ExpositionsDataGrid" Margin="18,10,18,104" SelectionChanged="ExpositionsDataGrid_SelectionChanged">
+        <DataGrid x:Name="ExpositionsDataGrid" Margin="18,10,18,104" MouseDoubleClick="ExpositionsDataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="columnName" Header="Nume Expozitie" Binding="{Binding Name}"/>
                 <DataGridTextColumn x:Name="columnStart"  Header="Data Inceput" Binding="{Binding dataInceput}"/>

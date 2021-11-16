@@ -71,7 +71,7 @@ namespace BD_Proiect.Gallery
             backToStatUp();
         }
 
-        private void GalleryDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GalleryDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Galerie gallery = (Galerie)GalleryDataGrid.SelectedItem;
             getExpositions(gallery.ID);

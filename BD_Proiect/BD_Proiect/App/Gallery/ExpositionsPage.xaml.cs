@@ -75,7 +75,7 @@ namespace BD_Proiect.Gallery
             backToGallery();
         }
 
-        private void ExpositionsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ExpositionsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             isCreated = true;
             Expozitie exposition = (Expozitie)ExpositionsDataGrid.SelectedItem;

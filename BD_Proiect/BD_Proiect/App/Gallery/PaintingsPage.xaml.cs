@@ -57,5 +57,10 @@ namespace BD_Proiect.Gallery
         {
             backToGallery();
         }
+
+        private void PaintingsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
