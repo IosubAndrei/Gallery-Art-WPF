@@ -15,7 +15,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="GallerysButton" 
-                            Content="GALLERYS" 
+                            Content="BACK TO GALLERYS" 
                             HorizontalAlignment="Center" 
                             Margin="0,373,0,0" 
                             VerticalAlignment="Top" 

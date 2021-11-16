@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Configuration;
+using System.Data.Common;
 
 namespace BD_Proiect
 {
@@ -20,7 +21,7 @@ namespace BD_Proiect
     {
         public Action<Register> backToLoginButtonAction;
         public Action<Register> exitButtonAction;
-        public Action<Register, string> registerButtonAction;
+        public Action<Register> registerButtonAction;
 
         SqlConnection con = new SqlConnection("Server=.;Database=BD_Proiect;Trusted_Connection=true");
         SqlCommand cmd = new SqlCommand();
@@ -48,6 +49,24 @@ namespace BD_Proiect
             checkbxShowPassword.IsChecked = false;
         }
 
+        private bool verify(string username)
+        {
+            SqlCommand CMD = new SqlCommand(string.Format("SELECT * FROM Users WHERE Username= '{0}'", username), con);
+
+            con.Open();
+
+            CMD.Connection = con;
+
+            DbDataReader db = CMD.ExecuteReader();
+            if (db.Read())
+            {
+                return false;
+            }
+            con.Close();
+
+            return true; 
+        }
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             SqlCommand insertCMD = new SqlCommand();
@@ -59,26 +78,36 @@ namespace BD_Proiect
             {
                 MessageBox.Show("Username or Password fields are empty!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if(passwordBox.Password == confirmPasswordBox.Password && txtPassword.Text == txtConfirmPassword.Text)
-            {
-                con.Open();
-                insertCMD.Connection = con;
-                insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "')";
-                insertCMD.ExecuteNonQuery();
-                con.Close();
-
-                reset();
-
-                MessageBox.Show("Your Account has been Successfully Created!", "Registration Success!", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
             else
             {
-                MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed!", MessageBoxButton.OK, MessageBoxImage.Error);
-                
-                reset();
+                if (!verify(username))
+                {
+                    MessageBox.Show("User already exists!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    reset();
+                }
+                else if (passwordBox.Password == confirmPasswordBox.Password && txtPassword.Text == txtConfirmPassword.Text)
+                    {
+                        con.Open();
+                        insertCMD.Connection = con;
+                        insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "')";
+                        insertCMD.ExecuteNonQuery();
+                        con.Close();
 
-                txtUsername.Focus();
+                        reset();
+
+                        MessageBox.Show("Your Account has been Successfully Created!", "Registration Success!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        registerButtonAction(this);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                        reset();
+
+                        txtUsername.Focus();
+                    }
             }
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -87,7 +116,7 @@ namespace BD_Proiect
 
             txtUsername.Focus();
         }
-       
+
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             txtPassword.Text = passwordBox.Password;

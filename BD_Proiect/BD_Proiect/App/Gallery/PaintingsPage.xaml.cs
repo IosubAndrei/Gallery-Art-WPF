@@ -23,6 +23,7 @@ namespace BD_Proiect.Gallery
     public partial class PaintingsPage : UserControl
     {
         public Action<int> backToExpositions;
+        public Action newOrderPage;
         public Action backToGallery;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
@@ -60,7 +61,7 @@ namespace BD_Proiect.Gallery
 
         private void PaintingsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            newOrderPage();
         }
     }
 }

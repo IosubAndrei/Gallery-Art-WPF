@@ -13,6 +13,7 @@ namespace BD_Proiect
         Gallery.GalleryPage galleryPage;
         Gallery.ExpositionsPage expositionsPage;
         Gallery.PaintingsPage paintingsPage;
+        Orders.OrderDetailsPage orderDetailsPage;
 
         int _galleryID = -1;
         int _expositionID = -1;
@@ -38,6 +39,13 @@ namespace BD_Proiect
             masterGrid.Children.Add(startUpPage);
         }
 
+        private void newOrderDetails()
+        {
+            orderDetailsPage=new Orders.OrderDetailsPage();
+            masterGrid.Children.Clear();
+            masterGrid.Children.Add(orderDetailsPage);
+            orderDetailsPage.declineOrder += newPaintings;
+        }
         void newGallery()
         {
             masterGrid.Children.Clear();
@@ -69,6 +77,7 @@ namespace BD_Proiect
             masterGrid.Children.Clear();
             masterGrid.Children.Add(paintingsPage);
             paintingsPage.backToExpositions += newExpositions;
+            paintingsPage.newOrderPage += newOrderDetails;
             paintingsPage.backToGallery += newGallery;
         }
 

@@ -23,8 +23,7 @@ namespace BD_Proiect
         {
             InitializeComponent();
             this.Hide();
-            newLogin();
-            
+            newLogin(); 
         }
         private void newLogin()
         {
@@ -40,6 +39,7 @@ namespace BD_Proiect
             registerPage.Show();
             registerPage.backToLoginButtonAction += openLoginPage;
             registerPage.exitButtonAction += closeApp;
+            registerPage.registerButtonAction += openLoginPage;
         }
         private void newMain(int userID)
         {

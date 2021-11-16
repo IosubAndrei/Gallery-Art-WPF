@@ -5,46 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BD_Proiect.Orders"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid Background="White">
-        <Button x:Name="acceptButton" Content="ACCEPT" HorizontalAlignment="Left" Margin="49,373,0,0" VerticalAlignment="Top" Height="50" Width="306" Background="#FF7456AE" BorderThickness="0,0,0,0" Cursor="Hand" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2"/>
-        <Button x:Name="declineButton" Content="DECLINE" HorizontalAlignment="Left" Margin="454,373,0,0" VerticalAlignment="Top" Height="50" Width="306" BorderThickness="1,1,1,1" Cursor="Hand" Background="White" Foreground="#FF7456AE" FontFamily="Nirmala UI" FontWeight="Bold"/>
-        <Label x:Name="operaLabel" Content="Opera:" HorizontalAlignment="Left" Margin="73,118,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
+        <Button x:Name="acceptButton" Content="ACCEPT" HorizontalAlignment="Left" Margin="35,373,0,0" VerticalAlignment="Top" Height="50" Width="284" Background="#FF7456AE" BorderThickness="1,1,0,0" Cursor="Hand" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="White"/>
+        <Button x:Name="declineButton" Content="DECLINE" HorizontalAlignment="Left" Margin="329,373,0,0" VerticalAlignment="Top" Height="50" Width="284" BorderThickness="0,0,1,1" Cursor="Hand" Background="White" Foreground="#FF7456AE" FontFamily="Nirmala UI" FontWeight="Bold" Click="declineButton_Click"/>
+        <Label x:Name="operaLabel" Content="Opera:" HorizontalAlignment="Left" Margin="73,93,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <Label x:Name="numeLabel" Content="First Name:" HorizontalAlignment="Left" Margin="478,118,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="MS UI Gothic" FontWeight="Bold">
+        <Label x:Name="numeLabel" Content="First Name:" HorizontalAlignment="Left" Margin="328,121,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="MS UI Gothic" FontWeight="Bold">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <Label x:Name="prenumeLabel" Content="Second Name:" HorizontalAlignment="Left" Margin="478,149,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
+        <Label x:Name="prenumeLabel" Content="Second Name:" HorizontalAlignment="Left" Margin="328,152,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
         <Label x:Name="orderDetailsLabel" Content="Order Details" HorizontalAlignment="Left" Margin="49,31,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="24" Foreground="#FF7456AE" FontWeight="Bold"/>
-        <Label x:Name="telefonLabel" Content="Phone:" HorizontalAlignment="Left" Margin="478,180,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
+        <Label x:Name="telefonLabel" Content="Phone:" HorizontalAlignment="Left" Margin="328,183,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <Label x:Name="addressLabel" Content="Address:" HorizontalAlignment="Left" Margin="478,0,0,0" VerticalAlignment="Center" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
+        <Label x:Name="addressLabel" Content="Address:" HorizontalAlignment="Left" Margin="328,226,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <Label x:Name="locLabel" Content="Locality:" HorizontalAlignment="Left" Margin="478,243,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
+        <Label x:Name="locLabel" Content="Locality:" HorizontalAlignment="Left" Margin="328,246,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <TextBox x:Name="numeTextBox" HorizontalAlignment="Left" Margin="607,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
-        <TextBox x:Name="prenumeTextBox" HorizontalAlignment="Left" Margin="607,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
-        <TextBox x:Name="telefonTextBox" HorizontalAlignment="Left" Margin="607,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
-        <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Margin="607,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" BorderThickness="0,0,0,1"/>
-        <TextBox x:Name="locTextBox" HorizontalAlignment="Left" Margin="607,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="numeTextBox" HorizontalAlignment="Left" Margin="457,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="prenumeTextBox" HorizontalAlignment="Left" Margin="457,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="telefonTextBox" HorizontalAlignment="Left" Margin="457,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Margin="457,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="locTextBox" HorizontalAlignment="Left" Margin="457,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
+        <Image HorizontalAlignment="Left" Height="131" Margin="73,124,0,0" VerticalAlignment="Top" Width="126"/>
 
     </Grid>
 </UserControl>

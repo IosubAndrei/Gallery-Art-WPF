@@ -42,8 +42,7 @@ namespace BD_Proiect
             this.userID = userID;
             setUser();
             masterUserControlGallery = new MasterUserControlGallery(mainGrid);
-            bool isVisible = false;
-            if(isVisible)
+            if(userType)
                 Employee_Button.Visibility = Visibility.Visible;
             else
                 Employee_Button.Visibility = Visibility.Collapsed;
