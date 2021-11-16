@@ -28,7 +28,7 @@ namespace BD_Proiect.Gallery
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
-        string currentTableName = "Galerii";
+        //string currentTableName = "Galerii";
 
         public Action backToStatUp;
         public Action<int> getExpositions;

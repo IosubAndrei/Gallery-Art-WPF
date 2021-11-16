@@ -33,8 +33,6 @@ namespace BD_Proiect
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
 
-        string currentTableName = "Users";
-
         public SecureString SecurePassword { private get; set; }
         public Login()
         {
