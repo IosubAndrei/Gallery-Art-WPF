@@ -41,8 +41,6 @@ namespace BD_Proiect
 
             passwordBox.Password = "";
             confirmPasswordBox.Password = "";
-            passwordBox.PasswordChar = '\0';
-            confirmPasswordBox.PasswordChar = '\0';
             
             checkbxAngajat.IsChecked = false;
             checkbxShowPassword.IsChecked = false;
