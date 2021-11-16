@@ -133,5 +133,6 @@ D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\B
 D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\Register\Register.baml
 D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.g.cs
 D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.baml
-C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.g.cs
-C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.baml
+C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.g.cs
+C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.baml
+C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.csproj.CopyComplete
