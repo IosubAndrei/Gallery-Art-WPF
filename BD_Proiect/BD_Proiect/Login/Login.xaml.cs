@@ -24,7 +24,7 @@ namespace BD_Proiect
     public partial class Login : Window
     {
         public Action<Login> registerButtonAction;
-        public Action<Login, string> loginButtonAction;
+        public Action<Login, int> loginButtonAction;
         public Action<Login> exitButtonAction;
         public int ID { get; set; }
 
@@ -103,10 +103,11 @@ namespace BD_Proiect
                 "' AND Password='" + pass + "'";
 
             DbDataReader reader = selectCMD.ExecuteReader();
+            User user1 = new User();
             if (reader.Read())
             {
                 System.Windows.MessageBox.Show("Login succesful!");
-                loginButtonAction(this,txtUsername.Text);
+                loginButtonAction(this, Convert.ToInt32(reader.GetValue(0)));
             }
             else
                 System.Windows.MessageBox.Show("Invalid Login please check username and password");
@@ -118,5 +119,12 @@ namespace BD_Proiect
         {
             exitButtonAction(this);
         }
+    }
+
+    public class User
+    {
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -41,9 +41,9 @@ namespace BD_Proiect
             registerPage.backToLoginButtonAction += openLoginPage;
             registerPage.exitButtonAction += closeApp;
         }
-        private void newMain(string username)
+        private void newMain(int userID)
         {
-            MainWindow mainPage = new MainWindow(username);
+            MainWindow mainPage = new MainWindow(userID);
             mainPage.Show();
             mainPage.exitButtonAction += closeApp;
             mainPage.signOutButtonAction += openLoginPage;
@@ -55,9 +55,9 @@ namespace BD_Proiect
             newRegister();
             loginPage.Close();
         }
-        private void openMainPage(Window loginPage, string username)
+        private void openMainPage(Window loginPage, int userID)
         {
-            newMain(username);
+            newMain(userID);
             loginPage.Close();
         }
 
