@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\App.xaml
-91465513857
+101062985410
 
-14-759298258
+15-1762079339
 194-2102567866
-App\Gallery\ExpositionsPage.xaml;App\Gallery\GalleryPage.xaml;App\Gallery\PaintingsPage.xaml;App\Main\MainWindow.xaml;App\Orders\OrgersPage.xaml;App\StartUp\StartUpPage.xaml;Login\Login.xaml;MasterWindow.xaml;Register\Register.xaml;
+App\Gallery\ExpositionsPage.xaml;App\Gallery\GalleryPage.xaml;App\Gallery\PaintingsPage.xaml;App\Main\MainWindow.xaml;App\Orders\OrderDetailsPage.xaml;App\Orders\OrgersPage.xaml;App\StartUp\StartUpPage.xaml;Login\Login.xaml;MasterWindow.xaml;Register\Register.xaml;
 
 False
 

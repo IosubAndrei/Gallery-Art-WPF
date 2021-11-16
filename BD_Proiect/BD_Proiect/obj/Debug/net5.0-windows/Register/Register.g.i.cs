@@ -173,7 +173,7 @@ namespace BD_Proiect {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BD_Proiect;V1.0.0.0;component/register/register.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BD_Proiect;component/register/register.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Register\Register.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
