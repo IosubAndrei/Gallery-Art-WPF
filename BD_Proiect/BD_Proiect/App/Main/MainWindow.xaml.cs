@@ -27,9 +27,10 @@ namespace BD_Proiect
         public Action<MainWindow> exitButtonAction;
         public Action ordersButtonAction;
         public Action<MainWindow> signOutButtonAction;
+
         MasterUserControlGallery masterUserControlGallery;
         int userID;
-        bool userType;
+        int userType;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
@@ -42,11 +43,6 @@ namespace BD_Proiect
             this.userID = userID;
             setUser();
             masterUserControlGallery = new MasterUserControlGallery(mainGrid);
-            bool isVisible = false;
-            if(isVisible)
-                Employee_Button.Visibility = Visibility.Visible;
-            else
-                Employee_Button.Visibility = Visibility.Collapsed;
         }
 
         private void setUser()
@@ -57,8 +53,17 @@ namespace BD_Proiect
             DbDataReader reader = selectCMD.ExecuteReader();
             reader.Read();
             UsernameLabel.Content = reader.GetValue(1).ToString();
-            userType = Convert.ToBoolean(reader.GetValue(3));
+            userType = Convert.ToInt32(reader.GetValue(3));
             connection.Close();
+
+            if (userType == 1 || userType == 2)  
+                Employee_Button.Visibility = Visibility.Visible;
+            else
+                Employee_Button.Visibility = Visibility.Collapsed;
+            if (userType == 2)
+                AdminButton.Visibility = Visibility.Visible;
+            else
+                AdminButton.Visibility = Visibility.Collapsed;
         }
 
         private void Commands_Button_Click(object sender, RoutedEventArgs e)
@@ -68,7 +73,7 @@ namespace BD_Proiect
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
         {
-            masterUserControlGallery.newGallerySearch();
+            masterUserControlGallery.newGallerySearch(userID);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -88,6 +93,11 @@ namespace BD_Proiect
 
         private void Employee_Button_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void AdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            masterUserControlGallery.newAdminPage();
         }
     }
 }

@@ -20,9 +20,16 @@ namespace BD_Proiect.Orders
     /// </summary>
     public partial class OrderDetailsPage : UserControl
     {
-        public OrderDetailsPage()
+        public Action acceptOrder;
+        public Action<int> declineOrder;
+        public OrderDetailsPage(int userID,int operaID)
         {
             InitializeComponent();
+        }
+
+        private void declineButton_Click(object sender, RoutedEventArgs e)
+        {
+            declineOrder(-1);
         }
     }
 }
