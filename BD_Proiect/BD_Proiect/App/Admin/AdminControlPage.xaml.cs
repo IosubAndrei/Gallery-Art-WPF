@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Common;
 
 namespace BD_Proiect
 {
@@ -32,28 +33,21 @@ namespace BD_Proiect
         {
             InitializeComponent();
 
+            SqlCommand CMD = new SqlCommand(string.Format("SELECT table_name, table_type FROM information_schema.tables where table_type='BASE TABLE' ORDER BY table_name ASC;"), connection);
+            List<string> tabele = new List<string>();
+
             connection.Open();
 
-            DataTable dt = connection.GetSchema("Tables");
-            List<string> tables = new List<string>();
+            CMD.Connection = connection;
 
-            foreach (DataRow row in dt.Rows)
+            DbDataReader db = CMD.ExecuteReader();
+            while (db.Read())
             {
-                tables.Add((string)row[2]);
+                if (db.GetValue(0).ToString() != "sysdiagrams")
+                    tabele.Add(db.GetValue(0).ToString());
             }
             connection.Close();
-
-            TableComboBox.DataContext = tables;
-        }
-
-        private void AddRecord_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ModifyRecord_Click(object sender, RoutedEventArgs e)
-        {
-
+            TableComboBox.DataContext = tabele;
         }
 
         private void DeleteRecord_Click(object sender, RoutedEventArgs e)

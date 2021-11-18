@@ -11,10 +11,6 @@
         <DataGrid x:Name="DataGrid" ItemsSource="{Binding}" Margin="40,54,42,24" RowEditEnding="DataGrid_RowEditEnding">
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="AddRecord" Header="Add Record" Click="AddRecord_Click"/>
-                    <Separator/>
-                    <MenuItem x:Name="ModifyRecord" Header="Modify Record" Click="ModifyRecord_Click"/>
-                    <Separator/>
                     <MenuItem x:Name="DeleteRecord" Header="Delete Record" Click="DeleteRecord_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
