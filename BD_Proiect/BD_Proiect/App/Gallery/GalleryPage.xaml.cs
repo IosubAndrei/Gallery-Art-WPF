@@ -43,7 +43,7 @@ namespace BD_Proiect.Gallery
             connection.Open();
 
             CMD.Connection = connection;
-            CMD.CommandText = "SELECT ID_Galerie,Nume_Galerie,Adresa,Localitate,Cod_Postal FROM Galerii";
+            CMD.CommandText = "SELECT ID_Galerie,Nume_Galerie,Adresa,Localitate,Cod_Postal,Image FROM Galerii";
 
             DbDataReader db = CMD.ExecuteReader();
             while (db.Read())
@@ -54,7 +54,8 @@ namespace BD_Proiect.Gallery
                     Name = db.GetValue(1).ToString(),
                     Adress = db.GetValue(2).ToString(),
                     Localitate = db.GetValue(3).ToString(),
-                    Cod_Postal = (int)db.GetValue(4)
+                    Cod_Postal = (int)db.GetValue(4),
+                    ImageUrl = db.GetValue(5).ToString()
                 }) ;
             }
             //DA.SelectCommand = CMD;
@@ -85,5 +86,6 @@ namespace BD_Proiect.Gallery
         public string Adress { get; set; }
         public string Localitate { get; set; }
         public int Cod_Postal { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
