@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\IOSUB\\Documents\\ATM_Anul_III\\Semestrul_1\\Aplicatii Baze\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {}
+    "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {}
   },
   "projects": {
-    "C:\\Users\\IOSUB\\Documents\\ATM_Anul_III\\Semestrul_1\\Aplicatii Baze\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {
+    "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\IOSUB\\Documents\\ATM_Anul_III\\Semestrul_1\\Aplicatii Baze\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
+        "projectUniqueName": "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
         "projectName": "BD_Proiect",
-        "projectPath": "C:\\Users\\IOSUB\\Documents\\ATM_Anul_III\\Semestrul_1\\Aplicatii Baze\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
-        "packagesPath": "C:\\Users\\IOSUB\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\IOSUB\\Documents\\ATM_Anul_III\\Semestrul_1\\Aplicatii Baze\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\obj\\",
+        "projectPath": "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
+        "packagesPath": "C:\\Users\\savai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\IOSUB\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\savai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
