@@ -141,7 +141,7 @@ namespace BD_Proiect {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BD_Proiect;V1.0.0.0;component/login/login.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BD_Proiect;component/login/login.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Login\Login.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
