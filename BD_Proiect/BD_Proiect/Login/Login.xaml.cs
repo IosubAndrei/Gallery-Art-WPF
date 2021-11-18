@@ -53,8 +53,8 @@ namespace BD_Proiect
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             txtPassword.Text = passwordBox.Password;
-            passwordBox.Password = "Laurentiu";
-            txtUsername.Text = "Marian";
+            passwordBox.Password = "admin";
+            txtUsername.Text = "admin";
             passwordBox.Visibility = System.Windows.Visibility.Collapsed;
             txtPassword.Visibility = System.Windows.Visibility.Visible;
 
