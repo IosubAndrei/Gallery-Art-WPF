@@ -85,7 +85,7 @@
                             Cursor="Hand" 
                             Background="White" 
                             BorderThickness="0,0,1,1" 
-                            Margin="104,327,0,0" 
+                            Margin="104,317,0,0" 
                             Click="Exit_Button_Click" FontFamily="Nirmala UI" FontWeight="Bold"/>
                         <Button x:Name="Sign_Out_Button" 
                             Content="SIGN OUT" 
@@ -97,13 +97,13 @@
                             Cursor="Hand" 
                             Background="White" 
                             BorderThickness="1,1,0,0" 
-                            Margin="23,327,0,0" 
+                            Margin="23,317,0,0" 
                             Click="Sign_Out_Button_Click" FontWeight="Bold" FontFamily="Nirmala UI"/>
                         <Button 
                             x:Name="AdminButton"
                             Content="CHANGE DATABASE" 
                             HorizontalAlignment="Center" 
-                            Margin="0,281,0,0"
+                            Margin="0,271,0,0"
                             Foreground="WHITE" 
                             Background="#FFFD2A2A"
                             FontWeight="Bold" 

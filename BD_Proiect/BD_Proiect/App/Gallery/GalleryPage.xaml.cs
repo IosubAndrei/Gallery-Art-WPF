@@ -58,10 +58,6 @@ namespace BD_Proiect.Gallery
                     ImageUrl = db.GetValue(5).ToString()
                 }) ;
             }
-            //DA.SelectCommand = CMD;
-            //DS.Clear();
-            //DA.Fill(DS, currentTableName);
-            //GalleryDataGrid.ItemsSource = DS.Tables[currentTableName].DefaultView;
             GalleryDataGrid.ItemsSource = galerii;
 
             connection.Close();
