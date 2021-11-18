@@ -14,18 +14,26 @@ namespace BD_Proiect
         Gallery.ExpositionsPage expositionsPage;
         Gallery.PaintingsPage paintingsPage;
         Orders.OrderDetailsPage orderDetailsPage;
+        AdminControlPage adminControlPage;
 
         int _galleryID = -1;
         int _expositionID = -1;
+        int _userID = -1;
 
         public MasterUserControlGallery(Grid mainGrid)
         {
             masterGrid = mainGrid;
             newStartUp();
         }
-
-        public void newGallerySearch()
+        public void newAdminPage()
         {
+            adminControlPage = new AdminControlPage();
+            masterGrid.Children.Clear();
+            masterGrid.Children.Add(adminControlPage);
+        }
+        public void newGallerySearch(int userID)
+        {
+            _userID = userID;
             galleryPage = new Gallery.GalleryPage();
             expositionsPage = new Gallery.ExpositionsPage();
             paintingsPage = new Gallery.PaintingsPage();
@@ -39,9 +47,9 @@ namespace BD_Proiect
             masterGrid.Children.Add(startUpPage);
         }
 
-        private void newOrderDetails()
+        private void newOrderDetails(int operaID)
         {
-            orderDetailsPage=new Orders.OrderDetailsPage();
+            orderDetailsPage=new Orders.OrderDetailsPage(_userID,operaID);
             masterGrid.Children.Clear();
             masterGrid.Children.Add(orderDetailsPage);
             orderDetailsPage.declineOrder += newPaintings;

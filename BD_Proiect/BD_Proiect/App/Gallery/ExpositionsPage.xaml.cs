@@ -59,10 +59,7 @@ namespace BD_Proiect.Gallery
                         dataSfarsit = db.GetValue(3).ToString()
                     });
                 }
-                //DA.SelectCommand = CMD;
-                //DS.Clear();
-                //DA.Fill(DS, currentTableName);
-                //GalleryDataGrid.ItemsSource = DS.Tables[currentTableName].DefaultView;
+
                 ExpositionsDataGrid.ItemsSource = expozitii;
 
                 connection.Close();

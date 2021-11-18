@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace BD_Proiect.Gallery
 {
@@ -23,7 +24,7 @@ namespace BD_Proiect.Gallery
     public partial class PaintingsPage : UserControl
     {
         public Action<int> backToExpositions;
-        public Action newOrderPage;
+        public Action<int> newOrderPage;
         public Action backToGallery;
 
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
@@ -38,14 +39,28 @@ namespace BD_Proiect.Gallery
 
         public void table(int expositionID)
         {
-            SqlCommand sqlCommand = new SqlCommand(string.Format("SELECT Nume, [Pret(RON)] FROM Opere_De_Arta AS O INNER JOIN Expozitii_Opere_De_Arta AS EO ON O.ID_Opera = EO.ID_Opera WHERE EO.ID_Expozitie = {0}", expositionID), connection);
+            SqlCommand CMD = new SqlCommand(string.Format("SELECT O.ID_Opera, O.ID_Autor, O.Nume,O.An, O.[Pret(RON)],O.Detalii FROM Opere_De_Arta AS O INNER JOIN Expozitii_Opere_De_Arta AS EO ON O.ID_Opera = EO.ID_Opera WHERE EO.ID_Expozitie = {0}", expositionID), connection);
+            List<Opera> expozitii = new List<Opera>();
 
-            DA.SelectCommand = sqlCommand;
             connection.Open();
 
-            DS.Clear();
-            DA.Fill(DS, "Opere_De_Arta");
-            PaintingsDataGrid.ItemsSource = DS.Tables["Opere_De_Arta"].DefaultView;
+            CMD.Connection = connection;
+
+            DbDataReader db = CMD.ExecuteReader();
+            while (db.Read())
+            {
+                expozitii.Add(new Opera()
+                {
+                    ID = (int)db.GetValue(0),
+                    IDAutor = db.GetValue(1).ToString(),
+                    Name = db.GetValue(2).ToString(),
+                    An = db.GetValue(3).ToString(),
+                    Pret=db.GetValue(4).ToString(),
+                    Detalii=db.GetValue(5).ToString()
+                });
+            }
+            PaintingsDataGrid.ItemsSource = expozitii;
+
             connection.Close();
         }
 
@@ -61,7 +76,18 @@ namespace BD_Proiect.Gallery
 
         private void PaintingsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            newOrderPage();
+            Opera exposition = (Opera)PaintingsDataGrid.SelectedItem;
+            newOrderPage(exposition.ID);
         }
+    }
+    public class Opera
+    {
+        public int ID { get; set; }
+        public string IDAutor { get; set; }
+        public string Name { get; set; }
+        public string An { get; set; }
+        public string Pret { get; set; }
+
+        public string Detalii { get; set; }
     }
 }

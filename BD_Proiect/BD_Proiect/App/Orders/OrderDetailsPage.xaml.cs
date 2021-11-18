@@ -22,7 +22,7 @@ namespace BD_Proiect.Orders
     {
         public Action acceptOrder;
         public Action<int> declineOrder;
-        public OrderDetailsPage()
+        public OrderDetailsPage(int userID,int operaID)
         {
             InitializeComponent();
         }
