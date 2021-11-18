@@ -33,7 +33,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="6,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="5,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
         <Label x:Name="labelPassword" Content="Password" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
@@ -44,13 +44,13 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <CheckBox x:Name="checkbxShowPassword" Content="Show Password" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4,0,0,0" BorderThickness="1,1,1,1" Cursor="Hand" Checked="checkbxShowPassword_Checked" Grid.Column="1" Unchecked="checkbxShowPassword_Unchecked">
+        <CheckBox x:Name="checkbxShowPassword" Content="Show Password" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="4,0,0,0" BorderThickness="1,1,1,1" Cursor="Hand" Checked="checkbxShowPassword_Checked" Grid.Column="1" Unchecked="checkbxShowPassword_Unchecked" Margin="0,268,0,0">
             <CheckBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </CheckBox.Foreground>
         </CheckBox>
-        <Button x:Name="registerButton" Content="REGISTER" HorizontalAlignment="Center" Margin="0,286,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="White" Cursor="Hand" Background="#FF7456AE" BorderThickness="0,0,0,0" Grid.ColumnSpan="2" Click="Button_Click_2"/>
-        <Button Content="CLEAR" HorizontalAlignment="Center" Margin="0,326,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="#FF7456AE" Cursor="Hand" Background="White" BorderThickness="1,1,1,1" Grid.ColumnSpan="2" Click="Button_Click_1"/>
+        <Button x:Name="registerButton" Content="REGISTER" HorizontalAlignment="Left" Margin="21,319,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="White" Cursor="Hand" Background="#FF7456AE" BorderThickness="0,0,0,0" Grid.ColumnSpan="2" Click="Button_Click_2"/>
+        <Button Content="CLEAR" HorizontalAlignment="Left" Margin="21,359,0,0" VerticalAlignment="Top" Width="216" Height="35" Foreground="#FF7456AE" Cursor="Hand" Background="White" BorderThickness="1,1,1,1" Grid.ColumnSpan="2" Click="Button_Click_1"/>
         <Label Content="Already have an Account?" HorizontalAlignment="Center" Margin="0,407,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
@@ -59,12 +59,18 @@
         <Label x:Name="labelBackToLogin" Content="Back to LOGIN" HorizontalAlignment="Center" Margin="0,435,0,0" VerticalAlignment="Top" Foreground="#FF7456AE" Cursor="Hand" Grid.ColumnSpan="2" MouseLeftButtonUp="BackToLogin_MouseLeftButtonUp"/>
         <TextBox x:Name="txtPassword" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="5,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0"/>
         <TextBox x:Name="txtConfirmPassword" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="6,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="28" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="6,123,0,0" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
-        <PasswordBox x:Name="confirmPasswordBox" HorizontalAlignment="Left" Margin="6,179,0,0" VerticalAlignment="Top" Width="232" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
-        <CheckBox x:Name="checkbxAngajat" Content="Angajat" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Center" Checked="checkbxAngajat_Checked">
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="5,123,0,0" VerticalAlignment="Top" Width="233" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="confirmPasswordBox" HorizontalAlignment="Left" Margin="5,179,0,0" VerticalAlignment="Top" Width="233" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="checkbxAngajat" Content="Angajat" HorizontalAlignment="Left" Margin="6,268,0,0" VerticalAlignment="Top" Checked="checkbxAngajat_Checked">
             <CheckBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
             </CheckBox.Foreground>
         </CheckBox>
+        <Label x:Name="labelCNP" Content="CNP" HorizontalAlignment="Left" Margin="0,212,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <TextBox x:Name="CNPTextBox" HorizontalAlignment="Left" Margin="5,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Height="28" HorizontalContentAlignment="Left" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Normal" Background="#FFE6E7E9" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
