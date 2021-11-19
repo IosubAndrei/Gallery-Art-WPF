@@ -71,6 +71,7 @@ namespace BD_Proiect
 
             string username = txtUsername.Text;
             string password = passwordBox.Password.ToString();
+            string CNP = CNPTextBox.Text;
 
             if (txtUsername.Text == "" && passwordBox.Password == "" && confirmPasswordBox.Password == "" || passwordBox.Password == "" || passwordBox.Password == "" && confirmPasswordBox.Password == "" || txtUsername.Text == "")
             {
@@ -88,7 +89,7 @@ namespace BD_Proiect
                     {
                         con.Open();
                         insertCMD.Connection = con;
-                        insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "')";
+                        insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "', '" + CNP + "')";
                         insertCMD.ExecuteNonQuery();
                         con.Close();
 
