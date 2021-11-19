@@ -9,11 +9,11 @@
     <Grid>
         <DataGrid x:Name="PaintingsDataGrid" Margin="18,10,18,104" AlternatingRowBackground="#FFB3A4D1" BorderBrush="#FF724EB6" MouseDoubleClick="PaintingsDataGrid_MouseDoubleClick"/>
         <Button x:Name="GallerysButton" 
-                            Content="BACK TO GALLERYS" 
+                            Content="GALLERYS" 
                             HorizontalAlignment="Left" 
                             Margin="13,373,0,0" 
                             VerticalAlignment="Top" 
-                            Width="304" 
+                            Width="306" 
                             Height="50" 
                             Foreground="White" 
                             Cursor="Hand" 
@@ -21,16 +21,16 @@
                             BorderThickness="0,0,0,0" 
                             Click="GallerysButton_Click" FontFamily="Nirmala UI" FontWeight="Bold"/>
         <Button x:Name="ExpositionsButton" 
-            Content="BACK TO EXPOSITIONS" 
+            Content="EXPOSITIONS" 
             HorizontalAlignment="Left" 
             Margin="329,373,0,0" 
             VerticalAlignment="Top" 
             Width="304" 
             Height="50" 
-            Foreground="#FF7456AE" 
+            Foreground="White" 
             Cursor="Hand" 
-            Background="White" 
-            BorderThickness="1,1,0,0" 
+            Background="#FF7456AE" 
+            BorderThickness="0,0,0,0" 
             Click="ExpositionsButton_Click" FontFamily="Nirmala UI" FontWeight="Bold"/>
     </Grid>
 </UserControl>

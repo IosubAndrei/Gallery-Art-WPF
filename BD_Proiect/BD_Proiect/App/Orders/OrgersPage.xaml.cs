@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace BD_Proiect.Orders
 {
-    /// <summary>
-    /// Interaction logic for OrgersPage.xaml
-    /// </summary>
     public partial class OrgersPage : UserControl
     {
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
