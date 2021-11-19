@@ -39,6 +39,7 @@ namespace BD_Proiect
             Register registerPage = new Register();
             registerPage.Show();
             registerPage.backToLoginButtonAction += openLoginPage;
+            registerPage.registerButtonAction += openLoginPage;
             registerPage.exitButtonAction += closeApp;
         }
         private void newMain(int userID)

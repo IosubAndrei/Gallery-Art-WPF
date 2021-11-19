@@ -58,10 +58,10 @@ namespace BD_Proiect
             DbDataReader db = CMD.ExecuteReader();
             if (db.Read())
             {
+                con.Close();
                 return false;
             }
             con.Close();
-
             return true; 
         }
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MaterialeanulIII\\Aplicatii Baze de Date\\Git Repo\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {}
+    "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {}
   },
   "projects": {
-    "D:\\MaterialeanulIII\\Aplicatii Baze de Date\\Git Repo\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {
+    "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MaterialeanulIII\\Aplicatii Baze de Date\\Git Repo\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
+        "projectUniqueName": "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
         "projectName": "BD_Proiect",
-        "projectPath": "D:\\MaterialeanulIII\\Aplicatii Baze de Date\\Git Repo\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
-        "packagesPath": "C:\\Users\\roiur\\.nuget\\packages\\",
-        "outputPath": "D:\\MaterialeanulIII\\Aplicatii Baze de Date\\Git Repo\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\obj\\",
+        "projectPath": "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\BD_Proiect.csproj",
+        "packagesPath": "C:\\Users\\savai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\savai\\Desktop\\Git Repository\\Gallery-Art-WPF\\BD_Proiect\\BD_Proiect\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\roiur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\savai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
