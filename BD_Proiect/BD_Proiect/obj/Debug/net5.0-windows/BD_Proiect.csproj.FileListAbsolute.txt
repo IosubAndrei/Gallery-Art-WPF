@@ -138,3 +138,7 @@ C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.csproj.CopyComplete
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.g.cs
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.baml
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.g.cs
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.g.cs
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.baml
+C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Orders\OrderDetailsPage.baml

@@ -45,7 +45,7 @@
         <TextBox x:Name="telefonTextBox" HorizontalAlignment="Left" Margin="457,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
         <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Margin="457,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
         <TextBox x:Name="locTextBox" HorizontalAlignment="Left" Margin="457,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="0,0,0,1"/>
-        <Image HorizontalAlignment="Left" Height="131" Margin="73,124,0,0" VerticalAlignment="Top" Width="126"/>
+        <Image x:Name="ImageGrid" HorizontalAlignment="Left" Height="214" Margin="49,124,0,0" VerticalAlignment="Top" Width="190" Source="{Binding ImageURL}"/>
 
     </Grid>
 </UserControl>
