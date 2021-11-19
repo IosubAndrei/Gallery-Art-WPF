@@ -138,3 +138,6 @@ C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.csproj.CopyComplete
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.g.cs
 C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.baml
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.g.cs
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\App\Admin\AdminControlPage.baml
+D:\MaterialeanulIII\Aplicatii Baze de Date\Git Repo\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\BD_Proiect.csproj.CopyComplete
