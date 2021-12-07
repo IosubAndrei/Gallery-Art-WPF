@@ -33,9 +33,9 @@ namespace BD_Proiect
     partial void InsertAngajati(Angajati instance);
     partial void UpdateAngajati(Angajati instance);
     partial void DeleteAngajati(Angajati instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
+    partial void InsertUser_(User_ instance);
+    partial void UpdateUser_(User_ instance);
+    partial void DeleteUser_(User_ instance);
     partial void InsertAutor(Autor instance);
     partial void UpdateAutor(Autor instance);
     partial void DeleteAutor(Autor instance);
@@ -103,11 +103,11 @@ namespace BD_Proiect
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
+		public System.Data.Linq.Table<User_> User_s
 		{
 			get
 			{
-				return this.GetTable<User>();
+				return this.GetTable<User_>();
 			}
 		}
 		
@@ -431,7 +431,7 @@ namespace BD_Proiect
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class User_ : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -464,7 +464,7 @@ namespace BD_Proiect
     partial void OnCNPChanged();
     #endregion
 		
-		public User()
+		public User_()
 		{
 			this._Comenzis = new EntitySet<Comenzi>(new Action<Comenzi>(this.attach_Comenzis), new Action<Comenzi>(this.detach_Comenzis));
 			OnCreated();
@@ -606,13 +606,13 @@ namespace BD_Proiect
 		private void attach_Comenzis(Comenzi entity)
 		{
 			this.SendPropertyChanging();
-			entity.User = this;
+			entity.User_ = this;
 		}
 		
 		private void detach_Comenzis(Comenzi entity)
 		{
 			this.SendPropertyChanging();
-			entity.User = null;
+			entity.User_ = null;
 		}
 	}
 	
@@ -1006,7 +1006,7 @@ namespace BD_Proiect
 		
 		private EntityRef<Clienti> _Clienti;
 		
-		private EntityRef<User> _User;
+		private EntityRef<User_> _User;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1027,7 +1027,7 @@ namespace BD_Proiect
 		public Comenzi()
 		{
 			this._Clienti = default(EntityRef<Clienti>);
-			this._User = default(EntityRef<User>);
+			this._User = default(EntityRef<User_>);
 			OnCreated();
 		}
 		
@@ -1174,7 +1174,7 @@ namespace BD_Proiect
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comenzi", Storage="_User", ThisKey="ID_User", OtherKey="ID", IsForeignKey=true)]
-		public User User
+		public User_ User_
 		{
 			get
 			{
@@ -1182,7 +1182,7 @@ namespace BD_Proiect
 			}
 			set
 			{
-				User previousValue = this._User.Entity;
+				User_ previousValue = this._User.Entity;
 				if (((previousValue != value) 
 							|| (this._User.HasLoadedOrAssignedValue == false)))
 				{
@@ -1202,7 +1202,7 @@ namespace BD_Proiect
 					{
 						this._ID_User = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("User");
+					this.SendPropertyChanged("User_");
 				}
 			}
 		}

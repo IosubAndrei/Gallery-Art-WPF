@@ -12,8 +12,8 @@
       <Association Name="Angajati_Functii_Angajati" Member="Functii_Angajatis" ThisKey="ID_Angajat" OtherKey="ID_Angajat" Type="Functii_Angajati" />
     </Type>
   </Table>
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
+  <Table Name="dbo.Users" Member="User_s">
+    <Type Name="User_">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
@@ -51,7 +51,7 @@
       <Column Name="ID_User" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Comenzi_Comenzi_Opere_De_Arta" Member="Comenzi_Opere_De_Artas" ThisKey="ID_Comanda" OtherKey="ID_Comenzi" Type="Comenzi_Opere_De_Arta" />
       <Association Name="Clienti_Comenzi" Member="Clienti" ThisKey="ID_Client" OtherKey="ID_Client" Type="Clienti" IsForeignKey="true" />
-      <Association Name="User_Comenzi" Member="User" ThisKey="ID_User" OtherKey="ID" Type="User" IsForeignKey="true" />
+      <Association Name="User_Comenzi" Member="User_" Storage="_User" ThisKey="ID_User" OtherKey="ID" Type="User_" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Comenzi_Opere_De_Arta" Member="Comenzi_Opere_De_Artas">
