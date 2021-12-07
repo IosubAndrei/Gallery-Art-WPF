@@ -19,13 +19,11 @@ namespace BD_Proiect
 {
     public partial class Register : Window
     {
+        appDBDataContext db = new appDBDataContext();
+
         public Action<Register> backToLoginButtonAction;
         public Action<Register> exitButtonAction;
         public Action<Register> registerButtonAction;
-
-        SqlConnection con = new SqlConnection("Server=.;Database=BD_Proiect;Trusted_Connection=true");
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter da = new SqlDataAdapter();
 
         int esteAngajat = 0;
 
@@ -42,6 +40,7 @@ namespace BD_Proiect
 
             passwordBox.Password = "";
             confirmPasswordBox.Password = "";
+            CNPTextBox.Text = "";
 
             checkbxAngajat.IsChecked = false;
             checkbxShowPassword.IsChecked = false;
@@ -49,29 +48,16 @@ namespace BD_Proiect
 
         private bool verify(string username)
         {
-            SqlCommand CMD = new SqlCommand(string.Format("SELECT * FROM Users WHERE Username= '{0}'", username), con);
-
-            con.Open();
-
-            CMD.Connection = con;
-
-            DbDataReader db = CMD.ExecuteReader();
-            if (db.Read())
-            {
-                con.Close();
+            var user = (from useri in db.Users
+                        where useri.Username == txtUsername.Text
+                        select useri.ID).FirstOrDefault();
+            if (user!=0)
                 return false;
-            }
-            con.Close();
             return true;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        public void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            SqlCommand insertCMD = new SqlCommand();
-
-            string username = txtUsername.Text;
-            string password = passwordBox.Password.ToString();
-            string CNP = CNPTextBox.Text;
 
             if (txtUsername.Text == "" && passwordBox.Password == "" && confirmPasswordBox.Password == "" || passwordBox.Password == "" || passwordBox.Password == "" && confirmPasswordBox.Password == "" || txtUsername.Text == "")
             {
@@ -79,7 +65,7 @@ namespace BD_Proiect
             }
             else
             {
-                if (!verify(username))
+                if (!verify(txtUsername.Text))
                 {
 
                     MessageBox.Show("User already exists!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -87,11 +73,33 @@ namespace BD_Proiect
                 }
                 else if (passwordBox.Password == confirmPasswordBox.Password && txtPassword.Text == txtConfirmPassword.Text)
                 {
-                    con.Open();
-                    insertCMD.Connection = con;
-                    insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "', '" + CNP + "')";
-                    insertCMD.ExecuteNonQuery();
-                    con.Close();
+                    if(checkbxAngajat.IsChecked == true)
+                    {
+                        if(CNPTextBox.Text.Length!=13)
+                        {
+                            MessageBox.Show("Invalid CNP!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                            reset();
+                            return;
+                        }
+                        var angajat=(from angajati in db.Angajatis
+                                     where angajati.CNP==CNPTextBox.Text
+                                     select angajati).FirstOrDefault();
+                        if (angajat == null)
+                        {
+                            MessageBox.Show("Employee does not exists!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                            reset();
+                            return;
+                        }
+                    } 
+                    var newUser = new User
+                    {
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Text,
+                        UserType = esteAngajat,
+                        CNP = CNPTextBox.Text
+                    };
+                    db.Users.InsertOnSubmit(newUser);
+                    db.SubmitChanges();
 
                     reset();
 

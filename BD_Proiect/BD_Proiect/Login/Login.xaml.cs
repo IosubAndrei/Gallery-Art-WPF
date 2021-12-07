@@ -23,31 +23,17 @@ namespace BD_Proiect
     /// </summary>
     public partial class Login : Window
     {
+        public appDBDataContext db=new appDBDataContext();
+
         public Action<Login> registerButtonAction;
         public Action<Login, int> loginButtonAction;
         public Action<Login> exitButtonAction;
         public int ID { get; set; }
 
-        static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
-        SqlConnection connection = new SqlConnection(connectionString);
-        DataSet DS = new DataSet();
-        SqlDataAdapter DA = new SqlDataAdapter();
-
         public SecureString SecurePassword { private get; set; }
         public Login()
         {
             InitializeComponent();
-
-            connection.Open();
-
-            DataTable dt = connection.GetSchema("Tables");
-            List<string> tables = new List<string>();
-
-            foreach(DataRow row in dt.Rows)
-            {
-                tables.Add((string)row[2]);
-            }
-            connection.Close();
         }
 
         private void checkbxShowPassword_Checked(object sender, RoutedEventArgs e)
@@ -71,9 +57,7 @@ namespace BD_Proiect
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if(this.DataContext != null)
-            {
                 ((dynamic)this.DataContext).SecurePassword = ((PasswordBox)sender).Password;
-            }
         }
 
         private void registerButton_Click(object sender, RoutedEventArgs e)
@@ -83,44 +67,26 @@ namespace BD_Proiect
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            string user = txtUsername.Text;
-            string pass = passwordBox.Password.ToString();
 
             if (txtUsername.Text == "" && passwordBox.Password == "")
-            {
                 MessageBox.Show("Username and Password fields are empty!", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
 
-            SqlCommand selectCMD = new SqlCommand();
-            
-            connection.Open();
-            selectCMD.Connection = connection;
-            selectCMD.CommandText = "SELECT * FROM Users WHERE Username='" + user +
-                "' AND Password='" + pass + "'";
+            var user=(from useri in db.Users
+                      where useri.Username == txtUsername.Text
+                      select useri.ID).FirstOrDefault();
 
-            DbDataReader reader = selectCMD.ExecuteReader();
-            User user1 = new User();
-            if (reader.Read())
+            if(user == 0)
+                System.Windows.MessageBox.Show("Invalid Login please check username and password");
+            else
             {
                 System.Windows.MessageBox.Show("Login succesful!");
-                loginButtonAction(this, Convert.ToInt32(reader.GetValue(0)));
+                loginButtonAction(this, user);
             }
-            else
-                System.Windows.MessageBox.Show("Invalid Login please check username and password");
-
-                connection.Close();
         }
 
         private void Login1_Closed(object sender, EventArgs e)
         {
             exitButtonAction(this);
         }
-    }
-
-    public class User
-    {
-        public int ID { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
     }
 }

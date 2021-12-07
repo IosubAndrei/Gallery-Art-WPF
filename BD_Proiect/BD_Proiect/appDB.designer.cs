@@ -23,7 +23,7 @@ namespace BD_Proiect
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BD_Proiect")]
-	public partial class DataClasses2DataContext : System.Data.Linq.DataContext
+	public partial class appDBDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -33,9 +33,9 @@ namespace BD_Proiect
     partial void InsertAngajati(Angajati instance);
     partial void UpdateAngajati(Angajati instance);
     partial void DeleteAngajati(Angajati instance);
-    partial void InsertUser_(User_ instance);
-    partial void UpdateUser_(User_ instance);
-    partial void DeleteUser_(User_ instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     partial void InsertAutor(Autor instance);
     partial void UpdateAutor(Autor instance);
     partial void DeleteAutor(Autor instance);
@@ -65,31 +65,31 @@ namespace BD_Proiect
     partial void DeleteOpere_De_Arta(Opere_De_Arta instance);
     #endregion
 		
-		public DataClasses2DataContext() : 
+		public appDBDataContext() : 
 				base(global::BD_Proiect.Properties.Settings.Default.BD_ProiectConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses2DataContext(string connection) : 
+		public appDBDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses2DataContext(System.Data.IDbConnection connection) : 
+		public appDBDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses2DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public appDBDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses2DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public appDBDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -103,11 +103,11 @@ namespace BD_Proiect
 			}
 		}
 		
-		public System.Data.Linq.Table<User_> User_s
+		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
-				return this.GetTable<User_>();
+				return this.GetTable<User>();
 			}
 		}
 		
@@ -431,7 +431,7 @@ namespace BD_Proiect
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User_ : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -464,7 +464,7 @@ namespace BD_Proiect
     partial void OnCNPChanged();
     #endregion
 		
-		public User_()
+		public User()
 		{
 			this._Comenzis = new EntitySet<Comenzi>(new Action<Comenzi>(this.attach_Comenzis), new Action<Comenzi>(this.detach_Comenzis));
 			OnCreated();
@@ -570,7 +570,7 @@ namespace BD_Proiect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comenzi", Storage="_Comenzis", ThisKey="ID", OtherKey="ID_User")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User__Comenzi", Storage="_Comenzis", ThisKey="ID", OtherKey="ID_User")]
 		public EntitySet<Comenzi> Comenzis
 		{
 			get
@@ -606,13 +606,13 @@ namespace BD_Proiect
 		private void attach_Comenzis(Comenzi entity)
 		{
 			this.SendPropertyChanging();
-			entity.User_ = this;
+			entity.User = this;
 		}
 		
 		private void detach_Comenzis(Comenzi entity)
 		{
 			this.SendPropertyChanging();
-			entity.User_ = null;
+			entity.User = null;
 		}
 	}
 	
@@ -1006,7 +1006,7 @@ namespace BD_Proiect
 		
 		private EntityRef<Clienti> _Clienti;
 		
-		private EntityRef<User_> _User;
+		private EntityRef<User> _User_;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1027,7 +1027,7 @@ namespace BD_Proiect
 		public Comenzi()
 		{
 			this._Clienti = default(EntityRef<Clienti>);
-			this._User = default(EntityRef<User_>);
+			this._User_ = default(EntityRef<User>);
 			OnCreated();
 		}
 		
@@ -1126,7 +1126,7 @@ namespace BD_Proiect
 			{
 				if ((this._ID_User != value))
 				{
-					if (this._User.HasLoadedOrAssignedValue)
+					if (this._User_.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1173,26 +1173,26 @@ namespace BD_Proiect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comenzi", Storage="_User", ThisKey="ID_User", OtherKey="ID", IsForeignKey=true)]
-		public User_ User_
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User__Comenzi", Storage="_User_", ThisKey="ID_User", OtherKey="ID", IsForeignKey=true)]
+		public User User
 		{
 			get
 			{
-				return this._User.Entity;
+				return this._User_.Entity;
 			}
 			set
 			{
-				User_ previousValue = this._User.Entity;
+				User previousValue = this._User_.Entity;
 				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
+							|| (this._User_.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._User.Entity = null;
+						this._User_.Entity = null;
 						previousValue.Comenzis.Remove(this);
 					}
-					this._User.Entity = value;
+					this._User_.Entity = value;
 					if ((value != null))
 					{
 						value.Comenzis.Add(this);
@@ -1202,7 +1202,7 @@ namespace BD_Proiect
 					{
 						this._ID_User = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("User_");
+					this.SendPropertyChanged("User");
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_Proiect" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_Proiect" Class="appDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=BD_Proiect;Integrated Security=True" SettingsObjectName="BD_Proiect.Properties.Settings" SettingsPropertyName="BD_ProiectConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Angajati" Member="Angajatis">
     <Type Name="Angajati">
@@ -12,14 +12,14 @@
       <Association Name="Angajati_Functii_Angajati" Member="Functii_Angajatis" ThisKey="ID_Angajat" OtherKey="ID_Angajat" Type="Functii_Angajati" />
     </Type>
   </Table>
-  <Table Name="dbo.Users" Member="User_s">
-    <Type Name="User_">
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="UserType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CNP" Type="System.String" DbType="Char(13)" CanBeNull="true" />
-      <Association Name="User_Comenzi" Member="Comenzis" ThisKey="ID" OtherKey="ID_User" Type="Comenzi" />
+      <Association Name="User__Comenzi" Member="Comenzis" ThisKey="ID" OtherKey="ID_User" Type="Comenzi" />
     </Type>
   </Table>
   <Table Name="dbo.Autor" Member="Autors">
@@ -51,7 +51,7 @@
       <Column Name="ID_User" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Comenzi_Comenzi_Opere_De_Arta" Member="Comenzi_Opere_De_Artas" ThisKey="ID_Comanda" OtherKey="ID_Comenzi" Type="Comenzi_Opere_De_Arta" />
       <Association Name="Clienti_Comenzi" Member="Clienti" ThisKey="ID_Client" OtherKey="ID_Client" Type="Clienti" IsForeignKey="true" />
-      <Association Name="User_Comenzi" Member="User_" Storage="_User" ThisKey="ID_User" OtherKey="ID" Type="User_" IsForeignKey="true" />
+      <Association Name="User__Comenzi" Member="User" Storage="_User_" ThisKey="ID_User" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Comenzi_Opere_De_Arta" Member="Comenzi_Opere_De_Artas">

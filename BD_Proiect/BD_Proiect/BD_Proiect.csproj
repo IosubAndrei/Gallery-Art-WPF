@@ -56,6 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="appDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>appDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="App\Admin\AdminControlPage.xaml.cs">
       <DependentUpon>AdminControlPage.xaml</DependentUpon>
     </Compile>
@@ -80,11 +85,6 @@
     </Compile>
     <Compile Include="App\StartUp\StartUpPage.xaml.cs">
       <DependentUpon>StartUpPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataClasses2.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses2.dbml</DependentUpon>
     </Compile>
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -164,13 +164,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DataClasses2.dbml">
+    <None Include="appDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses2.designer.cs</LastGenOutput>
+      <LastGenOutput>appDB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataClasses2.dbml.layout">
-      <DependentUpon>DataClasses2.dbml</DependentUpon>
+    <None Include="appDB.dbml.layout">
+      <DependentUpon>appDB.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
