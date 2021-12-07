@@ -24,7 +24,7 @@ namespace BD_Proiect
             InitializeComponent();
             this.Hide();
             newLogin();
-            
+
         }
         private void newLogin()
         {

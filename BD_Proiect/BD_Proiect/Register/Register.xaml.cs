@@ -42,7 +42,7 @@ namespace BD_Proiect
 
             passwordBox.Password = "";
             confirmPasswordBox.Password = "";
-            
+
             checkbxAngajat.IsChecked = false;
             checkbxShowPassword.IsChecked = false;
         }
@@ -62,7 +62,7 @@ namespace BD_Proiect
                 return false;
             }
             con.Close();
-            return true; 
+            return true;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -86,28 +86,28 @@ namespace BD_Proiect
                     reset();
                 }
                 else if (passwordBox.Password == confirmPasswordBox.Password && txtPassword.Text == txtConfirmPassword.Text)
-                    {
-                        con.Open();
-                        insertCMD.Connection = con;
-                        insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "', '" + CNP + "')";
-                        insertCMD.ExecuteNonQuery();
-                        con.Close();
+                {
+                    con.Open();
+                    insertCMD.Connection = con;
+                    insertCMD.CommandText = "INSERT INTO Users VALUES ('" + username + "','" + password + "','" + esteAngajat + "', '" + CNP + "')";
+                    insertCMD.ExecuteNonQuery();
+                    con.Close();
 
-                        reset();
+                    reset();
 
-                        MessageBox.Show("Your Account has been Successfully Created!", "Registration Success!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        registerButtonAction(this);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Your Account has been Successfully Created!", "Registration Success!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    registerButtonAction(this);
+                }
+                else
+                {
+                    MessageBox.Show("Passwords does not match, please re-enter", "Registration Failed!", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                        reset();
+                    reset();
 
-                        txtUsername.Focus();
-                    }
+                    txtUsername.Focus();
+                }
             }
-            
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -155,7 +155,7 @@ namespace BD_Proiect
 
         private void checkbxAngajat_Checked(object sender, RoutedEventArgs e)
         {
-            if(checkbxAngajat.IsChecked == true)
+            if (checkbxAngajat.IsChecked == true)
             {
                 esteAngajat = 1;
             }
@@ -163,7 +163,7 @@ namespace BD_Proiect
 
         private void checkbxAngajat_Unchecked(object sender, RoutedEventArgs e)
         {
-            if(checkbxAngajat.IsChecked == false)
+            if (checkbxAngajat.IsChecked == false)
             {
                 esteAngajat = 0;
             }
