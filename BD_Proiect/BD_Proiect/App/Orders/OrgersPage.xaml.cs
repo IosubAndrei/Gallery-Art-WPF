@@ -20,6 +20,7 @@ namespace BD_Proiect.Orders
 {
     public partial class OrgersPage : UserControl
     {
+        appDBDataContext db=new appDBDataContext();
         static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
@@ -29,38 +30,44 @@ namespace BD_Proiect.Orders
         {
             InitializeComponent();
 
-            SqlCommand CMD = new SqlCommand();
-            List<Orders> comenzi = new List<Orders>();
+            var comenziUser=(from comenzi in db.Comenzis
+                         join useri in db.Users on comenzi.ID_User equals useri.ID
+                         join comenziOpere in db.Comenzi_Opere_De_Artas on comenzi.ID_Comanda equals comenziOpere.ID_Comenzi
+                         join opere in db.Opere_De_Artas on comenziOpere.ID_Opera equals opere.ID_Opera
+                         join clienti in db.Clientis on comenzi.ID_Client equals clienti.ID_Client
+                         where useri.ID==userID
+                         select new
+                         {
+                             numeOpera=opere.Nume,
+                             idOpera=opere.ID_Opera,
+                             anOpera=opere.An,
+                             pretOpera=opere.Pret_RON_,
+                             detaliiOpera=opere.Detalii,
+                             dLivrare=comenzi.Data_Livrare,
+                             dPlasare=comenzi.Data_Plasare,
+                             numeClient=clienti.Nume+clienti.Prenume,
+                             numarClient=clienti.Numar_Telefon,
+                             adresaClient=clienti.Adresa
+                         }).ToList();
 
-            connection.Open();
-
-            CMD.Connection = connection;
-            CMD.CommandText = "SELECT O.Nume,C.Data_Livrare,C.Data_Plasare,O.An,O.[Pret(RON)],O.Detalii," +
-                "CONCAT(CL.Nume,CL.Prenume),CL.Numar_Telefon,CL.Adresa " +
-                "FROM Comenzi AS C INNER JOIN Users AS U ON C.ID_User=U.ID INNER JOIN Comenzi_Opere_De_Arta AS CO" +
-                " ON C.ID_Comanda=CO.ID_Comenzi INNER JOIN Opere_De_Arta AS O" +
-                " ON CO.ID_Opera=O.ID_Opera INNER JOIN Clienti AS CL ON C.ID_Client=CL.ID_Client WHERE U.ID=@userID";
-            CMD.Parameters.AddWithValue("@userID", userID);
-
-            DbDataReader db = CMD.ExecuteReader();
-            while (db.Read())
+            List<Orders> orderList = new List<Orders>();
+            foreach (var comenzi in comenziUser)
             {
-                comenzi.Add(new Orders()
+                orderList.Add(new Orders()
                 {
-                    NameOpera=db.GetValue(0).ToString(),
-                    DeliveryDate=(DateTime)db.GetValue(1),
-                    PlacementDate = (DateTime)db.GetValue(2),
-                    Year = db.GetValue(3).ToString(),
-                    Price = db.GetValue(4).ToString(),
-                    Details = db.GetValue(5).ToString(),
-                    FullName = db.GetValue(6).ToString(),
-                    Phone_Number = db.GetValue(7).ToString(),
-                    Address = db.GetValue(8).ToString()
-                }) ;
+                    NameOpera = comenzi.numeOpera,
+                    DeliveryDate = Convert.ToDateTime(comenzi.dLivrare),
+                    PlacementDate = Convert.ToDateTime(comenzi.dPlasare),
+                    Year = comenzi.anOpera,
+                    Price = comenzi.pretOpera.ToString(),
+                    Details = comenzi.detaliiOpera,
+                    FullName = comenzi.numeClient,
+                    Phone_Number = comenzi.numarClient,
+                    Address = comenzi.adresaClient
+                });
             }
 
-            OrdersDataGrid.ItemsSource = comenzi;
-            connection.Close();
+            OrdersDataGrid.ItemsSource = orderList;
         }
     }
 

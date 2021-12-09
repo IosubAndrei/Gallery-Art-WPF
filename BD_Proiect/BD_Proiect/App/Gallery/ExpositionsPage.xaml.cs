@@ -23,14 +23,11 @@ namespace BD_Proiect.Gallery
     /// </summary>
     public partial class ExpositionsPage : UserControl
     {
+        appDBDataContext db=new appDBDataContext();
+
         public Action backToGallery;
         public Action<int> getPaintings;
         private bool isCreated = false;
-
-        static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
-        SqlConnection connection = new SqlConnection(connectionString);
-        DataSet DS = new DataSet();
-        SqlDataAdapter DA = new SqlDataAdapter();
 
         public ExpositionsPage()
         {
@@ -41,28 +38,21 @@ namespace BD_Proiect.Gallery
         {
             if(!isCreated)
             {
-                SqlCommand CMD = new SqlCommand(string.Format("Select ID_Expozitie, Nume_Expozitie, Data_Inceput, Data_Sfarsit  FROM Expozitie WHERE ID_Galerie = {0}", galleryID), connection);
-                List<Expozitie> expozitii = new List<Expozitie>();
-
-                connection.Open();
-
-                CMD.Connection = connection;
-
-                DbDataReader db = CMD.ExecuteReader();
-                while (db.Read())
+                var expozitii = (from item in db.Expozities
+                                 where item.ID_Galerie == galleryID
+                                 select item).ToList();
+                List<Expozitie> expositionList = new List<Expozitie>();
+                foreach (var item in expozitii)
                 {
-                    expozitii.Add(new Expozitie()
-                    {
-                        ID = (int)db.GetValue(0),
-                        Name = db.GetValue(1).ToString(),
-                        dataInceput = db.GetValue(2).ToString(),
-                        dataSfarsit = db.GetValue(3).ToString()
-                    });
+                    Expozitie g = new Expozitie();
+                    g.ID = item.ID_Expozitie;
+                    g.Name = item.Nume_Expozitie;
+                    g.dataInceput = item.Data_Inceput.ToString();
+                    g.dataSfarsit = item.Data_Sfarsit.ToString();
+                    expositionList.Add(g);
                 }
 
-                ExpositionsDataGrid.ItemsSource = expozitii;
-
-                connection.Close();
+                ExpositionsDataGrid.ItemsSource = expositionList;
             }            
         }
 

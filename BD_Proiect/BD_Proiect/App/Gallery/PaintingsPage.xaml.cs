@@ -23,6 +23,8 @@ namespace BD_Proiect.Gallery
     /// </summary>
     public partial class PaintingsPage : UserControl
     {
+        appDBDataContext db=new appDBDataContext();
+
         public Action<int> backToExpositions;
         public Action<int> newOrderPage;
         public Action backToGallery;
@@ -39,29 +41,23 @@ namespace BD_Proiect.Gallery
 
         public void table(int expositionID)
         {
-            SqlCommand CMD = new SqlCommand(string.Format("SELECT O.ID_Opera, O.ID_Autor, O.Nume,O.An, O.[Pret(RON)],O.Detalii FROM Opere_De_Arta AS O INNER JOIN Expozitii_Opere_De_Arta AS EO ON O.ID_Opera = EO.ID_Opera WHERE EO.ID_Expozitie = {0}", expositionID), connection);
-            List<Opera> expozitii = new List<Opera>();
+            var opere=(from opera in db.Opere_De_Artas
+                       join operaExpozitii in db.Expozitii_Opere_De_Artas
+                       on opera.ID_Opera equals operaExpozitii.ID_Opera
+                       where operaExpozitii.ID_Expozitie==expositionID
+                       select opera).ToList();
 
-            connection.Open();
-
-            CMD.Connection = connection;
-
-            DbDataReader db = CMD.ExecuteReader();
-            while (db.Read())
+            List<OperaArta> opereArta=new List<OperaArta>();
+            foreach (var item in opere)
             {
-                expozitii.Add(new Opera()
-                {
-                    ID = (int)db.GetValue(0),
-                    IDAutor = db.GetValue(1).ToString(),
-                    Name = db.GetValue(2).ToString(),
-                    An = db.GetValue(3).ToString(),
-                    Pret=db.GetValue(4).ToString(),
-                    Detalii=db.GetValue(5).ToString()
-                });
+                OperaArta operaArta = new OperaArta();
+                operaArta.ID_Opera = item.ID_Opera;
+                operaArta.Nume = item.Nume;
+                operaArta.Detalii=item.Detalii;
+                operaArta.An=item.An;
+                opereArta.Add(operaArta);
             }
-            PaintingsDataGrid.ItemsSource = expozitii;
-
-            connection.Close();
+            PaintingsDataGrid.ItemsSource = opereArta;
         }
 
         private void ExpositionsButton_Click(object sender, RoutedEventArgs e)
@@ -76,18 +72,15 @@ namespace BD_Proiect.Gallery
 
         private void PaintingsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Opera exposition = (Opera)PaintingsDataGrid.SelectedItem;
-            newOrderPage(exposition.ID);
+            OperaArta opera = (OperaArta)PaintingsDataGrid.SelectedItem;
+            newOrderPage(opera.ID_Opera);
         }
     }
-    public class Opera
+    class OperaArta
     {
-        public int ID { get; set; }
-        public string IDAutor { get; set; }
-        public string Name { get; set; }
+        public int ID_Opera { get; set; }
+        public string Nume { get; set; }
         public string An { get; set; }
-        public string Pret { get; set; }
-
         public string Detalii { get; set; }
     }
 }

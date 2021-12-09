@@ -24,11 +24,7 @@ namespace BD_Proiect.Gallery
     /// </summary>
     public partial class GalleryPage : UserControl
     {
-        static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
-        SqlConnection connection = new SqlConnection(connectionString);
-        DataSet DS = new DataSet();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        //string currentTableName = "Galerii";
+        appDBDataContext db = new appDBDataContext();
 
         public Action backToStatUp;
         public Action<int> getExpositions;
@@ -37,30 +33,23 @@ namespace BD_Proiect.Gallery
         {
             InitializeComponent();
 
-            SqlCommand CMD = new SqlCommand();
-            List<Galerie> galerii = new List<Galerie>();
+            var galerii=(from item in db.Galeriis
+                         select item).ToList();
+            List<Galerie> galeryList=new List<Galerie>();
 
-            connection.Open();
-
-            CMD.Connection = connection;
-            CMD.CommandText = "SELECT ID_Galerie,Nume_Galerie,Adresa,Localitate,Cod_Postal,Image FROM Galerii";
-
-            DbDataReader db = CMD.ExecuteReader();
-            while (db.Read())
+            foreach (var item in galerii)
             {
-                galerii.Add(new Galerie()
-                {
-                    ID = (int)db.GetValue(0),
-                    Name = db.GetValue(1).ToString(),
-                    Adress = db.GetValue(2).ToString(),
-                    Localitate = db.GetValue(3).ToString(),
-                    Cod_Postal = (int)db.GetValue(4),
-                    ImageUrl = db.GetValue(5).ToString()
-                }) ;
+                Galerie g = new Galerie();
+                g.ID = item.ID_Galerie;
+                g.Name = item.Nume_Galerie;
+                g.Adress = item.Adresa;
+                g.Localitate = item.Localitate;
+                g.Cod_Postal = item.Cod_Postal;
+                g.ImageUrl = item.Image;
+                galeryList.Add(g);
             }
-            GalleryDataGrid.ItemsSource = galerii;
 
-            connection.Close();
+            GalleryDataGrid.ItemsSource = galeryList;
         }
 
         private void Gallerys_Button_Click(object sender, RoutedEventArgs e)
@@ -74,7 +63,6 @@ namespace BD_Proiect.Gallery
             getExpositions(gallery.ID);
         }
     }
-
     public class Galerie
     {
         public int ID { get; set; }

@@ -20,10 +20,7 @@ namespace BD_Proiect.Orders
 {
     public partial class OrderDetailsPage : UserControl
     {
-        static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
-        SqlConnection connection = new SqlConnection(connectionString);
-        DataSet DS = new DataSet();
-        SqlDataAdapter DA = new SqlDataAdapter();
+        public appDBDataContext db = new appDBDataContext();
 
         public Action acceptOrder;
         public Action<int> declineOrder;
@@ -31,18 +28,30 @@ namespace BD_Proiect.Orders
         {
             InitializeComponent();
 
-            SqlCommand clientiCMD = new SqlCommand();
-            SqlCommand comenziCMD = new SqlCommand();
+            var opera=(from item in db.Opere_De_Artas
+                       where item.ID_Opera==operaID
+                       select item).FirstOrDefault();
 
-            connection.Open();
+            BitmapImage bitmap=new BitmapImage();
 
-            string nume = numeTextBox.Text;
-            string prenume = prenumeTextBox.Text;
-            string phone = telefonTextBox.Text;
-            string address = addressTextBox.Text;
-            string loc = locTextBox.Text;
+            bitmap.BeginInit();
+            bitmap.UriSource=new Uri(opera.ImageURL,UriKind.Absolute);
+            bitmap.EndInit();
 
-            clientiCMD.CommandText = "INSERT INTO Clienti VALUES ('"+nume+"', '"+prenume+"','"+phone+"','"+address+"','"+loc+"')";
+            ImageGrid.Source = bitmap;
+
+            var newClient = new Clienti
+            {
+                ID_Client = userID,
+                Nume = numeTextBox.Text,
+                Prenume = prenumeTextBox.Text,
+                Numar_Telefon = telefonTextBox.Text,
+                Adresa = addressTextBox.Text,
+                Localitate = locTextBox.Text
+            };
+
+            db.Clientis.InsertOnSubmit(newClient);
+            db.SubmitChanges();
         }
 
         private void declineButton_Click(object sender, RoutedEventArgs e)

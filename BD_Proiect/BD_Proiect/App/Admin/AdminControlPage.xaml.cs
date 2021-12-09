@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Common;
+using System.Data.Linq.Mapping;
 
 namespace BD_Proiect
 {
@@ -24,30 +25,18 @@ namespace BD_Proiect
     /// </summary>
     public partial class AdminControlPage : UserControl
     {
-        static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
-        SqlConnection connection = new SqlConnection(connectionString);
-        DataSet DS = new DataSet();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        string currentTableName = "";
+        appDBDataContext db=new appDBDataContext();
+        string currentTableName;
         public AdminControlPage()
         {
             InitializeComponent();
 
-            SqlCommand CMD = new SqlCommand(string.Format("SELECT table_name, table_type FROM information_schema.tables where table_type='BASE TABLE' ORDER BY table_name ASC;"), connection);
-            List<string> tabele = new List<string>();
+            var datamodel = new AttributeMappingSource().GetModel(typeof(appDBDataContext));
+            List<string> tables = new List<string>();
+            foreach (var r in datamodel.GetTables())
+                tables.Add(r.TableName.Substring(4));
 
-            connection.Open();
-
-            CMD.Connection = connection;
-
-            DbDataReader db = CMD.ExecuteReader();
-            while (db.Read())
-            {
-                if (db.GetValue(0).ToString() != "sysdiagrams")
-                    tabele.Add(db.GetValue(0).ToString());
-            }
-            connection.Close();
-            TableComboBox.DataContext = tabele;
+            TableComboBox.DataContext = tables;
         }
 
         private void DeleteRecord_Click(object sender, RoutedEventArgs e)
@@ -58,15 +47,10 @@ namespace BD_Proiect
                 {
                     DataRowView drv = (DataRowView)DataGrid.SelectedItem;
                     drv.Row.Delete();
+                    var selectie=DataGrid.SelectedItem;
+                    
                 }
-
-                connection.Open();
-
-                SqlCommandBuilder builder = new SqlCommandBuilder(DA);
-                DA.Update(DS, currentTableName);
-
-                connection.Close();
-
+                
                 MessageBox.Show("Deleted Record!");
             }
         }
@@ -75,30 +59,28 @@ namespace BD_Proiect
         {
             currentTableName = TableComboBox.SelectedItem.ToString();
 
-            SqlCommand selectCMD = new SqlCommand(string.Format("SELECT * FROM {0}", currentTableName), connection);
+            //SqlCommand selectCMD = new SqlCommand(string.Format("SELECT * FROM {0}", currentTableName), connection);
 
-            DA.SelectCommand = selectCMD;
+            //connection.Open();
 
-            connection.Open();
+            //DS.Clear();
+            //DA.Fill(DS, currentTableName);
+            //DataGrid.ItemsSource = DS.Tables[currentTableName].DefaultView;
 
-            DS.Clear();
-            DA.Fill(DS, currentTableName);
-            DataGrid.ItemsSource = DS.Tables[currentTableName].DefaultView;
-
-            connection.Close();
+            //connection.Close();
         }
 
         private void DataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             Application.Current.Dispatcher.InvokeAsync(new Action(() =>
             {
-                connection.Open();
+                //connection.Open();
 
-                SqlCommandBuilder builder = new SqlCommandBuilder(DA);
+                //SqlCommandBuilder builder = new SqlCommandBuilder(DA);
 
-                DA.Update(DS, currentTableName);
+                //DA.Update(DS, currentTableName);
 
-                connection.Close();
+                //connection.Close();
             }), DispatcherPriority.ContextIdle);
         }
     }
