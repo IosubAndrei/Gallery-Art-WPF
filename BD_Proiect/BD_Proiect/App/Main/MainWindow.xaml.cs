@@ -24,6 +24,8 @@ namespace BD_Proiect
     /// </summary>
     public partial class MainWindow : Window
     {
+        appDBDataContext db=new appDBDataContext();
+
         public Action<MainWindow> exitButtonAction;
         public Action ordersButtonAction;
         public Action<MainWindow> signOutButtonAction;
@@ -31,11 +33,6 @@ namespace BD_Proiect
         MasterUserControlGallery masterUserControlGallery;
         int userID;
         int userType;
-
-        static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
-        SqlConnection connection = new SqlConnection(connectionString);
-        DataSet DS = new DataSet();
-        SqlDataAdapter DA = new SqlDataAdapter();
         
         public MainWindow(int userID)
         {
@@ -47,14 +44,11 @@ namespace BD_Proiect
 
         private void setUser()
         {
-            SqlCommand selectCMD = new SqlCommand(string.Format("SELECT * FROM Users WHERE ID = {0}", userID), connection);
-            connection.Open();
-            selectCMD.Connection = connection;
-            DbDataReader reader = selectCMD.ExecuteReader();
-            reader.Read();
-            UsernameLabel.Content = reader.GetValue(1).ToString();
-            userType = Convert.ToInt32(reader.GetValue(3));
-            connection.Close();
+            var user=(from useri in db.Users
+                      where useri.ID==userID
+                      select useri).FirstOrDefault();
+            UsernameLabel.Content = user.Username;
+            userType = user.UserType;
 
             if (userType == 1 || userType == 2)  
                 Employee_Button.Visibility = Visibility.Visible;
