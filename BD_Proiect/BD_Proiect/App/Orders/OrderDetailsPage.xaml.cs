@@ -21,10 +21,10 @@ namespace BD_Proiect.Orders
     public partial class OrderDetailsPage : UserControl
     {
         public appDBDataContext db = new appDBDataContext();
-
         public Action acceptOrder;
         public Action<int> declineOrder;
-        public OrderDetailsPage(int userID,int operaID)
+        private int userID;
+        public OrderDetailsPage(int _userID,int operaID)
         {
             InitializeComponent();
 
@@ -40,6 +40,16 @@ namespace BD_Proiect.Orders
 
             ImageGrid.Source = bitmap;
 
+            userID = _userID;
+        }
+
+        private void declineButton_Click(object sender, RoutedEventArgs e)
+        {
+            declineOrder(-1);
+        }
+
+        private void acceptButton_Click(object sender, RoutedEventArgs e)
+        {
             var newClient = new Clienti
             {
                 ID_Client = userID,
@@ -52,11 +62,7 @@ namespace BD_Proiect.Orders
 
             db.Clientis.InsertOnSubmit(newClient);
             db.SubmitChanges();
-        }
-
-        private void declineButton_Click(object sender, RoutedEventArgs e)
-        {
-            declineOrder(-1);
+            acceptOrder();
         }
     }
 }

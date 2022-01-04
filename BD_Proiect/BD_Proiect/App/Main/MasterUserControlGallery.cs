@@ -53,6 +53,7 @@ namespace BD_Proiect
             masterGrid.Children.Clear();
             masterGrid.Children.Add(orderDetailsPage);
             orderDetailsPage.declineOrder += newPaintings;
+            orderDetailsPage.acceptOrder += newGallery;
         }
         void newGallery()
         {
