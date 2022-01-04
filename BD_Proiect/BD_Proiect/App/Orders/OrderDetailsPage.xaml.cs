@@ -62,6 +62,7 @@ namespace BD_Proiect.Orders
 
             db.Clientis.InsertOnSubmit(newClient);
             db.SubmitChanges();
+            System.Windows.MessageBox.Show("Order Accepted!");
             acceptOrder();
         }
     }
