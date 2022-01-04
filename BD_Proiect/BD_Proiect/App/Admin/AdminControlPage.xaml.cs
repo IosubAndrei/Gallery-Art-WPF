@@ -25,7 +25,7 @@ namespace BD_Proiect
     /// </summary>
     public partial class AdminControlPage : UserControl
     {
-        appDBDataContext db=new appDBDataContext();
+        public appDBDataContext db=new appDBDataContext();
         string currentTableName;
         public AdminControlPage()
         {
@@ -59,9 +59,11 @@ namespace BD_Proiect
         {
             currentTableName = TableComboBox.SelectedItem.ToString();
 
+            Tabele tabele = new Tabele(currentTableName);
+            var tableData = tabele.getTables();
             //SqlCommand selectCMD = new SqlCommand(string.Format("SELECT * FROM {0}", currentTableName), connection);
 
-            //connection.Open();
+            //connection.Open();s
 
             //DS.Clear();
             //DA.Fill(DS, currentTableName);

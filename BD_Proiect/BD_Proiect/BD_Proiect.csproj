@@ -64,6 +64,8 @@
     <Compile Include="App\Admin\AdminControlPage.xaml.cs">
       <DependentUpon>AdminControlPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="App\Admin\Tabele.cs" />
+    <Compile Include="App\Admin\TabeleAbstract.cs" />
     <Compile Include="App\Gallery\ExpositionsPage.xaml.cs">
       <DependentUpon>ExpositionsPage.xaml</DependentUpon>
     </Compile>
