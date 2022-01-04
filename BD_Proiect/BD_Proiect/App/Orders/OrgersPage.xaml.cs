@@ -21,10 +21,6 @@ namespace BD_Proiect.Orders
     public partial class OrgersPage : UserControl
     {
         appDBDataContext db = new appDBDataContext();
-        static string connectionString = "Server=.;Database=BD_Proiect;Trusted_Connection=true";
-        SqlConnection connection = new SqlConnection(connectionString);
-        DataSet DS = new DataSet();
-        SqlDataAdapter DA = new SqlDataAdapter();
 
         public OrgersPage(int userID)
         {

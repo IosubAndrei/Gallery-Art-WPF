@@ -19,7 +19,7 @@
       <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="UserType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CNP" Type="System.String" DbType="Char(13)" CanBeNull="true" />
-      <Association Name="User__Comenzi" Member="Comenzis" ThisKey="ID" OtherKey="ID_User" Type="Comenzi" />
+      <Association Name="User_Comenzi" Member="Comenzis" ThisKey="ID" OtherKey="ID_User" Type="Comenzi" />
     </Type>
   </Table>
   <Table Name="dbo.Autor" Member="Autors">
@@ -51,13 +51,14 @@
       <Column Name="ID_User" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Comenzi_Comenzi_Opere_De_Arta" Member="Comenzi_Opere_De_Artas" ThisKey="ID_Comanda" OtherKey="ID_Comenzi" Type="Comenzi_Opere_De_Arta" />
       <Association Name="Clienti_Comenzi" Member="Clienti" ThisKey="ID_Client" OtherKey="ID_Client" Type="Clienti" IsForeignKey="true" />
-      <Association Name="User__Comenzi" Member="User" Storage="_User_" ThisKey="ID_User" OtherKey="ID" Type="User" IsForeignKey="true" />
+      <Association Name="User_Comenzi" Member="User" ThisKey="ID_User" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Comenzi_Opere_De_Arta" Member="Comenzi_Opere_De_Artas">
     <Type Name="Comenzi_Opere_De_Arta">
       <Column Name="ID_Opera" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ID_Comenzi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Comenzi_Comenzi_Opere_De_Arta" Member="Comenzi" ThisKey="ID_Comenzi" OtherKey="ID_Comanda" Type="Comenzi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Opere_De_Arta_Comenzi_Opere_De_Arta" Member="Opere_De_Arta" ThisKey="ID_Opera" OtherKey="ID_Opera" Type="Opere_De_Arta" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
@@ -84,6 +85,7 @@
       <Column Name="ID_Depozit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ID_Opera" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Numar" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Depozit_Depozite_Opere" Member="Depozit" ThisKey="ID_Depozit" OtherKey="ID_Depozit" Type="Depozit" IsForeignKey="true" />
       <Association Name="Opere_De_Arta_Depozite_Opere" Member="Opere_De_Arta" ThisKey="ID_Opera" OtherKey="ID_Opera" Type="Opere_De_Arta" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
@@ -103,6 +105,7 @@
     <Type Name="Expozitii_Opere_De_Arta">
       <Column Name="ID_Expozitie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ID_Opera" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Expozitie_Expozitii_Opere_De_Arta" Member="Expozitie" ThisKey="ID_Expozitie" OtherKey="ID_Expozitie" Type="Expozitie" IsForeignKey="true" />
       <Association Name="Opere_De_Arta_Expozitii_Opere_De_Arta" Member="Opere_De_Arta" ThisKey="ID_Opera" OtherKey="ID_Opera" Type="Opere_De_Arta" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
@@ -122,6 +125,7 @@
       <Column Name="ID_Angajat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Data_Inceput" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Data_Sfarsit" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Angajati_Functii_Angajati" Member="Angajati" ThisKey="ID_Angajat" OtherKey="ID_Angajat" Type="Angajati" IsForeignKey="true" />
       <Association Name="Functii_Functii_Angajati" Member="Functii" ThisKey="ID_Functie" OtherKey="ID_Functie" Type="Functii" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
@@ -142,6 +146,7 @@
     <Type Name="Galerii_Departamente">
       <Column Name="ID_Departament" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ID_Galerie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Departamente_Galerii_Departamente" Member="Departamente" ThisKey="ID_Departament" OtherKey="ID_Departament" Type="Departamente" IsForeignKey="true" />
       <Association Name="Galerii_Galerii_Departamente" Member="Galerii" ThisKey="ID_Galerie" OtherKey="ID_Galerie" Type="Galerii" IsForeignKey="true" />
     </Type>
