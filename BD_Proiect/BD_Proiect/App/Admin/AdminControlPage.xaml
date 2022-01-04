@@ -7,7 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid>
-        <ComboBox x:Name="TableComboBox" ItemsSource="{Binding}" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="565" Height="26" SelectionChanged="TableComboBox_SelectionChanged" RenderTransformOrigin="0.49,0.469"/>
+        <ComboBox x:Name="TableComboBox" 
+                  ItemsSource="{Binding}" 
+                  HorizontalAlignment="Center"
+                  Margin="0,10,0,0"
+                  VerticalAlignment="Top"
+                  Width="565"
+                  Height="26" 
+                  SelectionChanged="TableComboBox_SelectionChanged"
+                  RenderTransformOrigin="0.49,0.469"/>
         <DataGrid x:Name="DataGrid" ItemsSource="{Binding}" Margin="40,54,42,24" RowEditEnding="DataGrid_RowEditEnding">
             <DataGrid.ContextMenu>
                 <ContextMenu>
