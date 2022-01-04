@@ -76,7 +76,7 @@ namespace BD_Proiect.Gallery {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BD_Proiect;V1.0.0.0;component/app/gallery/paintingspage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BD_Proiect;component/app/gallery/paintingspage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\App\Gallery\PaintingsPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

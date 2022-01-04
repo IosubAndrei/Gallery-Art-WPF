@@ -62,6 +62,7 @@ namespace BD_Proiect.Gallery
             Galerie gallery = (Galerie)GalleryDataGrid.SelectedItem;
             getExpositions(gallery.ID);
         }
+
     }
     public class Galerie
     {

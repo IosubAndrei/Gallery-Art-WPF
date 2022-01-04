@@ -84,7 +84,7 @@ namespace BD_Proiect.Orders {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BD_Proiect;V1.0.0.0;component/app/orders/orgerspage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BD_Proiect;component/app/orders/orgerspage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\App\Orders\OrgersPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
