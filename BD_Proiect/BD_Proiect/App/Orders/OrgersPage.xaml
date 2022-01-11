@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid x:Name="OrdersDataGrid" Margin="18,10,18,104" AutoGenerateColumns="False">
+        <DataGrid x:Name="OrdersDataGrid" CanUserAddRows="False" Margin="18,10,18,104" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="columnNamePainting" Binding="{Binding NameOpera}" Header="Nume Opera"/>
                 <DataGridTextColumn x:Name="columnNamePlacement" Binding="{Binding PlacementDate}" Header="Data Plasare"/>
