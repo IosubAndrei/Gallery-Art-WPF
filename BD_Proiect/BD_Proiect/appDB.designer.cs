@@ -30,33 +30,27 @@ namespace BD_Proiect
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAngajati(Angajati instance);
-    partial void UpdateAngajati(Angajati instance);
-    partial void DeleteAngajati(Angajati instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertAutor(Autor instance);
     partial void UpdateAutor(Autor instance);
     partial void DeleteAutor(Autor instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     partial void InsertClienti(Clienti instance);
     partial void UpdateClienti(Clienti instance);
     partial void DeleteClienti(Clienti instance);
     partial void InsertComenzi(Comenzi instance);
     partial void UpdateComenzi(Comenzi instance);
     partial void DeleteComenzi(Comenzi instance);
-    partial void InsertDepartamente(Departamente instance);
-    partial void UpdateDepartamente(Departamente instance);
-    partial void DeleteDepartamente(Departamente instance);
-    partial void InsertDepozit(Depozit instance);
-    partial void UpdateDepozit(Depozit instance);
-    partial void DeleteDepozit(Depozit instance);
+    partial void InsertComenzi_Opere_De_Arta(Comenzi_Opere_De_Arta instance);
+    partial void UpdateComenzi_Opere_De_Arta(Comenzi_Opere_De_Arta instance);
+    partial void DeleteComenzi_Opere_De_Arta(Comenzi_Opere_De_Arta instance);
     partial void InsertExpozitie(Expozitie instance);
     partial void UpdateExpozitie(Expozitie instance);
     partial void DeleteExpozitie(Expozitie instance);
-    partial void InsertFunctii(Functii instance);
-    partial void UpdateFunctii(Functii instance);
-    partial void DeleteFunctii(Functii instance);
+    partial void InsertExpozitii_Opere_De_Arta(Expozitii_Opere_De_Arta instance);
+    partial void UpdateExpozitii_Opere_De_Arta(Expozitii_Opere_De_Arta instance);
+    partial void DeleteExpozitii_Opere_De_Arta(Expozitii_Opere_De_Arta instance);
     partial void InsertGalerii(Galerii instance);
     partial void UpdateGalerii(Galerii instance);
     partial void DeleteGalerii(Galerii instance);
@@ -95,11 +89,11 @@ namespace BD_Proiect
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Angajati> Angajatis
+		public System.Data.Linq.Table<Autor> Autors
 		{
 			get
 			{
-				return this.GetTable<Angajati>();
+				return this.GetTable<Autor>();
 			}
 		}
 		
@@ -108,14 +102,6 @@ namespace BD_Proiect
 			get
 			{
 				return this.GetTable<User>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Autor> Autors
-		{
-			get
-			{
-				return this.GetTable<Autor>();
 			}
 		}
 		
@@ -143,30 +129,6 @@ namespace BD_Proiect
 			}
 		}
 		
-		public System.Data.Linq.Table<Departamente> Departamentes
-		{
-			get
-			{
-				return this.GetTable<Departamente>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Depozit> Depozits
-		{
-			get
-			{
-				return this.GetTable<Depozit>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Depozite_Opere> Depozite_Operes
-		{
-			get
-			{
-				return this.GetTable<Depozite_Opere>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Expozitie> Expozities
 		{
 			get
@@ -183,35 +145,11 @@ namespace BD_Proiect
 			}
 		}
 		
-		public System.Data.Linq.Table<Functii> Functiis
-		{
-			get
-			{
-				return this.GetTable<Functii>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Functii_Angajati> Functii_Angajatis
-		{
-			get
-			{
-				return this.GetTable<Functii_Angajati>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Galerii> Galeriis
 		{
 			get
 			{
 				return this.GetTable<Galerii>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Galerii_Departamente> Galerii_Departamentes
-		{
-			get
-			{
-				return this.GetTable<Galerii_Departamente>();
 			}
 		}
 		
@@ -221,398 +159,6 @@ namespace BD_Proiect
 			{
 				return this.GetTable<Opere_De_Arta>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Angajati")]
-	public partial class Angajati : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_Angajat;
-		
-		private string _Nume;
-		
-		private string _Prenume;
-		
-		private string _CNP;
-		
-		private System.DateTime _Data_Nastere;
-		
-		private double _Salariu_Brut_;
-		
-		private bool _Lider;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_AngajatChanging(int value);
-    partial void OnID_AngajatChanged();
-    partial void OnNumeChanging(string value);
-    partial void OnNumeChanged();
-    partial void OnPrenumeChanging(string value);
-    partial void OnPrenumeChanged();
-    partial void OnCNPChanging(string value);
-    partial void OnCNPChanged();
-    partial void OnData_NastereChanging(System.DateTime value);
-    partial void OnData_NastereChanged();
-    partial void OnSalariu_Brut_Changing(double value);
-    partial void OnSalariu_Brut_Changed();
-    partial void OnLiderChanging(bool value);
-    partial void OnLiderChanged();
-    #endregion
-		
-		public Angajati()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Angajat", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_Angajat
-		{
-			get
-			{
-				return this._ID_Angajat;
-			}
-			set
-			{
-				if ((this._ID_Angajat != value))
-				{
-					this.OnID_AngajatChanging(value);
-					this.SendPropertyChanging();
-					this._ID_Angajat = value;
-					this.SendPropertyChanged("ID_Angajat");
-					this.OnID_AngajatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nume", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		public string Nume
-		{
-			get
-			{
-				return this._Nume;
-			}
-			set
-			{
-				if ((this._Nume != value))
-				{
-					this.OnNumeChanging(value);
-					this.SendPropertyChanging();
-					this._Nume = value;
-					this.SendPropertyChanged("Nume");
-					this.OnNumeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prenume", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		public string Prenume
-		{
-			get
-			{
-				return this._Prenume;
-			}
-			set
-			{
-				if ((this._Prenume != value))
-				{
-					this.OnPrenumeChanging(value);
-					this.SendPropertyChanging();
-					this._Prenume = value;
-					this.SendPropertyChanged("Prenume");
-					this.OnPrenumeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNP", DbType="Char(13) NOT NULL", CanBeNull=false)]
-		public string CNP
-		{
-			get
-			{
-				return this._CNP;
-			}
-			set
-			{
-				if ((this._CNP != value))
-				{
-					this.OnCNPChanging(value);
-					this.SendPropertyChanging();
-					this._CNP = value;
-					this.SendPropertyChanged("CNP");
-					this.OnCNPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data_Nastere", DbType="Date NOT NULL")]
-		public System.DateTime Data_Nastere
-		{
-			get
-			{
-				return this._Data_Nastere;
-			}
-			set
-			{
-				if ((this._Data_Nastere != value))
-				{
-					this.OnData_NastereChanging(value);
-					this.SendPropertyChanging();
-					this._Data_Nastere = value;
-					this.SendPropertyChanged("Data_Nastere");
-					this.OnData_NastereChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Salariu(Brut)]", Storage="_Salariu_Brut_", DbType="Float NOT NULL")]
-		public double Salariu_Brut_
-		{
-			get
-			{
-				return this._Salariu_Brut_;
-			}
-			set
-			{
-				if ((this._Salariu_Brut_ != value))
-				{
-					this.OnSalariu_Brut_Changing(value);
-					this.SendPropertyChanging();
-					this._Salariu_Brut_ = value;
-					this.SendPropertyChanged("Salariu_Brut_");
-					this.OnSalariu_Brut_Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lider", DbType="Bit NOT NULL")]
-		public bool Lider
-		{
-			get
-			{
-				return this._Lider;
-			}
-			set
-			{
-				if ((this._Lider != value))
-				{
-					this.OnLiderChanging(value);
-					this.SendPropertyChanging();
-					this._Lider = value;
-					this.SendPropertyChanged("Lider");
-					this.OnLiderChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Username;
-		
-		private string _Password;
-		
-		private int _UserType;
-		
-		private string _CNP;
-		
-		private EntitySet<Comenzi> _Comenzis;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnUserTypeChanging(int value);
-    partial void OnUserTypeChanged();
-    partial void OnCNPChanging(string value);
-    partial void OnCNPChanged();
-    #endregion
-		
-		public User()
-		{
-			this._Comenzis = new EntitySet<Comenzi>(new Action<Comenzi>(this.attach_Comenzis), new Action<Comenzi>(this.detach_Comenzis));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserType", DbType="Int NOT NULL")]
-		public int UserType
-		{
-			get
-			{
-				return this._UserType;
-			}
-			set
-			{
-				if ((this._UserType != value))
-				{
-					this.OnUserTypeChanging(value);
-					this.SendPropertyChanging();
-					this._UserType = value;
-					this.SendPropertyChanged("UserType");
-					this.OnUserTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNP", DbType="Char(13)")]
-		public string CNP
-		{
-			get
-			{
-				return this._CNP;
-			}
-			set
-			{
-				if ((this._CNP != value))
-				{
-					this.OnCNPChanging(value);
-					this.SendPropertyChanging();
-					this._CNP = value;
-					this.SendPropertyChanged("CNP");
-					this.OnCNPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User__Comenzi", Storage="_Comenzis", ThisKey="ID", OtherKey="ID_User")]
-		public EntitySet<Comenzi> Comenzis
-		{
-			get
-			{
-				return this._Comenzis;
-			}
-			set
-			{
-				this._Comenzis.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Comenzis(Comenzi entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Comenzis(Comenzi entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 	}
 	
@@ -775,6 +321,192 @@ namespace BD_Proiect
 		{
 			this.SendPropertyChanging();
 			entity.Autor = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Username;
+		
+		private string _Password;
+		
+		private int _UserType;
+		
+		private string _CNP;
+		
+		private EntitySet<Comenzi> _Comenzis;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnUserTypeChanging(int value);
+    partial void OnUserTypeChanged();
+    partial void OnCNPChanging(string value);
+    partial void OnCNPChanged();
+    #endregion
+		
+		public User()
+		{
+			this._Comenzis = new EntitySet<Comenzi>(new Action<Comenzi>(this.attach_Comenzis), new Action<Comenzi>(this.detach_Comenzis));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserType", DbType="Int NOT NULL")]
+		public int UserType
+		{
+			get
+			{
+				return this._UserType;
+			}
+			set
+			{
+				if ((this._UserType != value))
+				{
+					this.OnUserTypeChanging(value);
+					this.SendPropertyChanging();
+					this._UserType = value;
+					this.SendPropertyChanged("UserType");
+					this.OnUserTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNP", DbType="Char(13)")]
+		public string CNP
+		{
+			get
+			{
+				return this._CNP;
+			}
+			set
+			{
+				if ((this._CNP != value))
+				{
+					this.OnCNPChanging(value);
+					this.SendPropertyChanging();
+					this._CNP = value;
+					this.SendPropertyChanged("CNP");
+					this.OnCNPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comenzi", Storage="_Comenzis", ThisKey="ID", OtherKey="ID_User")]
+		public EntitySet<Comenzi> Comenzis
+		{
+			get
+			{
+				return this._Comenzis;
+			}
+			set
+			{
+				this._Comenzis.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Comenzis(Comenzi entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Comenzis(Comenzi entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 	
@@ -1004,9 +736,11 @@ namespace BD_Proiect
 		
 		private System.Nullable<int> _ID_User;
 		
+		private EntitySet<Comenzi_Opere_De_Arta> _Comenzi_Opere_De_Artas;
+		
 		private EntityRef<Clienti> _Clienti;
 		
-		private EntityRef<User> _User_;
+		private EntityRef<User> _User;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1026,8 +760,9 @@ namespace BD_Proiect
 		
 		public Comenzi()
 		{
+			this._Comenzi_Opere_De_Artas = new EntitySet<Comenzi_Opere_De_Arta>(new Action<Comenzi_Opere_De_Arta>(this.attach_Comenzi_Opere_De_Artas), new Action<Comenzi_Opere_De_Arta>(this.detach_Comenzi_Opere_De_Artas));
 			this._Clienti = default(EntityRef<Clienti>);
-			this._User_ = default(EntityRef<User>);
+			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
 		
@@ -1126,7 +861,7 @@ namespace BD_Proiect
 			{
 				if ((this._ID_User != value))
 				{
-					if (this._User_.HasLoadedOrAssignedValue)
+					if (this._User.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1136,6 +871,19 @@ namespace BD_Proiect
 					this.SendPropertyChanged("ID_User");
 					this.OnID_UserChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comenzi_Comenzi_Opere_De_Arta", Storage="_Comenzi_Opere_De_Artas", ThisKey="ID_Comanda", OtherKey="ID_Comenzi")]
+		public EntitySet<Comenzi_Opere_De_Arta> Comenzi_Opere_De_Artas
+		{
+			get
+			{
+				return this._Comenzi_Opere_De_Artas;
+			}
+			set
+			{
+				this._Comenzi_Opere_De_Artas.Assign(value);
 			}
 		}
 		
@@ -1173,26 +921,26 @@ namespace BD_Proiect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User__Comenzi", Storage="_User_", ThisKey="ID_User", OtherKey="ID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comenzi", Storage="_User", ThisKey="ID_User", OtherKey="ID", IsForeignKey=true)]
 		public User User
 		{
 			get
 			{
-				return this._User_.Entity;
+				return this._User.Entity;
 			}
 			set
 			{
-				User previousValue = this._User_.Entity;
+				User previousValue = this._User.Entity;
 				if (((previousValue != value) 
-							|| (this._User_.HasLoadedOrAssignedValue == false)))
+							|| (this._User.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._User_.Entity = null;
+						this._User.Entity = null;
 						previousValue.Comenzis.Remove(this);
 					}
-					this._User_.Entity = value;
+					this._User.Entity = value;
 					if ((value != null))
 					{
 						value.Comenzis.Add(this);
@@ -1226,18 +974,73 @@ namespace BD_Proiect
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Comenzi_Opere_De_Artas(Comenzi_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Comenzi = this;
+		}
+		
+		private void detach_Comenzi_Opere_De_Artas(Comenzi_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Comenzi = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Comenzi_Opere_De_Arta")]
-	public partial class Comenzi_Opere_De_Arta
+	public partial class Comenzi_Opere_De_Arta : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
 		
 		private int _ID_Opera;
 		
 		private int _ID_Comenzi;
 		
+		private EntityRef<Comenzi> _Comenzi;
+		
+		private EntityRef<Opere_De_Arta> _Opere_De_Arta;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnID_OperaChanging(int value);
+    partial void OnID_OperaChanged();
+    partial void OnID_ComenziChanging(int value);
+    partial void OnID_ComenziChanged();
+    #endregion
+		
 		public Comenzi_Opere_De_Arta()
 		{
+			this._Comenzi = default(EntityRef<Comenzi>);
+			this._Opere_De_Arta = default(EntityRef<Opere_De_Arta>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Opera", DbType="Int NOT NULL")]
@@ -1251,7 +1054,15 @@ namespace BD_Proiect
 			{
 				if ((this._ID_Opera != value))
 				{
+					if (this._Opere_De_Arta.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_OperaChanging(value);
+					this.SendPropertyChanging();
 					this._ID_Opera = value;
+					this.SendPropertyChanged("ID_Opera");
+					this.OnID_OperaChanged();
 				}
 			}
 		}
@@ -1267,235 +1078,83 @@ namespace BD_Proiect
 			{
 				if ((this._ID_Comenzi != value))
 				{
+					if (this._Comenzi.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_ComenziChanging(value);
+					this.SendPropertyChanging();
 					this._ID_Comenzi = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Departamente")]
-	public partial class Departamente : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_Departament;
-		
-		private string _Nume_Departament;
-		
-		private EntitySet<Functii> _Functiis;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_DepartamentChanging(int value);
-    partial void OnID_DepartamentChanged();
-    partial void OnNume_DepartamentChanging(string value);
-    partial void OnNume_DepartamentChanged();
-    #endregion
-		
-		public Departamente()
-		{
-			this._Functiis = new EntitySet<Functii>(new Action<Functii>(this.attach_Functiis), new Action<Functii>(this.detach_Functiis));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Departament", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_Departament
-		{
-			get
-			{
-				return this._ID_Departament;
-			}
-			set
-			{
-				if ((this._ID_Departament != value))
-				{
-					this.OnID_DepartamentChanging(value);
-					this.SendPropertyChanging();
-					this._ID_Departament = value;
-					this.SendPropertyChanged("ID_Departament");
-					this.OnID_DepartamentChanged();
+					this.SendPropertyChanged("ID_Comenzi");
+					this.OnID_ComenziChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nume_Departament", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		public string Nume_Departament
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comenzi_Comenzi_Opere_De_Arta", Storage="_Comenzi", ThisKey="ID_Comenzi", OtherKey="ID_Comanda", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Comenzi Comenzi
 		{
 			get
 			{
-				return this._Nume_Departament;
+				return this._Comenzi.Entity;
 			}
 			set
 			{
-				if ((this._Nume_Departament != value))
+				Comenzi previousValue = this._Comenzi.Entity;
+				if (((previousValue != value) 
+							|| (this._Comenzi.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnNume_DepartamentChanging(value);
 					this.SendPropertyChanging();
-					this._Nume_Departament = value;
-					this.SendPropertyChanged("Nume_Departament");
-					this.OnNume_DepartamentChanged();
+					if ((previousValue != null))
+					{
+						this._Comenzi.Entity = null;
+						previousValue.Comenzi_Opere_De_Artas.Remove(this);
+					}
+					this._Comenzi.Entity = value;
+					if ((value != null))
+					{
+						value.Comenzi_Opere_De_Artas.Add(this);
+						this._ID_Comenzi = value.ID_Comanda;
+					}
+					else
+					{
+						this._ID_Comenzi = default(int);
+					}
+					this.SendPropertyChanged("Comenzi");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Departamente_Functii", Storage="_Functiis", ThisKey="ID_Departament", OtherKey="ID_Departatemt")]
-		public EntitySet<Functii> Functiis
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Opere_De_Arta_Comenzi_Opere_De_Arta", Storage="_Opere_De_Arta", ThisKey="ID_Opera", OtherKey="ID_Opera", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Opere_De_Arta Opere_De_Arta
 		{
 			get
 			{
-				return this._Functiis;
+				return this._Opere_De_Arta.Entity;
 			}
 			set
 			{
-				this._Functiis.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Functiis(Functii entity)
-		{
-			this.SendPropertyChanging();
-			entity.Departamente = this;
-		}
-		
-		private void detach_Functiis(Functii entity)
-		{
-			this.SendPropertyChanging();
-			entity.Departamente = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Depozit")]
-	public partial class Depozit : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_Depozit;
-		
-		private string _Adresa;
-		
-		private string _Localitate;
-		
-		private int _Cod_Postal;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_DepozitChanging(int value);
-    partial void OnID_DepozitChanged();
-    partial void OnAdresaChanging(string value);
-    partial void OnAdresaChanged();
-    partial void OnLocalitateChanging(string value);
-    partial void OnLocalitateChanged();
-    partial void OnCod_PostalChanging(int value);
-    partial void OnCod_PostalChanged();
-    #endregion
-		
-		public Depozit()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Depozit", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_Depozit
-		{
-			get
-			{
-				return this._ID_Depozit;
-			}
-			set
-			{
-				if ((this._ID_Depozit != value))
+				Opere_De_Arta previousValue = this._Opere_De_Arta.Entity;
+				if (((previousValue != value) 
+							|| (this._Opere_De_Arta.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnID_DepozitChanging(value);
 					this.SendPropertyChanging();
-					this._ID_Depozit = value;
-					this.SendPropertyChanged("ID_Depozit");
-					this.OnID_DepozitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adresa", DbType="NChar(50) NOT NULL", CanBeNull=false)]
-		public string Adresa
-		{
-			get
-			{
-				return this._Adresa;
-			}
-			set
-			{
-				if ((this._Adresa != value))
-				{
-					this.OnAdresaChanging(value);
-					this.SendPropertyChanging();
-					this._Adresa = value;
-					this.SendPropertyChanged("Adresa");
-					this.OnAdresaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Localitate", DbType="NChar(40) NOT NULL", CanBeNull=false)]
-		public string Localitate
-		{
-			get
-			{
-				return this._Localitate;
-			}
-			set
-			{
-				if ((this._Localitate != value))
-				{
-					this.OnLocalitateChanging(value);
-					this.SendPropertyChanging();
-					this._Localitate = value;
-					this.SendPropertyChanged("Localitate");
-					this.OnLocalitateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cod_Postal", DbType="Int NOT NULL")]
-		public int Cod_Postal
-		{
-			get
-			{
-				return this._Cod_Postal;
-			}
-			set
-			{
-				if ((this._Cod_Postal != value))
-				{
-					this.OnCod_PostalChanging(value);
-					this.SendPropertyChanging();
-					this._Cod_Postal = value;
-					this.SendPropertyChanged("Cod_Postal");
-					this.OnCod_PostalChanged();
+					if ((previousValue != null))
+					{
+						this._Opere_De_Arta.Entity = null;
+						previousValue.Comenzi_Opere_De_Artas.Remove(this);
+					}
+					this._Opere_De_Arta.Entity = value;
+					if ((value != null))
+					{
+						value.Comenzi_Opere_De_Artas.Add(this);
+						this._ID_Opera = value.ID_Opera;
+					}
+					else
+					{
+						this._ID_Opera = default(int);
+					}
+					this.SendPropertyChanged("Opere_De_Arta");
 				}
 			}
 		}
@@ -1517,69 +1176,6 @@ namespace BD_Proiect
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Depozite_Opere")]
-	public partial class Depozite_Opere
-	{
-		
-		private int _ID_Depozit;
-		
-		private int _ID_Opera;
-		
-		private int _Numar;
-		
-		public Depozite_Opere()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Depozit", DbType="Int NOT NULL")]
-		public int ID_Depozit
-		{
-			get
-			{
-				return this._ID_Depozit;
-			}
-			set
-			{
-				if ((this._ID_Depozit != value))
-				{
-					this._ID_Depozit = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Opera", DbType="Int NOT NULL")]
-		public int ID_Opera
-		{
-			get
-			{
-				return this._ID_Opera;
-			}
-			set
-			{
-				if ((this._ID_Opera != value))
-				{
-					this._ID_Opera = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numar", DbType="Int NOT NULL")]
-		public int Numar
-		{
-			get
-			{
-				return this._Numar;
-			}
-			set
-			{
-				if ((this._Numar != value))
-				{
-					this._Numar = value;
-				}
 			}
 		}
 	}
@@ -1599,6 +1195,8 @@ namespace BD_Proiect
 		private System.DateTime _Data_Inceput;
 		
 		private System.DateTime _Data_Sfarsit;
+		
+		private EntitySet<Expozitii_Opere_De_Arta> _Expozitii_Opere_De_Artas;
 		
 		private EntityRef<Galerii> _Galerii;
 		
@@ -1620,6 +1218,7 @@ namespace BD_Proiect
 		
 		public Expozitie()
 		{
+			this._Expozitii_Opere_De_Artas = new EntitySet<Expozitii_Opere_De_Arta>(new Action<Expozitii_Opere_De_Arta>(this.attach_Expozitii_Opere_De_Artas), new Action<Expozitii_Opere_De_Arta>(this.detach_Expozitii_Opere_De_Artas));
 			this._Galerii = default(EntityRef<Galerii>);
 			OnCreated();
 		}
@@ -1728,6 +1327,19 @@ namespace BD_Proiect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expozitie_Expozitii_Opere_De_Arta", Storage="_Expozitii_Opere_De_Artas", ThisKey="ID_Expozitie", OtherKey="ID_Expozitie")]
+		public EntitySet<Expozitii_Opere_De_Arta> Expozitii_Opere_De_Artas
+		{
+			get
+			{
+				return this._Expozitii_Opere_De_Artas;
+			}
+			set
+			{
+				this._Expozitii_Opere_De_Artas.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Galerii_Expozitie", Storage="_Galerii", ThisKey="ID_Galerie", OtherKey="ID_Galerie", IsForeignKey=true)]
 		public Galerii Galerii
 		{
@@ -1781,18 +1393,73 @@ namespace BD_Proiect
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Expozitii_Opere_De_Artas(Expozitii_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Expozitie = this;
+		}
+		
+		private void detach_Expozitii_Opere_De_Artas(Expozitii_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Expozitie = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Expozitii_Opere_De_Arta")]
-	public partial class Expozitii_Opere_De_Arta
+	public partial class Expozitii_Opere_De_Arta : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
 		
 		private int _ID_Expozitie;
 		
 		private int _ID_Opera;
 		
+		private EntityRef<Expozitie> _Expozitie;
+		
+		private EntityRef<Opere_De_Arta> _Opere_De_Arta;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnID_ExpozitieChanging(int value);
+    partial void OnID_ExpozitieChanged();
+    partial void OnID_OperaChanging(int value);
+    partial void OnID_OperaChanged();
+    #endregion
+		
 		public Expozitii_Opere_De_Arta()
 		{
+			this._Expozitie = default(EntityRef<Expozitie>);
+			this._Opere_De_Arta = default(EntityRef<Opere_De_Arta>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Expozitie", DbType="Int NOT NULL")]
@@ -1806,7 +1473,15 @@ namespace BD_Proiect
 			{
 				if ((this._ID_Expozitie != value))
 				{
+					if (this._Expozitie.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_ExpozitieChanging(value);
+					this.SendPropertyChanging();
 					this._ID_Expozitie = value;
+					this.SendPropertyChanged("ID_Expozitie");
+					this.OnID_ExpozitieChanged();
 				}
 			}
 		}
@@ -1822,138 +1497,83 @@ namespace BD_Proiect
 			{
 				if ((this._ID_Opera != value))
 				{
-					this._ID_Opera = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Functii")]
-	public partial class Functii : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_Functie;
-		
-		private int _ID_Departatemt;
-		
-		private string _Denumire;
-		
-		private EntityRef<Departamente> _Departamente;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_FunctieChanging(int value);
-    partial void OnID_FunctieChanged();
-    partial void OnID_DepartatemtChanging(int value);
-    partial void OnID_DepartatemtChanged();
-    partial void OnDenumireChanging(string value);
-    partial void OnDenumireChanged();
-    #endregion
-		
-		public Functii()
-		{
-			this._Departamente = default(EntityRef<Departamente>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Functie", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_Functie
-		{
-			get
-			{
-				return this._ID_Functie;
-			}
-			set
-			{
-				if ((this._ID_Functie != value))
-				{
-					this.OnID_FunctieChanging(value);
-					this.SendPropertyChanging();
-					this._ID_Functie = value;
-					this.SendPropertyChanged("ID_Functie");
-					this.OnID_FunctieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Departatemt", DbType="Int NOT NULL")]
-		public int ID_Departatemt
-		{
-			get
-			{
-				return this._ID_Departatemt;
-			}
-			set
-			{
-				if ((this._ID_Departatemt != value))
-				{
-					if (this._Departamente.HasLoadedOrAssignedValue)
+					if (this._Opere_De_Arta.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnID_DepartatemtChanging(value);
+					this.OnID_OperaChanging(value);
 					this.SendPropertyChanging();
-					this._ID_Departatemt = value;
-					this.SendPropertyChanged("ID_Departatemt");
-					this.OnID_DepartatemtChanged();
+					this._ID_Opera = value;
+					this.SendPropertyChanged("ID_Opera");
+					this.OnID_OperaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Denumire", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		public string Denumire
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expozitie_Expozitii_Opere_De_Arta", Storage="_Expozitie", ThisKey="ID_Expozitie", OtherKey="ID_Expozitie", IsForeignKey=true)]
+		public Expozitie Expozitie
 		{
 			get
 			{
-				return this._Denumire;
+				return this._Expozitie.Entity;
 			}
 			set
 			{
-				if ((this._Denumire != value))
-				{
-					this.OnDenumireChanging(value);
-					this.SendPropertyChanging();
-					this._Denumire = value;
-					this.SendPropertyChanged("Denumire");
-					this.OnDenumireChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Departamente_Functii", Storage="_Departamente", ThisKey="ID_Departatemt", OtherKey="ID_Departament", IsForeignKey=true)]
-		public Departamente Departamente
-		{
-			get
-			{
-				return this._Departamente.Entity;
-			}
-			set
-			{
-				Departamente previousValue = this._Departamente.Entity;
+				Expozitie previousValue = this._Expozitie.Entity;
 				if (((previousValue != value) 
-							|| (this._Departamente.HasLoadedOrAssignedValue == false)))
+							|| (this._Expozitie.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Departamente.Entity = null;
-						previousValue.Functiis.Remove(this);
+						this._Expozitie.Entity = null;
+						previousValue.Expozitii_Opere_De_Artas.Remove(this);
 					}
-					this._Departamente.Entity = value;
+					this._Expozitie.Entity = value;
 					if ((value != null))
 					{
-						value.Functiis.Add(this);
-						this._ID_Departatemt = value.ID_Departament;
+						value.Expozitii_Opere_De_Artas.Add(this);
+						this._ID_Expozitie = value.ID_Expozitie;
 					}
 					else
 					{
-						this._ID_Departatemt = default(int);
+						this._ID_Expozitie = default(int);
 					}
-					this.SendPropertyChanged("Departamente");
+					this.SendPropertyChanged("Expozitie");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Opere_De_Arta_Expozitii_Opere_De_Arta", Storage="_Opere_De_Arta", ThisKey="ID_Opera", OtherKey="ID_Opera", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Opere_De_Arta Opere_De_Arta
+		{
+			get
+			{
+				return this._Opere_De_Arta.Entity;
+			}
+			set
+			{
+				Opere_De_Arta previousValue = this._Opere_De_Arta.Entity;
+				if (((previousValue != value) 
+							|| (this._Opere_De_Arta.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Opere_De_Arta.Entity = null;
+						previousValue.Expozitii_Opere_De_Artas.Remove(this);
+					}
+					this._Opere_De_Arta.Entity = value;
+					if ((value != null))
+					{
+						value.Expozitii_Opere_De_Artas.Add(this);
+						this._ID_Opera = value.ID_Opera;
+					}
+					else
+					{
+						this._ID_Opera = default(int);
+					}
+					this.SendPropertyChanged("Opere_De_Arta");
 				}
 			}
 		}
@@ -1975,87 +1595,6 @@ namespace BD_Proiect
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Functii_Angajati")]
-	public partial class Functii_Angajati
-	{
-		
-		private int _ID_Functie;
-		
-		private int _ID_Angajat;
-		
-		private System.DateTime _Data_Inceput;
-		
-		private System.Nullable<System.DateTime> _Data_Sfarsit;
-		
-		public Functii_Angajati()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Functie", DbType="Int NOT NULL")]
-		public int ID_Functie
-		{
-			get
-			{
-				return this._ID_Functie;
-			}
-			set
-			{
-				if ((this._ID_Functie != value))
-				{
-					this._ID_Functie = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Angajat", DbType="Int NOT NULL")]
-		public int ID_Angajat
-		{
-			get
-			{
-				return this._ID_Angajat;
-			}
-			set
-			{
-				if ((this._ID_Angajat != value))
-				{
-					this._ID_Angajat = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data_Inceput", DbType="Date NOT NULL")]
-		public System.DateTime Data_Inceput
-		{
-			get
-			{
-				return this._Data_Inceput;
-			}
-			set
-			{
-				if ((this._Data_Inceput != value))
-				{
-					this._Data_Inceput = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data_Sfarsit", DbType="Date")]
-		public System.Nullable<System.DateTime> Data_Sfarsit
-		{
-			get
-			{
-				return this._Data_Sfarsit;
-			}
-			set
-			{
-				if ((this._Data_Sfarsit != value))
-				{
-					this._Data_Sfarsit = value;
-				}
 			}
 		}
 	}
@@ -2270,51 +1809,6 @@ namespace BD_Proiect
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Galerii_Departamente")]
-	public partial class Galerii_Departamente
-	{
-		
-		private int _ID_Departament;
-		
-		private int _ID_Galerie;
-		
-		public Galerii_Departamente()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Departament", DbType="Int NOT NULL")]
-		public int ID_Departament
-		{
-			get
-			{
-				return this._ID_Departament;
-			}
-			set
-			{
-				if ((this._ID_Departament != value))
-				{
-					this._ID_Departament = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Galerie", DbType="Int NOT NULL")]
-		public int ID_Galerie
-		{
-			get
-			{
-				return this._ID_Galerie;
-			}
-			set
-			{
-				if ((this._ID_Galerie != value))
-				{
-					this._ID_Galerie = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Opere_De_Arta")]
 	public partial class Opere_De_Arta : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2334,6 +1828,10 @@ namespace BD_Proiect
 		private string _Detalii;
 		
 		private string _ImageURL;
+		
+		private EntitySet<Comenzi_Opere_De_Arta> _Comenzi_Opere_De_Artas;
+		
+		private EntitySet<Expozitii_Opere_De_Arta> _Expozitii_Opere_De_Artas;
 		
 		private EntityRef<Autor> _Autor;
 		
@@ -2359,6 +1857,8 @@ namespace BD_Proiect
 		
 		public Opere_De_Arta()
 		{
+			this._Comenzi_Opere_De_Artas = new EntitySet<Comenzi_Opere_De_Arta>(new Action<Comenzi_Opere_De_Arta>(this.attach_Comenzi_Opere_De_Artas), new Action<Comenzi_Opere_De_Arta>(this.detach_Comenzi_Opere_De_Artas));
+			this._Expozitii_Opere_De_Artas = new EntitySet<Expozitii_Opere_De_Arta>(new Action<Expozitii_Opere_De_Arta>(this.attach_Expozitii_Opere_De_Artas), new Action<Expozitii_Opere_De_Arta>(this.detach_Expozitii_Opere_De_Artas));
 			this._Autor = default(EntityRef<Autor>);
 			OnCreated();
 		}
@@ -2507,6 +2007,32 @@ namespace BD_Proiect
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Opere_De_Arta_Comenzi_Opere_De_Arta", Storage="_Comenzi_Opere_De_Artas", ThisKey="ID_Opera", OtherKey="ID_Opera")]
+		public EntitySet<Comenzi_Opere_De_Arta> Comenzi_Opere_De_Artas
+		{
+			get
+			{
+				return this._Comenzi_Opere_De_Artas;
+			}
+			set
+			{
+				this._Comenzi_Opere_De_Artas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Opere_De_Arta_Expozitii_Opere_De_Arta", Storage="_Expozitii_Opere_De_Artas", ThisKey="ID_Opera", OtherKey="ID_Opera")]
+		public EntitySet<Expozitii_Opere_De_Arta> Expozitii_Opere_De_Artas
+		{
+			get
+			{
+				return this._Expozitii_Opere_De_Artas;
+			}
+			set
+			{
+				this._Expozitii_Opere_De_Artas.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Autor_Opere_De_Arta", Storage="_Autor", ThisKey="ID_Autor", OtherKey="ID_Autor", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Autor Autor
 		{
@@ -2559,6 +2085,30 @@ namespace BD_Proiect
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Comenzi_Opere_De_Artas(Comenzi_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Opere_De_Arta = this;
+		}
+		
+		private void detach_Comenzi_Opere_De_Artas(Comenzi_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Opere_De_Arta = null;
+		}
+		
+		private void attach_Expozitii_Opere_De_Artas(Expozitii_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Opere_De_Arta = this;
+		}
+		
+		private void detach_Expozitii_Opere_De_Artas(Expozitii_Opere_De_Arta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Opere_De_Arta = null;
 		}
 	}
 }

@@ -40,9 +40,7 @@ namespace BD_Proiect
 
             passwordBox.Password = "";
             confirmPasswordBox.Password = "";
-            CNPTextBox.Text = "";
 
-            checkbxAngajat.IsChecked = false;
             checkbxShowPassword.IsChecked = false;
         }
 
@@ -73,30 +71,11 @@ namespace BD_Proiect
                 }
                 else if (passwordBox.Password == confirmPasswordBox.Password && txtPassword.Text == txtConfirmPassword.Text)
                 {
-                    if(checkbxAngajat.IsChecked == true)
-                    {
-                        if(CNPTextBox.Text.Length!=13)
-                        {
-                            MessageBox.Show("Invalid CNP!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                            reset();
-                            return;
-                        }
-                        var angajat=(from angajati in db.Angajatis
-                                     where angajati.CNP==CNPTextBox.Text
-                                     select angajati).FirstOrDefault();
-                        if (angajat == null)
-                        {
-                            MessageBox.Show("Employee does not exists!", "Sign Up Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                            reset();
-                            return;
-                        }
-                    } 
                     var newUser = new User
                     {
                         Username = txtUsername.Text,
                         Password = txtPassword.Text,
-                        UserType = esteAngajat,
-                        CNP = CNPTextBox.Text
+                        UserType = esteAngajat
                     };
                     db.Users.InsertOnSubmit(newUser);
                     db.SubmitChanges();
@@ -159,22 +138,6 @@ namespace BD_Proiect
         private void RegisterPage1_Closed(object sender, EventArgs e)
         {
             exitButtonAction(this);
-        }
-
-        private void checkbxAngajat_Checked(object sender, RoutedEventArgs e)
-        {
-            if (checkbxAngajat.IsChecked == true)
-            {
-                esteAngajat = 1;
-            }
-        }
-
-        private void checkbxAngajat_Unchecked(object sender, RoutedEventArgs e)
-        {
-            if (checkbxAngajat.IsChecked == false)
-            {
-                esteAngajat = 0;
-            }
         }
     }
 }
