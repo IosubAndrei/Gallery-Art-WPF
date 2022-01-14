@@ -41,8 +41,12 @@ namespace BD_Proiect
             passwordBox.Password = "";
             confirmPasswordBox.Password = "";
 <<<<<<< HEAD
+<<<<<<< HEAD
             CNPTextBox.Text = "";
 
+=======
+            
+>>>>>>> parent of 2c7c7aa (Modified project)
 =======
             
 >>>>>>> parent of 2c7c7aa (Modified project)
@@ -63,6 +67,9 @@ namespace BD_Proiect
             }
             con.Close();
             return true; 
+<<<<<<< HEAD
+>>>>>>> parent of 2c7c7aa (Modified project)
+=======
 >>>>>>> parent of 2c7c7aa (Modified project)
         }
 
@@ -82,6 +89,7 @@ namespace BD_Proiect
                     reset();
                 }
                 else if (passwordBox.Password == confirmPasswordBox.Password && txtPassword.Text == txtConfirmPassword.Text)
+<<<<<<< HEAD
 <<<<<<< HEAD
                 {
                     if(checkbxAngajat.IsChecked == true)
@@ -126,6 +134,8 @@ namespace BD_Proiect
                     txtUsername.Focus();
                 }
 =======
+=======
+>>>>>>> parent of 2c7c7aa (Modified project)
                     {
                         con.Open();
                         insertCMD.Connection = con;
@@ -146,6 +156,9 @@ namespace BD_Proiect
 
                         txtUsername.Focus();
                     }
+<<<<<<< HEAD
+>>>>>>> parent of 2c7c7aa (Modified project)
+=======
 >>>>>>> parent of 2c7c7aa (Modified project)
             }
             

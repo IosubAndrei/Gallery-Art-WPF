@@ -4,18 +4,6 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD:BD_Proiect/BD_Proiect/obj/Debug/BD_Proiect_MarkupCompile.cache
-C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\
-BD_Proiect
-none
-false
-DEBUG;TRACE
-C:\Users\savai\Desktop\Git Repository\Gallery-Art-WPF\BD_Proiect\BD_Proiect\App.xaml
-11274704604
-
-221493912771
-141458853696
-=======
 C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF\BD_Proiect\BD_Proiect\obj\Debug\net5.0-windows\
 BD_Proiect
 none
@@ -26,7 +14,6 @@ C:\Users\IOSUB\Documents\ATM_Anul_III\Semestrul_1\Aplicatii Baze\Gallery-Art-WPF
 
 18-1802200453
 194-2102567866
->>>>>>> parent of 2c7c7aa (Modified project):BD_Proiect/BD_Proiect/obj/Debug/net5.0-windows/BD_Proiect_MarkupCompile.i.cache
 App\Admin\AdminControlPage.xaml;App\Gallery\ExpositionsPage.xaml;App\Gallery\GalleryPage.xaml;App\Gallery\PaintingsPage.xaml;App\Main\MainWindow.xaml;App\Orders\OrderDetailsPage.xaml;App\Orders\OrgersPage.xaml;App\StartUp\StartUpPage.xaml;Login\Login.xaml;MasterWindow.xaml;Register\Register.xaml;
 
 True

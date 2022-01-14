@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -169,6 +170,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+=======
+
+  <ItemGroup>
+    <None Remove="App\StartUp\Logo.png" />
+    <None Remove="Logo.png" />
+>>>>>>> parent of 2c7c7aa (Modified project)
 =======
 
   <ItemGroup>
