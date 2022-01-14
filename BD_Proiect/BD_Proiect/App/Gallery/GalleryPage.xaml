@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid>
-        <DataGrid x:Name="GalleryDataGrid" Margin="18,10,18,104" AutoGenerateColumns="False"  MouseDoubleClick="GalleryDataGrid_MouseDoubleClick">
+        <DataGrid x:Name="GalleryDataGrid" CanUserAddRows="False" Margin="18,10,18,104" AutoGenerateColumns="False"  MouseDoubleClick="GalleryDataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="columnName" Header="Nume Galerie" Binding="{Binding Name}"/>
                 <DataGridTextColumn x:Name="columnAddress"  Header="Adresa" Binding="{Binding Adress}"/>
