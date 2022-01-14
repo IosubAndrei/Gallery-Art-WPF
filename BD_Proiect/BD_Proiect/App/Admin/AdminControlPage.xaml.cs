@@ -25,8 +25,6 @@ namespace BD_Proiect
     /// </summary>
     public partial class AdminControlPage : UserControl
     {
-        List<TabeleAbstract> items=new List<TabeleAbstract>();
-        List<int> indexes =new List<int>();
         public appDBDataContext db=new appDBDataContext();
         List<TabeleAbstract> Items = new List<TabeleAbstract>();
         string tabeleName;
@@ -42,143 +40,10 @@ namespace BD_Proiect
 
             TableComboBox.DataContext = tables;
         }
-        private void Update()
+        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            foreach (var index in indexes)
-            {
-                if (tabeleName == "Autor")
-                {
-                    Autor_ temp = items[index] as Autor_;
-                    var changeValue = (from item in db.Autors
-                                       where item.ID_Autor == temp.IDAutor
-                                       select item).FirstOrDefault();
-                    changeValue.Data_Nastere = temp.DataNastere;
-                    changeValue.ID_Autor = temp.IDAutor;
-                    changeValue.Nume = temp.Nume;
-                    changeValue.Prenume = temp.Prenume;
-                    db.SubmitChanges();
-                    return;
-                }
-                if (tabeleName == "Opere_De_Arta")
-                {
-                    OpereDeArta temp = items[index] as OpereDeArta;
-                    var changeValue = (from item in db.Opere_De_Artas
-                                       where item.ID_Opera == temp.IDOpera
-                                       select item).FirstOrDefault();
-                    changeValue.ID_Opera = temp.IDOpera;
-                    changeValue.ID_Autor = temp.IDAutor;
-                    changeValue.Nume = temp.Nume;
-                    changeValue.An = temp.An;
-                    changeValue.Pret_RON_ = temp.Pret;
-                    changeValue.Detalii = temp.Detalii;
-                    changeValue.ImageURL = temp.URL;
-                    db.SubmitChanges();
-                    return;
-                }
-                if (tabeleName == "Users")
-                {
-                    User_ temp = items[index] as User_;
-                    var changeValue = (from item in db.Users
-                                       where item.ID == temp.IDUser
-                                       select item).FirstOrDefault();
-                    changeValue.ID = temp.IDUser;
-                    changeValue.Username = temp.Username;
-                    changeValue.Password = temp.Password;
-                    changeValue.UserType = temp.UserType;
-                    changeValue.CNP = temp.CNP;
-                    db.SubmitChanges();
-                }
-                if (tabeleName == "Clienti")
-                {
-                    Client temp = items[index] as Client;
-                    var changeValue = (from item in db.Clientis
-                                       where item.ID_Client == temp.IDClient
-                                       select item).FirstOrDefault();
-                    changeValue.ID_Client = temp.IDClient;
-                    changeValue.Nume = temp.Nume;
-                    changeValue.Prenume = temp.Prenume;
-                    changeValue.Numar_Telefon = temp.NumarTelefon;
-                    changeValue.Adresa = temp.Adresa;
-                    changeValue.Localitate = temp.Localitate;
-                    db.SubmitChanges();
-                    return;
-                }
-                if (tabeleName == "Expozitii_Opere_De_Arta")
-                {
-                    ExpozitiiOpere temp = items[index] as ExpozitiiOpere;
-                    var changeValue = (from item in db.Expozitii_Opere_De_Artas
-                                       where item.ID == temp.IDExpOpere
-                                       select item).FirstOrDefault();
-                    changeValue.ID_Opera = temp.IDOpera;
-                    changeValue.ID = temp.IDExpOpere;
-                    changeValue.ID_Expozitie = temp.IDExpozitie;
-                    db.SubmitChanges();
-                    return;
-                }
-                if (tabeleName == "Comenzi_Opere_De_Arta")
-                {
-                    ComenziOpere temp = items[index] as ComenziOpere;
-                    var changeValue = (from item in db.Comenzi_Opere_De_Artas
-                                       where item.ID_Comenzi == temp.IDComenzi
-                                       select item).FirstOrDefault();
-                    changeValue.ID = temp.IDComenziOpere;
-                    changeValue.ID_Opera = temp.IDOpera;
-                    changeValue.ID_Comenzi = temp.IDComenzi;
-                    db.SubmitChanges();
-                    return;
-                }
-                if (tabeleName == "Galerii")
-                {
-                    Galerie temp = items[index] as Galerie;
-                    var changeValue = (from item in db.Galeriis
-                                       where item.ID_Galerie == temp.IDGalerie
-                                       select item).FirstOrDefault();
-                    changeValue.ID_Galerie = temp.IDGalerie;
-                    changeValue.Nume_Galerie = temp.Nume;
-                    changeValue.Adresa = temp.Adresa;
-                    changeValue.Localitate = temp.Localitate;
-                    changeValue.Cod_Postal = temp.CodPostal;
-                    changeValue.Image = temp.URL;
-                    db.SubmitChanges();
-                    return;
-                }
-                if (tabeleName == "Expozitie")
-                {
-                    Expozitie_ temp = items[index] as Expozitie_;
-                    var changeValue = (from item in db.Expozities
-                                       where item.ID_Expozitie == temp.IDExpozitie
-                                       select item).FirstOrDefault();
-                    changeValue.ID_Expozitie = temp.IDExpozitie;
-                    changeValue.ID_Galerie = temp.IDGalerie;
-                    changeValue.Nume_Expozitie = temp.Nume;
-                    changeValue.Data_Inceput = temp.DataInceput;
-                    changeValue.Data_Sfarsit = temp.DataSfarsit;
-                    db.SubmitChanges();
-                    return;
-                }
-                if (tabeleName == "Comenzi")
-                {
-                    Comanda temp = items[index] as Comanda;
-                    var changeValue = (from item in db.Comenzis
-                                       where item.ID_Comanda == temp.IDComanda
-                                       select item).FirstOrDefault();
-                    changeValue.ID_Comanda = temp.IDComanda;
-                    changeValue.ID_Client = temp.IDClient;
-                    changeValue.ID_User = temp.IDUser;
-                    changeValue.Data_Plasare = temp.DataPlasare;
-                    changeValue.Data_Livrare = temp.DataLivrare;
-                    db.SubmitChanges();
-                    return;
-                }
-            }
-        }
-        private void submitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Update();
-            indexes.Clear();
-            MessageBox.Show("Inregistrare efectuata!", "Info");
-        }
 
+        }
         private void DeleteRecord_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete record?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -300,14 +165,10 @@ namespace BD_Proiect
 
         private void TableComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(indexes.Count > 0)
-                if (MessageBox.Show("Modificari existente.\nDoriti sa le salvati?", "UPDATE", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                    Update();
-            indexes.Clear();
             DataGrid.ItemsSource = null;
             tabeleName = TableComboBox.SelectedItem.ToString();
             Tabele tabele = new Tabele(tabeleName);
-            items = tabele.getTables();
+            List<TabeleAbstract> items = tabele.getTables();
             DataGrid.ItemsSource = items;
             if (tabeleName == "Autor")
                 coloaneAutor();
@@ -331,18 +192,17 @@ namespace BD_Proiect
 
         private void DataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
-            int index = DataGrid.Items.IndexOf(DataGrid.SelectedItem);
-            if (indexes.Contains(index))
-                return;
-            indexes.Add(index); 
+            Application.Current.Dispatcher.InvokeAsync(new Action(() =>
+            {
+            }), DispatcherPriority.ContextIdle);
         }
 
         private void coloaneAutor()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDAutor";
-            //textColumn.Binding = new Binding("IDAutor");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDAutor";
+            textColumn.Binding = new Binding("IDAutor");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "Nume";
             textColumn1.Binding = new Binding("Nume");
@@ -352,7 +212,7 @@ namespace BD_Proiect
             DataGridTextColumn textColumn3 = new DataGridTextColumn();
             textColumn3.Header = "DataNastere";
             textColumn3.Binding = new Binding("DataNastere");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
             DataGrid.Columns.Add(textColumn3);
@@ -360,9 +220,9 @@ namespace BD_Proiect
         private void coloaneOpereDeArta()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDOpera";
-            //textColumn.Binding = new Binding("IDOpera");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDOpera";
+            textColumn.Binding = new Binding("IDOpera");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "IDAutor";
             textColumn1.Binding = new Binding("IDAutor");
@@ -381,7 +241,7 @@ namespace BD_Proiect
             DataGridTextColumn textColumn6 = new DataGridTextColumn();
             textColumn6.Header = "URL";
             textColumn6.Binding = new Binding("URL");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
             DataGrid.Columns.Add(textColumn3);
@@ -392,9 +252,9 @@ namespace BD_Proiect
         private void coloaneUser()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDUser";
-            //textColumn.Binding = new Binding("IDUser");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDUser";
+            textColumn.Binding = new Binding("IDUser");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "Username";
             textColumn1.Binding = new Binding("Username");
@@ -407,7 +267,7 @@ namespace BD_Proiect
             DataGridTextColumn textColumn4 = new DataGridTextColumn();
             textColumn4.Header = "CNP";
             textColumn4.Binding = new Binding("CNP");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
             DataGrid.Columns.Add(textColumn3);
@@ -416,9 +276,9 @@ namespace BD_Proiect
         private void coloaneGalerie()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDGalerie";
-            //textColumn.Binding = new Binding("IDGalerie");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDGalerie";
+            textColumn.Binding = new Binding("IDGalerie");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "Nume";
             textColumn1.Binding = new Binding("Nume");
@@ -434,7 +294,7 @@ namespace BD_Proiect
             DataGridTextColumn textColumn5 = new DataGridTextColumn();
             textColumn5.Header = "URL";
             textColumn5.Binding = new Binding("URL");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
             DataGrid.Columns.Add(textColumn3);
@@ -444,25 +304,25 @@ namespace BD_Proiect
         private void coloaneExpozitiiOpere()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDExpOpere";
-            //textColumn.Binding = new Binding("IDExpOpere");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDExpOpere";
+            textColumn.Binding = new Binding("IDExpOpere");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "IDExpozitie";
             textColumn1.Binding = new Binding("IDExpozitie");
             DataGridTextColumn textColumn2 = new DataGridTextColumn();
             textColumn2.Header = "IDOpera";
             textColumn2.Binding = new Binding("IDOpera");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
         }
         private void coloaneExpozitie()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDExpozitie";
-            //textColumn.Binding = new Binding("IDExpozitie");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDExpozitie";
+            textColumn.Binding = new Binding("IDExpozitie");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "IDGalerie";
             textColumn1.Binding = new Binding("IDGalerie");
@@ -475,7 +335,7 @@ namespace BD_Proiect
             DataGridTextColumn textColumn4 = new DataGridTextColumn();
             textColumn4.Header = "DataSfarsit";
             textColumn4.Binding = new Binding("DataSfarsit");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
             DataGrid.Columns.Add(textColumn3);
@@ -484,25 +344,25 @@ namespace BD_Proiect
         private void coloaneComenziOpere()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDComenziOpere";
-            //textColumn.Binding = new Binding("IDComenziOpere");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDComenziOpere";
+            textColumn.Binding = new Binding("IDComenziOpere");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "IDOpera";
             textColumn1.Binding = new Binding("IDOpera");
             DataGridTextColumn textColumn2 = new DataGridTextColumn();
             textColumn2.Header = "IDComenzi";
             textColumn2.Binding = new Binding("IDComenzi");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
         }
         private void coloaneComanda()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDComanda";
-            //textColumn.Binding = new Binding("IDComanda");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDComanda";
+            textColumn.Binding = new Binding("IDComanda");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "IDClient";
             textColumn1.Binding = new Binding("IDClient");
@@ -515,7 +375,7 @@ namespace BD_Proiect
             DataGridTextColumn textColumn4 = new DataGridTextColumn();
             textColumn4.Header = "DataLivrare";
             textColumn4.Binding = new Binding("DataLivrare");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
             DataGrid.Columns.Add(textColumn3);
@@ -524,9 +384,9 @@ namespace BD_Proiect
         private void coloaneClient()
         {
             DataGrid.Columns.Clear();
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "IDClient";
-            //textColumn.Binding = new Binding("IDClient");
+            DataGridTextColumn textColumn = new DataGridTextColumn();
+            textColumn.Header = "IDClient";
+            textColumn.Binding = new Binding("IDClient");
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Header = "Nume";
             textColumn1.Binding = new Binding("Nume");
@@ -542,7 +402,7 @@ namespace BD_Proiect
             DataGridTextColumn textColumn5 = new DataGridTextColumn();
             textColumn5.Header = "Localitate";
             textColumn5.Binding = new Binding("Localitate");
-            //DataGrid.Columns.Add(textColumn);
+            DataGrid.Columns.Add(textColumn);
             DataGrid.Columns.Add(textColumn1);
             DataGrid.Columns.Add(textColumn2);
             DataGrid.Columns.Add(textColumn3);
