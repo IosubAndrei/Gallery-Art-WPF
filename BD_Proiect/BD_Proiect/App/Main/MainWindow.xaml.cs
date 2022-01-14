@@ -89,5 +89,6 @@ namespace BD_Proiect
         {
             masterUserControlGallery.newAdminPage();
         }
+        
     }
 }

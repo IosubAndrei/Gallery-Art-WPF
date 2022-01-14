@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="473.04" d:DesignWidth="647">
     <Grid Background="White">
-        <Button x:Name="acceptButton" Content="ACCEPT" HorizontalAlignment="Left" Margin="35,373,0,0" VerticalAlignment="Top" Height="50" Width="284" Background="#FF7456AE" BorderThickness="1,1,0,0" Cursor="Hand" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="White"/>
+        <Button x:Name="acceptButton" Content="ACCEPT" HorizontalAlignment="Left" Margin="35,373,0,0" VerticalAlignment="Top" Height="50" Width="284" Background="#FF7456AE" BorderThickness="1,1,0,0" Cursor="Hand" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="White" Click="acceptButton_Click"/>
         <Button x:Name="declineButton" Content="DECLINE" HorizontalAlignment="Left" Margin="329,373,0,0" VerticalAlignment="Top" Height="50" Width="284" BorderThickness="0,0,1,1" Cursor="Hand" Background="White" Foreground="#FF7456AE" FontFamily="Nirmala UI" FontWeight="Bold" Click="declineButton_Click"/>
         <Label x:Name="operaAfisajLabel" Content="Opera:" HorizontalAlignment="Left" Margin="73,70,0,0" VerticalAlignment="Top" FontFamily="MS UI Gothic" FontSize="16" FontWeight="Bold">
             <Label.Foreground>
