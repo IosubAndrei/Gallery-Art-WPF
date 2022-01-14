@@ -1,8 +1,13 @@
 {
   "Version": 1,
   "ProjectMap": {
+<<<<<<< HEAD
     "3f6152a7-2064-4fab-8e1b-bd24417ef7f3": {
       "ProjectGuid": "3f6152a7-2064-4fab-8e1b-bd24417ef7f3",
+=======
+    "0fd29da0-76dc-4986-bc8d-e54ed7c7b4f3": {
+      "ProjectGuid": "0fd29da0-76dc-4986-bc8d-e54ed7c7b4f3",
+>>>>>>> parent of 2c7c7aa (Modified project)
       "DisplayName": "BD_Proiect",
       "ColorIndex": 0
     },
