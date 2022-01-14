@@ -32,9 +32,6 @@ namespace BD_Proiect.Orders
                        where item.ID_Opera==operaID
                        select item).FirstOrDefault();
 
-            numeOLabel.Content = opera.Nume;
-            pretLabel.Content = opera.Pret_RON_;
-
             BitmapImage bitmap=new BitmapImage();
 
             bitmap.BeginInit();

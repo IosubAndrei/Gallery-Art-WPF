@@ -50,6 +50,10 @@ namespace BD_Proiect
             UsernameLabel.Content = user.Username;
             userType = user.UserType;
 
+            if (userType == 1 || userType == 2)  
+                Employee_Button.Visibility = Visibility.Visible;
+            else
+                Employee_Button.Visibility = Visibility.Collapsed;
             if (userType == 2)
                 AdminButton.Visibility = Visibility.Visible;
             else

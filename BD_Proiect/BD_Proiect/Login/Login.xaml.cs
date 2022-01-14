@@ -73,19 +73,14 @@ namespace BD_Proiect
 
             var user=(from useri in db.Users
                       where useri.Username == txtUsername.Text
-                      select useri).FirstOrDefault();
-            
-            if(user == null)
+                      select useri.ID).FirstOrDefault();
+
+            if(user == 0)
                 System.Windows.MessageBox.Show("Invalid Login please check username and password");
             else
             {
-                if (user.Password != passwordBox.Password)
-                {
-                    System.Windows.MessageBox.Show("Invalid Login please check username and password");
-                    return;
-                }
                 System.Windows.MessageBox.Show("Login succesful!");
-                loginButtonAction(this, user.ID);
+                loginButtonAction(this, user);
             }
         }
 
