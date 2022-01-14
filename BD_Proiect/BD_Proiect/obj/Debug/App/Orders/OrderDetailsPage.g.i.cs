@@ -1,9 +1,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿#pragma checksum "..\..\..\..\App\Orders\OrderDetailsPage.xaml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "664C95F438D0A6791C2458C43FF43AA8490CB6B28C3CEC63D85CFD850F22B0A4"
 =======
 ﻿#pragma checksum "..\..\..\..\App\Orders\OrderDetailsPage.xaml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "9DE510616122ADBB747D040AC88A01A16E208CFAF10BF0AFFF0A0B774B6F31CB"
 >>>>>>> parent of e1ca820 (Major Changes)
+=======
+﻿#pragma checksum "..\..\..\..\App\Orders\OrderDetailsPage.xaml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "4C4BBF68BE23F26979CC730DD4EE9C69F20C6433741723D4CEF248E85600A316"
+>>>>>>> parent of 4ded676 (Login - Working Clear Button)
 =======
 ﻿#pragma checksum "..\..\..\..\App\Orders\OrderDetailsPage.xaml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "4C4BBF68BE23F26979CC730DD4EE9C69F20C6433741723D4CEF248E85600A316"
 >>>>>>> parent of 4ded676 (Login - Working Clear Button)
