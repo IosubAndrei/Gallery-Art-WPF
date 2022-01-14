@@ -53,135 +53,6 @@ namespace BD_Proiect
                 }
                 return lista.ToList<TabeleAbstract>();
             }
-            if (tabeleName == "Users")
-            {
-                var returnValues = (from items in db.Users
-                                    select items).ToList();
-                List<User_> lista = new List<User_>();
-                foreach (var item in returnValues)
-                {
-                    User_ temp=new User_();
-                    temp.IDUser = item.ID;
-                    temp.UserType = item.UserType;
-                    temp.Username = item.Username;
-                    temp.Password = item.Password;
-                    temp.CNP = item.CNP;
-                    lista.Add(temp);
-                }
-                return lista.ToList<TabeleAbstract>();
-            }
-            if (tabeleName == "Clienti")
-            {
-                var returnValues = (from items in db.Clientis
-                                    select items).ToList();
-                List<Client> lista = new List<Client>();
-                foreach (var item in returnValues)
-                {
-                    Client temp = new Client();
-                    temp.Localitate= item.Localitate;
-                    temp.Nume= item.Nume;
-                    temp.NumarTelefon = item.Numar_Telefon;
-                    temp.IDClient = item.ID_Client;
-                    temp.Prenume=item.Prenume;
-                    temp.Adresa= item.Adresa;
-
-                    lista.Add(temp);
-                }
-                return lista.ToList<TabeleAbstract>();
-            }
-            if (tabeleName == "Expozitii_Opere_De_Arta")
-            {
-                var returnValues = (from items in db.Expozitii_Opere_De_Artas
-                                    select items).ToList();
-                List<ExpozitiiOpere> lista = new List<ExpozitiiOpere>();
-                foreach (var item in returnValues)
-                {
-                    ExpozitiiOpere temp= new ExpozitiiOpere();
-
-                    temp.IDExpozitie = item.ID_Expozitie;
-                    temp.IDOpera=item.ID_Opera;
-                    temp.IDExpOpere = item.ID;
-
-                    lista.Add(temp);
-                }
-                return lista.ToList<TabeleAbstract>();
-            }
-            if (tabeleName == "Comenzi_Opere_De_Arta")
-            {
-                var returnValues = (from items in db.Comenzi_Opere_De_Artas
-                                    select items).ToList();
-                List<ComenziOpere> lista = new List<ComenziOpere>();
-                foreach (var item in returnValues)
-                {
-                    ComenziOpere temp= new ComenziOpere();
-                    temp.IDComenziOpere = item.ID;
-                    temp.IDOpera = item.ID_Opera;
-                    temp.IDComenzi=item.ID_Comenzi;
-
-                    lista.Add(temp);
-                }
-                return lista.ToList<TabeleAbstract>();
-            }
-            if (tabeleName == "Galerii")
-            {
-                var returnValues = (from items in db.Galeriis
-                                    select items).ToList();
-                List<Galerie> lista = new List<Galerie>();
-                foreach (var item in returnValues)
-                {
-                    Galerie temp=new Galerie();
-                    temp.IDGalerie = item.ID_Galerie;
-                    temp.Nume = item.Nume_Galerie;
-                    temp.Adresa = item.Adresa;
-                    temp.Localitate = item.Localitate;
-                    temp.CodPostal = item.Cod_Postal;
-                    temp.URL = item.Image;
-
-                    lista.Add(temp);
-                }
-                return lista.ToList<TabeleAbstract>();
-            }
-            if (tabeleName == "Expozitie")
-            {
-                var returnValues = (from items in db.Expozities
-                                    select items).ToList();
-                List<Expozitie_> lista = new List<Expozitie_>();
-                foreach (var item in returnValues)
-                {
-                    Expozitie_ temp =new Expozitie_();
-
-                    temp.IDExpozitie = item.ID_Expozitie;
-                    temp.IDGalerie=item.ID_Galerie;
-                    temp.Nume=item.Nume_Expozitie;
-                    temp.DataInceput = item.Data_Inceput;
-                    temp.DataSfarsit = item.Data_Sfarsit;
-
-                    lista.Add(temp);
-                }
-                return lista.ToList<TabeleAbstract>();
-            }
-            if (tabeleName == "Comenzi")
-            {
-                var returnValues = (from items in db.Comenzis
-                                    select items).ToList();
-                List<Comanda> lista = new List<Comanda>();
-                foreach (var item in returnValues)
-                {
-                    Comanda temp=new Comanda();
-                    temp.IDComanda = item.ID_Comanda;
-                    temp.IDClient=item.ID_Client;
-                    if (item.Data_Livrare != null)
-                        temp.DataLivrare = (DateTime)item.Data_Livrare;
-                    else
-                        temp.DataLivrare = DateTime.MinValue;
-                    temp.DataPlasare = item.Data_Plasare;
-                    temp.IDUser=(int)item.ID_User;
-
-                    lista.Add(temp);
-                }
-                return lista.ToList<TabeleAbstract>();
-            }
-
             return null;
         }
     }
@@ -195,6 +66,16 @@ namespace BD_Proiect
         public float Pret { get; set; }
         public string Detalii { get; set; }
         public string URL { get; set; }
+    }
+    public class Angajat : TabeleAbstract
+    {
+        public int IDAngajat { get; set; }
+        public string Nume { get; set; }
+        public string Prenume { get; set; }
+        public string CNP { get; set; }
+        public string DataNastere { get; set; }
+        public float Salariu { get; set; }
+        public bool Lider { get; set; }
     }
     public class Autor_ : TabeleAbstract
     {
@@ -211,6 +92,12 @@ namespace BD_Proiect
         public int UserType { get; set; }
         public string CNP { set; get; }
     }
+    public class GaleriiDepartamente : TabeleAbstract
+    {
+        public int IDGalDep { get; set; }
+        public int IDGalerie { get; set; }
+        public int IDDepartament { get; set; }
+    }
     public class Galerie : TabeleAbstract
     {
         public int IDGalerie { get; set; }
@@ -219,6 +106,19 @@ namespace BD_Proiect
         public string Localitate { get; set; }
         public int CodPostal { get; set; }
         public string URL { get; set; }
+    }
+    public class FunctiiAngajati : TabeleAbstract
+    {
+        public int IDFuncAngajati { get; set; }
+        public int IDFunctie { get; set; }
+        public string DataInceput { get; set; }
+        public string DataSfarsit { get; set; }
+    }
+    public class Functie : TabeleAbstract
+    {
+        public int IDFunctie { get; set; }
+        public int IDDepartament { get; set; }
+        public string Nume { get; set; }
     }
     public class ExpozitiiOpere : TabeleAbstract
     {
@@ -231,22 +131,41 @@ namespace BD_Proiect
         public int IDExpozitie { get; set; }
         public int IDGalerie { get; set; }
         public string Nume { get; set; }
-        public DateTime DataInceput { get; set; }
-        public DateTime DataSfarsit { get; set; }
+        public string DataInceput { get; set; }
+        public string DataSfarsit { get; set; }
+    }
+    public class DepoziteOpere : TabeleAbstract
+    {
+        public int IDDepoziteOpere { get; set; }
+        public int IDDepozit { get; set; }
+        public int IDOpera { get; set; }
+        public int Numar { get; set; }
+    }
+    public class Depozit_ : TabeleAbstract
+    {
+        public int IDDepozit { get; set; }
+        public string Adresa { get; set; }
+        public string Localitate { get; set; }
+        public int CodPostal { get; set; }
+    }
+    public class Departament : TabeleAbstract
+    {
+        public int IDDepartament { get; set; }
+        public string Nume { get; set; }
     }
     public class ComenziOpere : TabeleAbstract
     {
         public int IDComenziOpere { get; set; }
         public int IDOpera { get; set; }
-        public int IDComenzi { get; set; }
+        public int IDDepartament { get; set; }
     }
     public class Comanda : TabeleAbstract
     {
         public int IDComanda { get; set; }
         public int IDClient { get; set; }
         public int IDUser { get; set; }
-        public DateTime DataPlasare { get; set; }
-        public DateTime DataLivrare { get; set; }
+        public string DataPlasare { get; set; }
+        public string DataLivrare { get; set; }
     }
     public class Client : TabeleAbstract
     {
