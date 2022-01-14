@@ -88,15 +88,5 @@ namespace BD_Proiect
         {
             exitButtonAction(this);
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-
-            passwordBox.Password = "";
-
-            checkbxShowPassword.IsChecked = false;
-        }
     }
 }
